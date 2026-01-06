@@ -5,6 +5,8 @@
     "php": "^8.0.2",
     "craftcms/ckeditor": "^3.15",
     "craftcms/cms": "^4.0",
+    "verbb/super-table": "^3.0",
+    "verbb/tablemaker": "^4.0",
     "vlucas/phpdotenv": "^5.4"
   },
   "autoload": {

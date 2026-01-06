@@ -1,14 +1,25 @@
 columnSuffix: null
-contentColumnType: string
+contentColumnType: text
 fieldGroup: 974928bb-eb6a-4e46-8103-487ab15e4c66 # Default
 handle: body
 instructions: null
 name: Body
 searchable: true
 settings:
+  availableTransforms: '*'
+  availableVolumes: '*'
+  characterLimit: null
   ckeConfig: d1ac3d29-9bab-418a-8f28-3855680f77ca # Standard
   columnType: text
-  enableSourceEditingForNonAdmins: false
+  defaultTransform: null
+  purifierConfig: null
+  purifyHtml: true
+  showUnpermittedFiles: false
+  showUnpermittedVolumes: false
+  showWordCount: false
+  sourceEditingGroups:
+    - __ADMINS__
+  wordLimit: null
 translationKeyFormat: null
 translationMethod: none
 type: craft\ckeditor\Field

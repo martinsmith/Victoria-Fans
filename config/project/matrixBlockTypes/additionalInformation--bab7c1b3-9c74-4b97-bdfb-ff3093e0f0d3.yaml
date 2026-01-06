@@ -13,7 +13,7 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 9cee868f-e833-418c-ac2f-96fa148a8073
+            uid: b443f952-42ae-42ea-a912-930f554738aa
             userCondition: null
             warning: null
             width: 100
@@ -30,32 +30,30 @@ fields:
     name: 'Add Additional Info'
     searchable: true
     settings:
-      errorMessage: 'Unable to find component class ''SuperTable''.'
-      expectedType: SuperTable
-      settings:
-        __assoc__:
-          0:
-            - columns
+      blockTypeFields: 0
+      changedFieldIndicator: null
+      columns:
+        55:
+          __assoc__:
             -
-              55:
-                __assoc__:
-                  -
-                    - width
-                    - ''
-              56:
-                __assoc__:
-                  -
-                    - width
-                    - ''
-          1:
-            - fieldLayout
-            - row
-          4:
-            - selectionLabel
-            - 'Add more info'
+              - width
+              - ''
+        56:
+          __assoc__:
+            -
+              - width
+              - ''
+      contentTable: ''
+      fieldLayout: row
+      maxRows: null
+      minRows: null
+      propagationKeyFormat: null
+      propagationMethod: all
+      selectionLabel: 'Add more info'
+      staticField: null
     translationKeyFormat: null
     translationMethod: none
-    type: craft\fields\MissingField
+    type: verbb\supertable\fields\SuperTableField
 handle: additionalInformation
 name: 'Additional Information'
 sortOrder: 4

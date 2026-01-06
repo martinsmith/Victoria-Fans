@@ -6,24 +6,22 @@ instructions: null
 name: 'Data Tables'
 searchable: true
 settings:
-  errorMessage: 'Unable to find component class ''SuperTable''.'
-  expectedType: SuperTable
-  settings:
-    __assoc__:
-      0:
-        - columns
+  blockTypeFields: 0
+  changedFieldIndicator: null
+  columns:
+    22:
+      __assoc__:
         -
-          22:
-            __assoc__:
-              -
-                - width
-                - ''
-      1:
-        - fieldLayout
-        - row
-      3:
-        - selectionLabel
-        - 'Add another Data Table'
+          - width
+          - ''
+  contentTable: ''
+  fieldLayout: row
+  maxRows: null
+  minRows: null
+  propagationKeyFormat: null
+  propagationMethod: all
+  selectionLabel: 'Add another Data Table'
+  staticField: null
 translationKeyFormat: null
 translationMethod: none
-type: craft\fields\MissingField
+type: verbb\supertable\fields\SuperTableField

@@ -1,0 +1,76 @@
+changedFieldIndicator: null
+field: 74469b66-90dd-438f-a2da-29850fd9c882 # Costruction
+fieldLayouts:
+  a81730a2-9e1a-4ab3-9b12-26eed3884656:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            elementCondition: null
+            fieldUid: b4dd7eb4-e693-4764-ba37-51545396f27a # Component Name
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 97859095-926d-4ccf-8273-905add4863ae
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: 86531809-0fd9-46da-9ea0-e97fea77c709 # Component Text
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: c2cb4753-a1a1-47f8-941b-3b863cb54913
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 3d13f957-bd52-48ee-8ff3-af84847d11e5
+        userCondition: null
+fields:
+  86531809-0fd9-46da-9ea0-e97fea77c709: # Component Text
+    columnSuffix: null
+    contentColumnType: text
+    fieldGroup: null
+    handle: fd_st_componentText
+    instructions: null
+    name: 'Component Text'
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: false
+      columnType: text
+      initialRows: 4
+      multiline: false
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  b4dd7eb4-e693-4764-ba37-51545396f27a: # Component Name
+    columnSuffix: null
+    contentColumnType: text
+    fieldGroup: null
+    handle: fd_st_component_name
+    instructions: null
+    name: 'Component Name'
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: false
+      columnType: text
+      initialRows: 4
+      multiline: false
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText

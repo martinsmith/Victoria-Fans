@@ -13,7 +13,7 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 87bf871a-8c79-4931-815d-27c687da8c25
+            uid: 63ff3520-df4c-4f82-8fc3-de00eeb3c71b
             userCondition: null
             warning: null
             width: 100
@@ -23,38 +23,24 @@ fieldLayouts:
 fields:
   de6f38a7-4a16-4ec5-8f08-d8389d3308a5: # Data Table
     columnSuffix: null
-    contentColumnType: string
+    contentColumnType: text
     fieldGroup: null
     handle: dataTable
     instructions: null
     name: 'Data Table'
     searchable: true
     settings:
-      errorMessage: 'Unable to find component class ''TableMaker''.'
-      expectedType: TableMaker
-      settings:
-        __assoc__:
-          -
-            - columnsAddRowLabel
-            - ''
-          -
-            - columnsInstructions
-            - ''
-          -
-            - columnsLabel
-            - 'Add Table Columns'
-          -
-            - rowsAddRowLabel
-            - ''
-          -
-            - rowsInstructions
-            - ''
-          -
-            - rowsLabel
-            - 'Add Table Rows'
+      columnsAddRowLabel: null
+      columnsInstructions: null
+      columnsLabel: 'Add Table Columns'
+      enableAlignmentColumn: true
+      enableWidthColumn: true
+      rowsAddRowLabel: null
+      rowsInstructions: null
+      rowsLabel: 'Add Table Rows'
     translationKeyFormat: null
     translationMethod: none
-    type: craft\fields\MissingField
+    type: verbb\tablemaker\fields\TableMakerField
 handle: itemDataTable
 name: 'Item Data Table'
 sortOrder: 5

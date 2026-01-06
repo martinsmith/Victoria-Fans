@@ -23,7 +23,7 @@ fieldLayouts:
 fields:
   dbee0493-466a-4dd9-a3e4-cb5505f168c5: # Item Text
     columnSuffix: null
-    contentColumnType: string
+    contentColumnType: text
     fieldGroup: null
     handle: itemText
     instructions: null
@@ -32,11 +32,18 @@ fields:
     settings:
       availableTransforms: '*'
       availableVolumes: '*'
+      characterLimit: null
       ckeConfig: fd3fef83-fe9d-4015-9de7-a6c4efa2780e # Simple 2
       columnType: text
-      enableSourceEditingForNonAdmins: false
-      purifierConfig: ''
-      purifyHtml: '1'
+      defaultTransform: null
+      purifierConfig: null
+      purifyHtml: true
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: false
+      showWordCount: false
+      sourceEditingGroups:
+        - __ADMINS__
+      wordLimit: null
     translationKeyFormat: null
     translationMethod: none
     type: craft\ckeditor\Field

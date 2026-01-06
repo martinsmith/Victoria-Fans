@@ -87,3 +87,136 @@ The SQL being executed was: ROLLBACK TO SAVEPOINT LEVEL1 {"memory":4964560}
 2026-01-06 11:09:06 [console.INFO] [yii\db\Connection::open] Opening DB connection: mysql:host=db;dbname=db;port=3306 {"memory":4095624} 
 2026-01-06 11:09:06 [console.INFO] [craft\services\ProjectConfig::_applyChanges] Looking for pending changes {"memory":4072856} 
 2026-01-06 11:09:06 [console.INFO] [craft\services\ProjectConfig::_applyChanges] Finalizing configuration parsing {"memory":4073896} 
+2026-01-06 11:12:23 [console.INFO] [yii\db\Connection::open] Opening DB connection: mysql:host=db;dbname=db;port=3306 {"memory":2156096} 
+2026-01-06 11:12:23 [console.ERROR] [yii\web\HttpException:200] yii\web\HttpException: You need to be on at least Super Table 2.7.1 before you can update to Super Table 3.0.16. in /var/www/html/vendor/craftcms/cms/src/services/Plugins.php:252
+Stack trace:
+#0 /var/www/html/vendor/craftcms/cms/src/base/ApplicationTrait.php(1609): craft\services\Plugins->loadPlugins()
+#1 /var/www/html/vendor/craftcms/cms/src/console/Application.php(53): craft\console\Application->_postInit()
+#2 /var/www/html/vendor/yiisoft/yii2/base/BaseObject.php(109): craft\console\Application->init()
+#3 /var/www/html/vendor/yiisoft/yii2/base/Application.php(204): yii\base\BaseObject->__construct(Array)
+#4 /var/www/html/vendor/yiisoft/yii2/console/Application.php(89): yii\base\Application->__construct(Array)
+#5 [internal function]: yii\console\Application->__construct(Array)
+#6 /var/www/html/vendor/yiisoft/yii2/di/Container.php(419): ReflectionClass->newInstanceArgs(Array)
+#7 /var/www/html/vendor/yiisoft/yii2/di/Container.php(170): yii\di\Container->build('craft\\console\\A...', Array, Array)
+#8 /var/www/html/vendor/yiisoft/yii2/BaseYii.php(365): yii\di\Container->get('craft\\console\\A...', Array, Array)
+#9 /var/www/html/vendor/craftcms/cms/src/Craft.php(60): yii\BaseYii::createObject(Array, Array)
+#10 /var/www/html/vendor/craftcms/cms/bootstrap/bootstrap.php(263): Craft::createObject(Array)
+#11 /var/www/html/vendor/craftcms/cms/bootstrap/console.php(42): require('/var/www/html/v...')
+#12 /var/www/html/craft(21): require('/var/www/html/v...')
+#13 {main} {"memory":3328600,"exception":"[object] (yii\\web\\HttpException(code: 0): You need to be on at least Super Table 2.7.1 before you can update to Super Table 3.0.16. at /var/www/html/vendor/craftcms/cms/src/services/Plugins.php:252)"} 
+2026-01-06 11:15:26 [console.INFO] [yii\db\Connection::open] Opening DB connection: mysql:host=db;dbname=db;port=3306 {"memory":2156096} 
+2026-01-06 11:15:26 [console.INFO] [yii\db\Connection::open] Opening DB connection: mysql:host=db;dbname=db;port=3306 {"memory":4065096} 
+2026-01-06 11:15:34 [console.INFO] [yii\db\Connection::open] Opening DB connection: mysql:host=db;dbname=db;port=3306 {"memory":2156064} 
+2026-01-06 11:15:34 [console.INFO] [yii\db\Connection::open] Opening DB connection: mysql:host=db;dbname=db;port=3306 {"memory":4186528} 
+2026-01-06 11:15:34 [console.INFO] [craft\services\ProjectConfig::_applyChanges] Looking for pending changes {"memory":4162712} 
+2026-01-06 11:15:34 [console.INFO] [craft\services\ProjectConfig::_applyChanges] Finalizing configuration parsing {"memory":4163752} 
+2026-01-06 11:15:57 [console.INFO] [yii\db\Connection::open] Opening DB connection: mysql:host=db;dbname=db;port=3306 {"memory":2156064} 
+2026-01-06 11:15:57 [console.INFO] [yii\db\Connection::open] Opening DB connection: mysql:host=db;dbname=db;port=3306 {"memory":3720520} 
+2026-01-06 11:52:49 [console.INFO] [yii\db\Connection::open] Opening DB connection: mysql:host=db;dbname=db;port=3306 {"memory":2156056} 
+2026-01-06 11:52:49 [console.ERROR] [yii\console\UnknownCommandException] yii\base\InvalidRouteException: Unable to resolve the request: plugin/info in /var/www/html/vendor/yiisoft/yii2/base/Controller.php:149
+Stack trace:
+#0 /var/www/html/vendor/yiisoft/yii2/console/Controller.php(180): yii\base\Controller->runAction('info', Array)
+#1 /var/www/html/vendor/craftcms/cms/src/console/ControllerTrait.php(90): yii\console\Controller->runAction('info', Array)
+#2 /var/www/html/vendor/craftcms/cms/src/console/Controller.php(216): craft\console\Controller->traitRunAction('info', Array)
+#3 /var/www/html/vendor/yiisoft/yii2/base/Module.php(552): craft\console\Controller->runAction('info', Array)
+#4 /var/www/html/vendor/yiisoft/yii2/console/Application.php(180): yii\base\Module->runAction('plugin/info', Array)
+#5 /var/www/html/vendor/craftcms/cms/src/console/Application.php(91): yii\console\Application->runAction('plugin/info', Array)
+#6 /var/www/html/vendor/yiisoft/yii2/console/Application.php(147): craft\console\Application->runAction('plugin/info', Array)
+#7 /var/www/html/vendor/craftcms/cms/src/console/Application.php(122): yii\console\Application->handleRequest(Object(craft\console\Request))
+#8 /var/www/html/vendor/yiisoft/yii2/base/Application.php(384): craft\console\Application->handleRequest(Object(craft\console\Request))
+#9 /var/www/html/craft(22): yii\base\Application->run()
+#10 {main}
+
+Next yii\console\UnknownCommandException: Unknown command "plugin/info". in /var/www/html/vendor/yiisoft/yii2/console/Application.php:183
+Stack trace:
+#0 /var/www/html/vendor/craftcms/cms/src/console/Application.php(91): yii\console\Application->runAction('plugin/info', Array)
+#1 /var/www/html/vendor/yiisoft/yii2/console/Application.php(147): craft\console\Application->runAction('plugin/info', Array)
+#2 /var/www/html/vendor/craftcms/cms/src/console/Application.php(122): yii\console\Application->handleRequest(Object(craft\console\Request))
+#3 /var/www/html/vendor/yiisoft/yii2/base/Application.php(384): craft\console\Application->handleRequest(Object(craft\console\Request))
+#4 /var/www/html/craft(22): yii\base\Application->run()
+#5 {main} {"memory":3464640,"exception":"[object] (yii\\console\\UnknownCommandException(code: 0): Unknown command \"plugin/info\". at /var/www/html/vendor/yiisoft/yii2/console/Application.php:183)
+[previous exception] [object] (yii\\base\\InvalidRouteException(code: 0): Unable to resolve the request: plugin/info at /var/www/html/vendor/yiisoft/yii2/base/Controller.php:149)"} 
+2026-01-06 11:53:25 [console.INFO] [yii\db\Connection::open] Opening DB connection: mysql:host=db;dbname=db;port=3306 {"memory":2156096} 
+2026-01-06 11:53:25 [console.ERROR] [yii\console\Exception] yii\console\Exception: Unknown option: --force. Options available: --color, --interactive, --help, --silentExitOnException, --isolated in /var/www/html/vendor/yiisoft/yii2/console/Controller.php:171
+Stack trace:
+#0 /var/www/html/vendor/craftcms/cms/src/console/ControllerTrait.php(90): yii\console\Controller->runAction('rebuild', Array)
+#1 /var/www/html/vendor/craftcms/cms/src/console/Controller.php(216): craft\console\Controller->traitRunAction('rebuild', Array)
+#2 /var/www/html/vendor/yiisoft/yii2/base/Module.php(552): craft\console\Controller->runAction('rebuild', Array)
+#3 /var/www/html/vendor/yiisoft/yii2/console/Application.php(180): yii\base\Module->runAction('project-config/...', Array)
+#4 /var/www/html/vendor/craftcms/cms/src/console/Application.php(91): yii\console\Application->runAction('project-config/...', Array)
+#5 /var/www/html/vendor/yiisoft/yii2/console/Application.php(147): craft\console\Application->runAction('project-config/...', Array)
+#6 /var/www/html/vendor/craftcms/cms/src/console/Application.php(122): yii\console\Application->handleRequest(Object(craft\console\Request))
+#7 /var/www/html/vendor/yiisoft/yii2/base/Application.php(384): craft\console\Application->handleRequest(Object(craft\console\Request))
+#8 /var/www/html/craft(22): yii\base\Application->run()
+#9 {main} {"memory":3463200,"exception":"[object] (yii\\console\\Exception(code: 0): Unknown option: --force. Options available: --color, --interactive, --help, --silentExitOnException, --isolated at /var/www/html/vendor/yiisoft/yii2/console/Controller.php:171)"} 
+2026-01-06 11:53:59 [console.INFO] [yii\db\Connection::open] Opening DB connection: mysql:host=db;dbname=db;port=3306 {"memory":2156064} 
+2026-01-06 11:53:59 [console.INFO] [yii\db\Connection::open] Opening DB connection: mysql:host=db;dbname=db;port=3306 {"memory":3729904} 
+2026-01-06 11:54:15 [console.INFO] [yii\db\Connection::open] Opening DB connection: mysql:host=db;dbname=db;port=3306 {"memory":2156064} 
+2026-01-06 11:55:45 [console.INFO] [yii\db\Connection::open] Opening DB connection: mysql:host=db;dbname=db;port=3306 {"memory":2156064} 
+2026-01-06 11:55:45 [console.INFO] [yii\db\Connection::open] Opening DB connection: mysql:host=db;dbname=db;port=3306 {"memory":3730144} 
+2026-01-06 11:56:32 [console.INFO] [yii\db\Connection::open] Opening DB connection: mysql:host=db;dbname=db;port=3306 {"memory":2156096} 
+2026-01-06 11:56:32 [console.INFO] [yii\db\Connection::open] Opening DB connection: mysql:host=db;dbname=db;port=3306 {"memory":3826032} 
+2026-01-06 11:57:11 [console.INFO] [yii\db\Connection::open] Opening DB connection: mysql:host=db;dbname=db;port=3306 {"memory":2156064} 
+2026-01-06 11:57:11 [console.INFO] [yii\db\Connection::open] Opening DB connection: mysql:host=db;dbname=db;port=3306 {"memory":3793392} 
+2026-01-06 11:57:11 [console.ERROR] [yii\base\UnknownPropertyException] yii\base\UnknownPropertyException: Setting unknown property: craft\ckeditor\Field::cleanupHtml in /var/www/html/vendor/yiisoft/yii2/base/Component.php:221
+Stack trace:
+#0 /var/www/html/vendor/craftcms/cms/src/helpers/App.php(1453): yii\base\Component->__set('cleanupHtml', '1')
+#1 /var/www/html/vendor/craftcms/cms/src/base/Model.php(84): craft\helpers\App::configure(Object(craft\ckeditor\Field), Array)
+#2 /var/www/html/vendor/craftcms/ckeditor/src/Field.php(197): craft\base\Model->__construct(Array)
+#3 [internal function]: craft\ckeditor\Field->__construct(Array)
+#4 /var/www/html/vendor/yiisoft/yii2/di/Container.php(419): ReflectionClass->newInstanceArgs(Array)
+#5 /var/www/html/vendor/yiisoft/yii2/di/Container.php(170): yii\di\Container->build('craft\\ckeditor\\...', Array, Array)
+#6 /var/www/html/vendor/yiisoft/yii2/BaseYii.php(365): yii\di\Container->get('craft\\ckeditor\\...', Array, Array)
+#7 /var/www/html/vendor/craftcms/cms/src/Craft.php(60): yii\BaseYii::createObject(Array, Array)
+#8 /var/www/html/vendor/craftcms/cms/src/helpers/Component.php(138): Craft::createObject(Array)
+#9 /var/www/html/vendor/craftcms/cms/src/services/Fields.php(607): craft\helpers\Component::createComponent(Array, 'craft\\base\\Fiel...')
+#10 /var/www/html/vendor/craftcms/cms/src/services/Fields.php(634): craft\services\Fields->createField(Array)
+#11 [internal function]: craft\services\Fields->craft\services\{closure}(Array, 65)
+#12 /var/www/html/vendor/craftcms/cms/src/base/MemoizableArray.php(90): call_user_func(Object(Closure), Array, 65)
+#13 /var/www/html/vendor/craftcms/cms/src/base/MemoizableArray.php(171): craft\base\MemoizableArray->normalizeByKey(65)
+#14 /var/www/html/vendor/craftcms/cms/src/services/Fields.php(716): craft\base\MemoizableArray->firstWhere('id', 6)
+#15 /var/www/html/vendor/craftcms/cms/src/models/FieldLayoutTab.php(147): craft\services\Fields->getFieldById(6)
+#16 /var/www/html/vendor/yiisoft/yii2/base/BaseObject.php(109): craft\models\FieldLayoutTab->init()
+#17 /var/www/html/vendor/craftcms/cms/src/base/Model.php(87): yii\base\BaseObject->__construct()
+#18 /var/www/html/vendor/craftcms/cms/src/models/FieldLayoutTab.php(124): craft\base\Model->__construct(Array)
+#19 /var/www/html/vendor/craftcms/cms/src/services/Fields.php(1215): craft\models\FieldLayoutTab->__construct(Array)
+#20 /var/www/html/vendor/craftcms/cms/src/services/Fields.php(1115): craft\services\Fields->_createLayoutTabFromRow(Array, true)
+#21 [internal function]: craft\services\Fields->craft\services\{closure}(Array)
+#22 /var/www/html/vendor/craftcms/cms/src/services/Fields.php(1114): array_map(Object(Closure), Array)
+#23 [internal function]: craft\services\Fields->craft\services\{closure}(Array, 1)
+#24 /var/www/html/vendor/craftcms/cms/src/base/MemoizableArray.php(90): call_user_func(Object(Closure), Array, 1)
+#25 /var/www/html/vendor/craftcms/cms/src/base/MemoizableArray.php(171): craft\base\MemoizableArray->normalizeByKey(1)
+#26 /var/www/html/vendor/craftcms/cms/src/services/Fields.php(1134): craft\base\MemoizableArray->firstWhere('id', 26)
+#27 /var/www/html/vendor/craftcms/cms/src/behaviors/FieldLayoutBehavior.php(122): craft\services\Fields->getLayoutById(26)
+#28 [internal function]: craft\behaviors\FieldLayoutBehavior->getFieldLayout()
+#29 /var/www/html/vendor/yiisoft/yii2/base/Component.php(309): call_user_func_array(Array, Array)
+#30 /var/www/html/vendor/verbb/super-table/src/models/SuperTableBlockType.php(151): yii\base\Component->__call('getFieldLayout', Array)
+#31 /var/www/html/vendor/verbb/super-table/src/helpers/ProjectConfigData.php(16): verbb\supertable\models\SuperTableBlockType->getConfig()
+#32 /var/www/html/vendor/verbb/super-table/src/SuperTable.php(127): verbb\supertable\helpers\ProjectConfigData::rebuildProjectConfig()
+#33 [internal function]: verbb\supertable\SuperTable->verbb\supertable\{closure}(Object(craft\events\RebuildConfigEvent))
+#34 /var/www/html/vendor/yiisoft/yii2/base/Event.php(312): call_user_func(Object(Closure), Object(craft\events\RebuildConfigEvent))
+#35 /var/www/html/vendor/yiisoft/yii2/base/Component.php(654): yii\base\Event::trigger('craft\\services\\...', 'rebuild', Object(craft\events\RebuildConfigEvent))
+#36 /var/www/html/vendor/craftcms/cms/src/services/ProjectConfig.php(1237): yii\base\Component->trigger('rebuild', Object(craft\events\RebuildConfigEvent))
+#37 /var/www/html/vendor/craftcms/cms/src/console/controllers/ProjectConfigController.php(445): craft\services\ProjectConfig->rebuild()
+#38 [internal function]: craft\console\controllers\ProjectConfigController->actionRebuild()
+#39 /var/www/html/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#40 /var/www/html/vendor/yiisoft/yii2/base/Controller.php(178): yii\base\InlineAction->runWithParams(Array)
+#41 /var/www/html/vendor/yiisoft/yii2/console/Controller.php(180): yii\base\Controller->runAction('rebuild', Array)
+#42 /var/www/html/vendor/craftcms/cms/src/console/ControllerTrait.php(90): yii\console\Controller->runAction('rebuild', Array)
+#43 /var/www/html/vendor/craftcms/cms/src/console/Controller.php(216): craft\console\Controller->traitRunAction('rebuild', Array)
+#44 /var/www/html/vendor/yiisoft/yii2/base/Module.php(552): craft\console\Controller->runAction('rebuild', Array)
+#45 /var/www/html/vendor/yiisoft/yii2/console/Application.php(180): yii\base\Module->runAction('project-config/...', Array)
+#46 /var/www/html/vendor/craftcms/cms/src/console/Application.php(91): yii\console\Application->runAction('project-config/...', Array)
+#47 /var/www/html/vendor/yiisoft/yii2/console/Application.php(147): craft\console\Application->runAction('project-config/...', Array)
+#48 /var/www/html/vendor/craftcms/cms/src/console/Application.php(122): yii\console\Application->handleRequest(Object(craft\console\Request))
+#49 /var/www/html/vendor/yiisoft/yii2/base/Application.php(384): craft\console\Application->handleRequest(Object(craft\console\Request))
+#50 /var/www/html/craft(22): yii\base\Application->run()
+#51 {main} {"memory":6211512,"exception":"[object] (yii\\base\\UnknownPropertyException(code: 0): Setting unknown property: craft\\ckeditor\\Field::cleanupHtml at /var/www/html/vendor/yiisoft/yii2/base/Component.php:221)"} 
+2026-01-06 11:57:52 [console.INFO] [yii\db\Connection::open] Opening DB connection: mysql:host=db;dbname=db;port=3306 {"memory":2156064} 
+2026-01-06 11:57:52 [console.INFO] [yii\db\Connection::open] Opening DB connection: mysql:host=db;dbname=db;port=3306 {"memory":3794352} 
+2026-01-06 11:58:09 [console.INFO] [yii\db\Connection::open] Opening DB connection: mysql:host=db;dbname=db;port=3306 {"memory":2156064} 
+2026-01-06 11:58:09 [console.INFO] [yii\db\Connection::open] Opening DB connection: mysql:host=db;dbname=db;port=3306 {"memory":4285616} 
+2026-01-06 11:58:09 [console.INFO] [craft\services\ProjectConfig::_applyChanges] Looking for pending changes {"memory":4281472} 
+2026-01-06 11:58:09 [console.INFO] [craft\services\ProjectConfig::_applyChanges] Finalizing configuration parsing {"memory":4282512} 
+2026-01-06 11:58:10 [console.INFO] [yii\db\Connection::open] Opening DB connection: mysql:host=db;dbname=db;port=3306 {"memory":2156064} 
+2026-01-06 11:58:16 [console.INFO] [yii\db\Connection::open] Opening DB connection: mysql:host=db;dbname=db;port=3306 {"memory":2156064} 

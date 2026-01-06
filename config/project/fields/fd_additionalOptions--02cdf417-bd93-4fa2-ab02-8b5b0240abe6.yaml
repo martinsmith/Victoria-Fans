@@ -6,41 +6,39 @@ instructions: null
 name: 'Additional Options'
 searchable: true
 settings:
-  errorMessage: 'Unable to find component class ''SuperTable''.'
-  expectedType: SuperTable
-  settings:
+  blockTypeFields: 0
+  changedFieldIndicator: null
+  columns:
     __assoc__:
-      0:
-        - columns
+      -
+        - 58
         -
           __assoc__:
             -
-              - 58
-              -
-                __assoc__:
-                  -
-                    - width
-                    - ''
+              - width
+              - ''
+      -
+        - 59
+        -
+          __assoc__:
             -
-              - 59
-              -
-                __assoc__:
-                  -
-                    - width
-                    - ''
+              - width
+              - ''
+      -
+        - new1
+        -
+          __assoc__:
             -
-              - new1
-              -
-                __assoc__:
-                  -
-                    - width
-                    - ''
-      1:
-        - fieldLayout
-        - row
-      3:
-        - selectionLabel
-        - 'Add further information'
+              - width
+              - ''
+  contentTable: ''
+  fieldLayout: row
+  maxRows: null
+  minRows: null
+  propagationKeyFormat: null
+  propagationMethod: all
+  selectionLabel: 'Add further information'
+  staticField: null
 translationKeyFormat: null
 translationMethod: none
-type: craft\fields\MissingField
+type: verbb\supertable\fields\SuperTableField

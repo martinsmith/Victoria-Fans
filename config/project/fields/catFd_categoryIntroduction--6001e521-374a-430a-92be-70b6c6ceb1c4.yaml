@@ -1,5 +1,5 @@
 columnSuffix: null
-contentColumnType: string
+contentColumnType: text
 fieldGroup: 80829250-34bf-44e3-873e-30fd538a844e # Product Information
 handle: catFd_categoryIntroduction
 instructions: null
@@ -8,10 +8,18 @@ searchable: true
 settings:
   availableTransforms: '*'
   availableVolumes: '*'
+  characterLimit: null
   ckeConfig: fd3fef83-fe9d-4015-9de7-a6c4efa2780e # Simple 2
   columnType: text
-  enableSourceEditingForNonAdmins: false
-  purifyHtml: '1'
+  defaultTransform: null
+  purifierConfig: null
+  purifyHtml: true
+  showUnpermittedFiles: false
+  showUnpermittedVolumes: false
+  showWordCount: false
+  sourceEditingGroups:
+    - __ADMINS__
+  wordLimit: null
 translationKeyFormat: null
 translationMethod: none
 type: craft\ckeditor\Field

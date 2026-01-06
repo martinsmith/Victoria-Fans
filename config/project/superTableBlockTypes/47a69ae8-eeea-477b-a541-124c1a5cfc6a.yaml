@@ -1,0 +1,125 @@
+changedFieldIndicator: null
+field: 02cdf417-bd93-4fa2-ab02-8b5b0240abe6 # Additional Options
+fieldLayouts:
+  43cbc285-5dc3-4b34-a4ea-ee0a8f0c783c:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            elementCondition: null
+            fieldUid: 5c9f0819-50b2-443b-96a5-16ce5f353ff4 # Special Title
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 27478c65-e788-4b03-b10f-b828ef66f4b6
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: a472c929-ea41-45e7-8798-a8d6885fff40 # Support Images
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 384a3dab-cedf-43d4-b482-0ad0384b9f20
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: ec028d75-0be7-4375-a13f-5e5fe8e38c86 # Special Note
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 54ec14c9-b1da-4ed5-b44f-114a2ad33992
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: d21a6c2e-a065-4b0c-8088-84745b7590bd
+        userCondition: null
+fields:
+  5c9f0819-50b2-443b-96a5-16ce5f353ff4: # Special Title
+    columnSuffix: null
+    contentColumnType: text
+    fieldGroup: null
+    handle: specialTitle
+    instructions: null
+    name: 'Special Title'
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: false
+      columnType: text
+      initialRows: 4
+      multiline: false
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  a472c929-ea41-45e7-8798-a8d6885fff40: # Support Images
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: supportImages
+    instructions: null
+    name: 'Support Images'
+    searchable: true
+    settings:
+      allowSelfRelations: false
+      allowSubfolders: false
+      allowUploads: true
+      allowedKinds: null
+      branchLimit: null
+      defaultUploadLocationSource: 'folder:7135c9d8-5eac-425b-b64e-8cf6bf243739'
+      defaultUploadLocationSubpath: null
+      localizeRelations: false
+      maintainHierarchy: false
+      maxRelations: null
+      minRelations: null
+      previewMode: full
+      restrictFiles: false
+      restrictLocation: false
+      restrictedDefaultUploadSubpath: null
+      restrictedLocationSource: 'folder:7135c9d8-5eac-425b-b64e-8cf6bf243739'
+      restrictedLocationSubpath: null
+      selectionLabel: null
+      showSiteMenu: true
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: true
+      sources: '*'
+      targetSiteId: null
+      validateRelatedElements: false
+      viewMode: large
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Assets
+  ec028d75-0be7-4375-a13f-5e5fe8e38c86: # Special Note
+    columnSuffix: null
+    contentColumnType: text
+    fieldGroup: null
+    handle: specialNote
+    instructions: null
+    name: 'Special Note'
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: false
+      columnType: text
+      initialRows: 4
+      multiline: false
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText

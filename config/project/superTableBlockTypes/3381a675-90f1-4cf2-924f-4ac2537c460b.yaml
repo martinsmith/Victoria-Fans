@@ -1,0 +1,82 @@
+changedFieldIndicator: null
+field: 36bc5ee4-9df2-4699-b1a7-06b6ed9b2bd9 # Product Group Global Specifications
+fieldLayouts:
+  1f457cc4-b69d-4400-ad16-f1b3abab45d9:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            elementCondition: null
+            fieldUid: af318fe7-7887-45db-a747-8bd1f23642e1 # Header
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: b668e787-9ed0-4c7f-b1ef-5f51457feb70
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: 82b3b810-651d-4fac-86cc-1487bbac021c # Text
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: e944e2f9-9c57-49e1-95d5-6f26d60d3d42
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 135ecdde-adc9-40c0-b524-44a437af3e3e
+        userCondition: null
+fields:
+  82b3b810-651d-4fac-86cc-1487bbac021c: # Text
+    columnSuffix: null
+    contentColumnType: text
+    fieldGroup: null
+    handle: fd_st_text
+    instructions: null
+    name: Text
+    searchable: true
+    settings:
+      availableTransforms: '*'
+      availableVolumes: '*'
+      characterLimit: null
+      ckeConfig: 9c478a9d-a435-4059-a1ff-da8c15b000bb # Simple
+      columnType: text
+      defaultTransform: null
+      purifierConfig: null
+      purifyHtml: true
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: false
+      showWordCount: false
+      sourceEditingGroups:
+        - __ADMINS__
+      wordLimit: null
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\ckeditor\Field
+  af318fe7-7887-45db-a747-8bd1f23642e1: # Header
+    columnSuffix: null
+    contentColumnType: text
+    fieldGroup: null
+    handle: fd_St_Header
+    instructions: null
+    name: Header
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: false
+      columnType: text
+      initialRows: 4
+      multiline: false
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
