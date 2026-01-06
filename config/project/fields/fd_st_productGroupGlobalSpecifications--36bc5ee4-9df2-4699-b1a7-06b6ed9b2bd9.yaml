@@ -1,0 +1,34 @@
+columnSuffix: null
+contentColumnType: string
+fieldGroup: 80829250-34bf-44e3-873e-30fd538a844e # Product Information
+handle: fd_st_productGroupGlobalSpecifications
+instructions: null
+name: 'Product Group Global Specifications'
+searchable: true
+settings:
+  errorMessage: 'Unable to find component class ''SuperTable''.'
+  expectedType: SuperTable
+  settings:
+    __assoc__:
+      0:
+        - columns
+        -
+          5:
+            __assoc__:
+              -
+                - width
+                - ''
+          6:
+            __assoc__:
+              -
+                - width
+                - ''
+      1:
+        - fieldLayout
+        - row
+      3:
+        - selectionLabel
+        - 'Add more information'
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\MissingField

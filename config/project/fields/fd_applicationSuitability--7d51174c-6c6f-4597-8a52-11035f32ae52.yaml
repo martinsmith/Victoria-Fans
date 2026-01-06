@@ -1,0 +1,23 @@
+columnSuffix: null
+contentColumnType: string
+fieldGroup: 80829250-34bf-44e3-873e-30fd538a844e # Product Information
+handle: fd_applicationSuitability
+instructions: null
+name: 'Application Suitability'
+searchable: true
+settings:
+  allowSelfRelations: false
+  branchLimit: null
+  localizeRelations: false
+  maintainHierarchy: true
+  maxRelations: null
+  minRelations: null
+  selectionLabel: 'Select a suitable application'
+  showSiteMenu: true
+  source: 'group:c8ac94d9-2ef2-45be-8384-689fa1937dca' # Product Application
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: null
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Categories

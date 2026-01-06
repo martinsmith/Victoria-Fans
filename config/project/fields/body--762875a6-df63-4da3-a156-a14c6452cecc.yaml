@@ -1,0 +1,21 @@
+columnSuffix: null
+contentColumnType: string
+fieldGroup: 974928bb-eb6a-4e46-8103-487ab15e4c66 # Default
+handle: body
+instructions: null
+name: Body
+searchable: true
+settings:
+  errorMessage: 'Unable to find component class ''craft\redactor\Field''.'
+  expectedType: craft\redactor\Field
+  settings:
+    __assoc__:
+      -
+        - columnType
+        - text
+      -
+        - redactorConfig
+        - Standard.json
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\MissingField

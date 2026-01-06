@@ -1,0 +1,71 @@
+fieldLayouts:
+  7b163cd0-2c98-480e-9ce5-f3f79899fbcf:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            elementCondition: null
+            id: null
+            inputType: null
+            instructions: null
+            label: 'Product Title'
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: e1867c9b-9d70-4fd6-9017-56c15da3c180
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: 9767d245-69a9-444d-89ad-63c08cceeb3f # Ancilliary Item Information
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 8ad0a957-f521-4eca-a3e4-8e42103fc7e9
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: 0ab76088-96ec-4c9c-a405-992253d0a248 # Data Sheet Option
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: b4fdaa78-2d55-4cc0-a1db-37b47a09a833
+            userCondition: null
+            warning: null
+            width: 100
+        name: Ancillaries
+        uid: 72daac58-a3d2-4468-8fa6-2f2352e44a4c
+        userCondition: null
+handle: secType_ancillaries
+hasTitleField: true
+name: Ancillaries
+section: c2f1f492-f8d4-42ba-ac19-6fc8ef262ebb # Product Specifications
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+sortOrder: 3
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

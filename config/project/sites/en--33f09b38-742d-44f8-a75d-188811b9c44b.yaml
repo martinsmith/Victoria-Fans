@@ -1,0 +1,9 @@
+baseUrl: 'https://victoriafans.co.uk/'
+enabled: true
+handle: en
+hasUrls: true
+language: en
+name: 'Victoria Fans (en)'
+primary: true
+siteGroup: 1361bb59-a4e4-485d-a97b-88102ee02027 # Victoria Fans (en)
+sortOrder: 1

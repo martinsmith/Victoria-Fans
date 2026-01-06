@@ -1,0 +1,16 @@
+columnSuffix: null
+contentColumnType: string
+fieldGroup: 4c149f8a-1ad7-4b97-ad15-006119f585aa # Ancillaries
+handle: ancilliaryItemInformation
+instructions: null
+name: 'Ancilliary Item Information'
+searchable: true
+settings:
+  contentTable: '{{%matrixcontent_ancilliaryiteminformation}}'
+  maxBlocks: null
+  minBlocks: null
+  propagationKeyFormat: null
+  propagationMethod: all
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

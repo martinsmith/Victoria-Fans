@@ -1,0 +1,95 @@
+defaultPlacement: end
+fieldLayouts:
+  b9bb5b54-5610-41a2-95dc-792dd2895773:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            elementCondition: null
+            id: null
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\TitleField
+            uid: 547b285b-6037-4e29-9a17-1d0563ef52a4
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: 6001e521-374a-430a-92be-70b6c6ceb1c4 # Category Introduction
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 425b9984-6b0b-4ffa-bb0e-7d88db9e1140
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: 36bc5ee4-9df2-4699-b1a7-06b6ed9b2bd9 # Product Group Global Specifications
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 83b21348-3ec4-428c-9a4b-c96c465c156e
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: 9767d245-69a9-444d-89ad-63c08cceeb3f # Ancilliary Item Information
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: b29798b7-534c-4514-8d1b-750c9522351e
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: d69ec146-f7fb-4227-a152-5be9f01b6264 # Suitable Fans
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: f79df5b7-b174-4229-b0a6-9f7eed8c6692
+            userCondition: null
+            warning: null
+            width: 100
+        name: 'Category Overview'
+        uid: e87d0850-ad68-43e9-9294-ebcf5ab85f86
+        userCondition: null
+handle: catGrp_productApplication
+name: 'Product Application'
+siteSettings:
+  33f09b38-742d-44f8-a75d-188811b9c44b: # Victoria Fans (en)
+    hasUrls: true
+    template: by_application
+    uriFormat: '{% if object.level == 1 %}fans-by-application/{slug}{% else %}{slug}{% endif %}'
+structure:
+  maxLevels: null
+  uid: 45c016d3-252f-47b9-bf34-413f81cf7c38

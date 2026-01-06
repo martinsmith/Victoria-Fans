@@ -1,0 +1,98 @@
+{% extends "_layout" %}
+
+
+{% block content %}
+      <section class="content">
+        <div class="width">
+
+          <header>
+            <h1>{{ entry.title }}</h1>
+          </header>
+
+          {% set form = craft.amForms.getForm('enquiries') %}
+          {% from _self import errorList %}
+
+          {% macro errorList(errors) %}
+            {% if errors %}
+                <span class="errors">
+                    {% for error in errors %}
+                       {{ error }}
+                    {% endfor %}
+                </span>
+            {% endif %}
+          {% endmacro %}
+
+          {% if craft.app.request.getQueryParam('submitted') == form.handle %}
+              <p class="submit-notification">{{ form.afterSubmitText|default('Thanks for your submission.'|t) }}</p>
+          {% else %}
+
+          {%- set submitValue = (form.submitButton ? form.submitButton : 'Submit'|t) -%}
+
+          <form class="mainComms enquiries" method="post" action="#check" accept-charset="UTF-8" id="check">
+            {{ csrfInput() }}
+
+            {# This should always be here! #}
+            <input type="hidden" name="action" value="amForms/submissions/saveSubmission">
+
+            {# Insert your form's handle. #}
+            <input type="hidden" name="handle" value="{{ form.handle }}">
+
+            {# Optional: Anti-spam protection. #}
+            {{ craft.amForms.displayAntispam() }}
+
+
+            {# Place the HTML of your fields here #}
+              <fieldset>
+              <div class="field">
+              <label for="fields[firstName]">First Name</label>
+                <input type="text" id="firstName" name="fields[firstName]" placeholder="Your First Name" value="{% if formHandle.firstName is defined %}{{ formHandle.firstName }}{% endif %}">
+                {% if enquiries is defined %}
+                    {{ errorList(enquiries.getErrors('firstName')) }}
+                {% endif %}
+              </div>
+
+              <div class="field">
+              <label for="fields[lastName]">Surname</label>
+                <input type="text" id="lastName" name="fields[lastName]" placeholder="Your Surname" value="{% if formHandle.lastName is defined %}{{ formHandle.lastName }}{% endif %}">
+                {% if enquiries is defined %}
+                    {{ errorList(enquiries.getErrors('lastName')) }}
+                {% endif %}
+              </div>
+
+              <div class="field">
+              <label for="fields[emailAddress]">Email Address</label>
+                <input type="text" id="emailAddress" name="fields[emailAddress]" placeholder="Your Email Address" value="{% if formHandle.emailAddress is defined %}{{ formHandle.emailAddress }}{% endif %}">
+                {% if enquiries is defined %}
+                    {{ errorList(enquiries.getErrors('emailAddress')) }}
+                {% endif %}
+              </div>
+
+              <div class="field">
+              <label for="fields[telephoneNumber]">Phone Number</label>
+                <input type="text" id="telephoneNumber" name="fields[telephoneNumber]" placeholder="Your Phone Number" value="{% if formHandle.telephoneNumber is defined %}{{ formHandle.telephoneNumber }}{% endif %}">
+                {% if enquiries is defined %}
+                    {{ errorList(enquiries.getErrors('telephoneNumber')) }}
+                {% endif %}
+              </div>
+
+
+              <div class="field">
+              <label for="fields[enquiry]">Your Enquiry</label>
+                <textarea type="text" id="enquiry" name="fields[enquiry]" placeholder="Your Message to us" value="{% if formHandle.enquiry is defined %}{{ formHandle.enquiry }}{% endif %}"></textarea>
+                {% if enquiries is defined %}
+                    {{ errorList(enquiries.getErrors('enquiry')) }}
+                {% endif %}
+              </div>
+
+              <div class="field">
+                <button type="submit" value="{{ submitValue }}">{{ submitValue }}</button>
+              </div>
+              </fieldset>
+            </form>
+          {% endif %}
+        </div>
+      </section>
+
+
+
+{% endblock %}

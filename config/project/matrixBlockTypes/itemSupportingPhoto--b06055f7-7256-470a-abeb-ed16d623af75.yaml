@@ -1,0 +1,64 @@
+field: 9767d245-69a9-444d-89ad-63c08cceeb3f # Ancilliary Item Information
+fieldLayouts:
+  51750de9-b8c0-489f-aa16-28f1e83412f0:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            elementCondition: null
+            fieldUid: bcc94a4e-1a20-4c25-9db2-6232bf85d4ad # Item Supporting Photo
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 1a79ae44-3a10-4895-8c25-9da8ed259144
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: b2ca709c-64b8-4161-a7b0-34ee8bdc8bb0
+        userCondition: null
+fields:
+  bcc94a4e-1a20-4c25-9db2-6232bf85d4ad: # Item Supporting Photo
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: itemSupportingPhoto
+    instructions: null
+    name: 'Item Supporting Photo'
+    searchable: true
+    settings:
+      allowSelfRelations: false
+      allowSubfolders: false
+      allowUploads: true
+      allowedKinds: null
+      branchLimit: null
+      defaultUploadLocationSource: 'volume:97f1d3a7-ddd4-4455-b3cd-927bbab12ae0' # Drawings
+      defaultUploadLocationSubpath: null
+      localizeRelations: false
+      maintainHierarchy: false
+      maxRelations: 1
+      minRelations: null
+      previewMode: full
+      restrictFiles: false
+      restrictLocation: false
+      restrictedDefaultUploadSubpath: null
+      restrictedLocationSource: 'volume:97f1d3a7-ddd4-4455-b3cd-927bbab12ae0' # Drawings
+      restrictedLocationSubpath: null
+      selectionLabel: 'Add a Photo'
+      showSiteMenu: true
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: true
+      sources:
+        - 'volume:d5a9c26a-f5fe-469c-af09-21310fa8120e' # Fans
+      targetSiteId: null
+      validateRelatedElements: false
+      viewMode: large
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Assets
+handle: itemSupportingPhoto
+name: 'Item Supporting Photo'
+sortOrder: 2

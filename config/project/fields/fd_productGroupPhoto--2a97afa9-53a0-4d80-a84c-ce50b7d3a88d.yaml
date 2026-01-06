@@ -1,0 +1,37 @@
+columnSuffix: null
+contentColumnType: string
+fieldGroup: 80829250-34bf-44e3-873e-30fd538a844e # Product Information
+handle: fd_productGroupPhoto
+instructions: 'This is the image that appears with the product group on the homepage.'
+name: 'Product Group Photo'
+searchable: true
+settings:
+  allowSelfRelations: false
+  allowSubfolders: false
+  allowUploads: true
+  allowedKinds: null
+  branchLimit: null
+  defaultUploadLocationSource: 'volume:d5a9c26a-f5fe-469c-af09-21310fa8120e' # Fans
+  defaultUploadLocationSubpath: null
+  localizeRelations: false
+  maintainHierarchy: false
+  maxRelations: 1
+  minRelations: null
+  previewMode: full
+  restrictFiles: false
+  restrictLocation: false
+  restrictedDefaultUploadSubpath: null
+  restrictedLocationSource: 'volume:97f1d3a7-ddd4-4455-b3cd-927bbab12ae0' # Drawings
+  restrictedLocationSubpath: null
+  selectionLabel: 'Add a photo for the homapage'
+  showSiteMenu: true
+  showUnpermittedFiles: false
+  showUnpermittedVolumes: true
+  sources:
+    - 'volume:d5a9c26a-f5fe-469c-af09-21310fa8120e' # Fans
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: large
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Assets

@@ -1,0 +1,46 @@
+columnSuffix: null
+contentColumnType: string
+fieldGroup: 80829250-34bf-44e3-873e-30fd538a844e # Product Information
+handle: fd_additionalOptions
+instructions: null
+name: 'Additional Options'
+searchable: true
+settings:
+  errorMessage: 'Unable to find component class ''SuperTable''.'
+  expectedType: SuperTable
+  settings:
+    __assoc__:
+      0:
+        - columns
+        -
+          __assoc__:
+            -
+              - 58
+              -
+                __assoc__:
+                  -
+                    - width
+                    - ''
+            -
+              - 59
+              -
+                __assoc__:
+                  -
+                    - width
+                    - ''
+            -
+              - new1
+              -
+                __assoc__:
+                  -
+                    - width
+                    - ''
+      1:
+        - fieldLayout
+        - row
+      3:
+        - selectionLabel
+        - 'Add further information'
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\MissingField

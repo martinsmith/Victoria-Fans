@@ -1,0 +1,63 @@
+field: 9767d245-69a9-444d-89ad-63c08cceeb3f # Ancilliary Item Information
+fieldLayouts:
+  0dc892fd-eefd-4052-a208-33bbedb1429f:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            elementCondition: null
+            fieldUid: dbee0493-466a-4dd9-a3e4-cb5505f168c5 # Item Text
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 5b9931f4-9148-4d5d-9bf2-2d95cfa60eae
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: cfddd923-70e9-452b-bf0a-4f2f7e6af719
+        userCondition: null
+fields:
+  dbee0493-466a-4dd9-a3e4-cb5505f168c5: # Item Text
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: itemText
+    instructions: null
+    name: 'Item Text'
+    searchable: true
+    settings:
+      errorMessage: 'Unable to find component class ''craft\redactor\Field''.'
+      expectedType: craft\redactor\Field
+      settings:
+        __assoc__:
+          -
+            - availableTransforms
+            - '*'
+          -
+            - availableVolumes
+            - '*'
+          -
+            - cleanupHtml
+            - '1'
+          -
+            - columnType
+            - text
+          -
+            - purifierConfig
+            - ''
+          -
+            - purifyHtml
+            - '1'
+          -
+            - redactorConfig
+            - Simple.json
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\MissingField
+handle: ancilliaryItemText
+name: 'Ancilliary Item Text'
+sortOrder: 1

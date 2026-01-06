@@ -1,0 +1,182 @@
+dateModified: 1767697081
+elementSources:
+  craft\elements\Entry:
+    -
+      key: 'section:c2f1f492-f8d4-42ba-ac19-6fc8ef262ebb' # Product Specifications
+      tableAttributes:
+        - link
+      type: native
+    -
+      key: '*'
+      type: native
+    -
+      key: singles
+      type: native
+email:
+  fromEmail: wearemechanised@gmail.com
+  fromName: 'Victoria Fans'
+  template: null
+  transportType: craft\mail\transportadapters\Sendmail
+fs:
+  drawings:
+    hasUrls: true
+    name: Drawings
+    settings:
+      path: img/drawings
+    type: craft\fs\Local
+    url: 'https://victoriafans.co.uk/img/drawings/'
+  fans:
+    hasUrls: true
+    name: Fans
+    settings:
+      path: img/fans
+    type: craft\fs\Local
+    url: 'https://victoriafans.co.uk/img/fans/'
+  general:
+    hasUrls: true
+    name: General
+    settings:
+      path: img/general
+    type: craft\fs\Local
+    url: 'https://victoriafans.co.uk/img/general/'
+  userPhotos:
+    hasUrls: false
+    name: 'User Photos'
+    settings:
+      path: '@storage/userphotos'
+    type: craft\fs\Local
+    url: null
+graphql:
+  publicToken:
+    enabled: false
+    expiryDate: null
+meta:
+  __names__:
+    0ab76088-96ec-4c9c-a405-992253d0a248: 'Data Sheet Option' # Data Sheet Option
+    1bee32c2-e2ab-4583-b625-6eb82f37a359: 'Product Global Short introduction' # Product Global Short introduction
+    1e82de78-a29a-47bb-b626-f2b0ca8b4dca: Default # Default
+    2a97afa9-53a0-4d80-a84c-ce50b7d3a88d: 'Product Group Photo' # Product Group Photo
+    2c1698ba-0561-44b0-b8e0-1272b850c2b3: 'Special Note' # Special Note
+    02cdf417-bd93-4fa2-ab02-8b5b0240abe6: 'Additional Options' # Additional Options
+    2f59ecb5-fae8-4f30-9a78-e33390e299d5: 'Text over map' # Text over map
+    3af3ad4e-3d45-44f3-bd52-035d079ec6c0: Ancillaries # Ancillaries
+    3d5aae72-d3da-4be6-810d-6382928dd1fe: 'Meta Description' # Meta Description
+    4c149f8a-1ad7-4b97-ad15-006119f585aa: Ancillaries # Ancillaries
+    4d528aba-ef4b-4dfe-8cc8-1364205ad6fe: 'Global SEO' # Global SEO
+    6a40cfae-6b78-41a5-9f4c-c567bd9d9c71: 'Special Notes' # Special Notes
+    6e2808b9-d312-4282-8380-7b1d3f248e8b: 'Meta OG Title' # Meta OG Title
+    7a28a33b-2792-430c-b934-912a89f72155: 'Global SEO Twitter Handle' # Global SEO Twitter Handle
+    7acd5d39-6c1f-40f8-add1-7d3ff114c820: 'Meta Title (if different from page title)' # Meta Title (if different from page title)
+    7bcdd120-af65-4abd-a00c-85ea451feeb8: 'Global Meta Description' # Global Meta Description
+    7c49e264-c6f5-4a8c-b387-23de953852f5: Tags # Tags
+    7d51174c-6c6f-4597-8a52-11035f32ae52: 'Application Suitability' # Application Suitability
+    7db1fcdc-70a2-4533-a781-1b7fefd6f0be: 'Data Tables' # Data Tables
+    7ef2438b-9479-4872-8d4a-37f826ef3c27: 'Product Group Overview' # Product Group Overview
+    8d2eb001-baed-45eb-87fc-e2b99f2315d3: 'Secondary Text' # Secondary Text
+    8e6fc5fd-8d26-4e4f-8c9f-68ca36416d26: 'Diagram Thumb' # Diagram Thumb
+    9b094e3b-fb35-468c-9850-bad51e1f29e2: 'Company Background' # Company Background
+    9f0ca6fc-a0e3-4002-8974-6454e2259cdc: 'Company Background' # Company Background
+    13ae5570-d8f8-4efe-8e10-85d24b59816b: 'User Photos' # User Photos
+    33f09b38-742d-44f8-a75d-188811b9c44b: 'Victoria Fans (en)' # Victoria Fans (en)
+    36bc5ee4-9df2-4699-b1a7-06b6ed9b2bd9: 'Product Group Global Specifications' # Product Group Global Specifications
+    50d7f025-b278-4d84-aeb3-91cd5260b6de: Homepage # Homepage
+    64bab4c5-2431-415e-be4d-a9aad63b08aa: 'Secondary Title' # Secondary Title
+    94db20e8-0722-44ec-8556-a552e5a3ce8f: 'Global OG Description' # Global OG Description
+    97f1d3a7-ddd4-4455-b3cd-927bbab12ae0: Drawings # Drawings
+    200e453b-bd54-4f36-a1b6-2f21913fd5cc: 'Fan Tech Drawing' # Fan Tech Drawing
+    0221bae3-0c87-4976-b7f9-39a728c50154: 'Product Specification' # Product Specification
+    691a3baa-93ae-46a0-95e1-bf3e30a8262a: 'Item Drawing' # Item Drawing
+    778fb516-89fb-4cac-b9fa-845dd321a2ff: 'Product Range' # Product Range
+    1361bb59-a4e4-485d-a97b-88102ee02027: 'Victoria Fans (en)' # Victoria Fans (en)
+    6001e521-374a-430a-92be-70b6c6ceb1c4: 'Category Introduction' # Category Introduction
+    9767d245-69a9-444d-89ad-63c08cceeb3f: 'Ancilliary Item Information' # Ancilliary Item Information
+    36550f8f-c430-4751-a19d-392acad143c9: 'Item Data Table' # Item Data Table
+    74469b66-90dd-438f-a2da-29850fd9c882: Costruction # Costruction
+    762875a6-df63-4da3-a156-a14c6452cecc: Body # Body
+    974928bb-eb6a-4e46-8103-487ab15e4c66: Default # Default
+    6283093f-5a13-4c50-a2f5-c15b598b383d: SEO # SEO
+    9647595d-2c8a-4bc3-b52a-db8e0480b1c8: Enquiries # Enquiries
+    12098827-5de3-4901-9782-8be01b052435: 'Expanded Text' # Expanded Text
+    34586046-77c6-44c7-aaa7-3725a4d6d15a: 'Company Background' # Company Background
+    37064180-6b3f-4c01-994d-58da67c146c0: 'Meta Twitter Description' # Meta Twitter Description
+    80829250-34bf-44e3-873e-30fd538a844e: 'Product Information' # Product Information
+    90255920-387f-4c37-97b0-b86cb87c6508: 'Hero Image' # Hero Image
+    a57a2ac4-34cb-4e08-81cd-a71df4f6458e: 'Intro Text' # Intro Text
+    a77c9dcf-1b53-47f0-b94f-88b8dfcff3d5: 'Add Additional Info' # Add Additional Info
+    a99d1f89-fb8c-4a25-9962-0c5a2f509cb0: 'Fan Photo' # Fan Photo
+    a144cfc8-52eb-426f-a3f5-a5f34f09c5eb: Positioning # Positioning
+    abfe2c07-9d06-4665-ba43-b2e3b085bb06: 'Product Range Introduction' # Product Range Introduction
+    acb6352f-f138-4d95-914c-ebea0af62985: 'Global OG Title' # Global OG Title
+    aec444dc-de0b-42fa-a3a2-a8429e2a61b2: General # General
+    b06055f7-7256-470a-abeb-ed16d623af75: 'Item Supporting Photo' # Item Supporting Photo
+    bab7c1b3-9c74-4b97-bdfb-ff3093e0f0d3: 'Additional Information' # Additional Information
+    bcc94a4e-1a20-4c25-9db2-6232bf85d4ad: 'Item Supporting Photo' # Item Supporting Photo
+    c2f1f492-f8d4-42ba-ac19-6fc8ef262ebb: 'Product Specifications' # Product Specifications
+    c2f82710-6281-4b11-98e7-e554e53b8ec7: 'Intro Title' # Intro Title
+    c8ac94d9-2ef2-45be-8384-689fa1937dca: 'Product Application' # Product Application
+    c25fdfcb-a947-4896-a4b0-aa087117e1fc: 'Ancilliary Item Text' # Ancilliary Item Text
+    c241c7b7-6cd0-4381-8fca-9904bd39ad77: 'Global SEO' # Global SEO
+    ce056006-53f7-4afd-b2d8-3c519ddf52ca: 'Global Twitter Title' # Global Twitter Title
+    cf4a664b-f40f-4d66-b727-a4ec3378e188: 'Meta Twitter Title' # Meta Twitter Title
+    d5a9c26a-f5fe-469c-af09-21310fa8120e: Fans # Fans
+    d67f0f23-7735-43ad-88ec-0b2e28c64e91: 'Item Technical Drawing' # Item Technical Drawing
+    d69ec146-f7fb-4227-a152-5be9f01b6264: 'Suitable Fans' # Suitable Fans
+    dbebcef7-1cfd-47c7-9152-04b4046d893e: Homepage # Homepage
+    dbee0493-466a-4dd9-a3e4-cb5505f168c5: 'Item Text' # Item Text
+    de6f38a7-4a16-4ec5-8f08-d8389d3308a5: 'Data Table' # Data Table
+    e5a1e701-feac-4d3f-b9d9-e8b7f67468fc: 'Individual Product' # Individual Product
+    e37206da-e6c5-43c7-b877-e0c8b494846a: Accreditations # Accreditations
+    e798811d-5586-4b32-bd92-8179dc24cf6b: 'Global Twitter Description' # Global Twitter Description
+    f1e3075d-9f29-4a10-b387-766c0978695e: 'Product Individual Short Summary' # Product Individual Short Summary
+    f3f4ab15-88ea-4329-baa2-46cbe0eacca8: 'Meta OG Description' # Meta OG Description
+    f2555abd-79e8-4614-a19c-950aa0f7955f: 'Global Meta Title' # Global Meta Title
+    f89244ec-3530-4f38-b304-6d2075707cd3: Enquiries # Enquiries
+    f1051405-cb92-444c-bf33-e872553f6350: 'Product Range' # Product Range
+plugins:
+  am-forms:
+    enabled: '1'
+    licenseKey: null
+    schemaVersion: 1.8.0
+  cp-nav:
+    enabled: '1'
+    licenseKey: null
+    schemaVersion: 1.1.0
+    settings: null
+  field-manager:
+    enabled: '1'
+    licenseKey: null
+    schemaVersion: 1.0.0
+    settings: null
+  hacksaw:
+    enabled: '1'
+    licenseKey: null
+    schemaVersion: 1.0.0
+    settings: null
+  printmaker:
+    enabled: '1'
+    licenseKey: null
+    schemaVersion: 0.0.0.0
+    settings: null
+  super-table:
+    enabled: '1'
+    licenseKey: null
+    schemaVersion: 1.0.0
+    settings: null
+  table-maker:
+    enabled: '1'
+    licenseKey: null
+    schemaVersion: 1.0.0
+    settings: null
+system:
+  edition: pro
+  live: true
+  name: 'Victoria Fans'
+  schemaVersion: 4.15.0.0
+  timeZone: Europe/London
+users:
+  allowPublicRegistration: false
+  deactivateByDefault: false
+  defaultGroup: null
+  photoSubpath: null
+  photoVolumeUid: null
+  requireEmailVerification: true

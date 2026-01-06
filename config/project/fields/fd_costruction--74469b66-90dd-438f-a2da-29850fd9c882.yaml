@@ -1,0 +1,34 @@
+columnSuffix: null
+contentColumnType: string
+fieldGroup: e5a1e701-feac-4d3f-b9d9-e8b7f67468fc # Individual Product
+handle: fd_costruction
+instructions: null
+name: Costruction
+searchable: true
+settings:
+  errorMessage: 'Unable to find component class ''SuperTable''.'
+  expectedType: SuperTable
+  settings:
+    __assoc__:
+      0:
+        - columns
+        -
+          14:
+            __assoc__:
+              -
+                - width
+                - ''
+          15:
+            __assoc__:
+              -
+                - width
+                - ''
+      1:
+        - fieldLayout
+        - row
+      3:
+        - selectionLabel
+        - 'Add another component'
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\MissingField

@@ -1,0 +1,16 @@
+defaultPlacement: end
+enableVersioning: true
+handle: enquiries
+name: Enquiries
+previewTargets:
+  -
+    label: 'Primary entry page'
+    urlFormat: '{url}'
+propagationMethod: all
+siteSettings:
+  33f09b38-742d-44f8-a75d-188811b9c44b: # Victoria Fans (en)
+    enabledByDefault: true
+    hasUrls: true
+    template: enquiries
+    uriFormat: enquiries
+type: single

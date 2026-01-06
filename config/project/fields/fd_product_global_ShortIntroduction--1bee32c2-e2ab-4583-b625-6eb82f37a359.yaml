@@ -1,0 +1,33 @@
+columnSuffix: null
+contentColumnType: string
+fieldGroup: 80829250-34bf-44e3-873e-30fd538a844e # Product Information
+handle: fd_product_global_ShortIntroduction
+instructions: null
+name: 'Product Global Short introduction'
+searchable: true
+settings:
+  errorMessage: 'Unable to find component class ''craft\redactor\Field''.'
+  expectedType: craft\redactor\Field
+  settings:
+    __assoc__:
+      -
+        - availableTransforms
+        - '*'
+      -
+        - cleanupHtml
+        - '1'
+      -
+        - purifyHtml
+        - '1'
+      -
+        - columnType
+        - text
+      -
+        - availableVolumes
+        - '*'
+      -
+        - redactorConfig
+        - Simple.json
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\MissingField

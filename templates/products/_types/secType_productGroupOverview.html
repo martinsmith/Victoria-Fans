@@ -1,0 +1,70 @@
+{% extends "_layout" %}
+
+{% block content %}
+	<section class="content">
+		<div class="width">
+			<div class="pageIntro">
+				<header>
+					<h1>{{ entry.title }}</h1>
+				</header>
+				{{ entry.fd_product_global_ShortIntroduction }}
+			</div>
+			<article class="productCatOverview">
+			{% for row in entry.fd_st_productGroupGlobalSpecifications %}
+				<div>
+					<header>
+						<h2>{{ row.fd_St_Header }}</h2>
+					</header>
+					{{ row.fd_st_text }}
+					<hr />
+				</div>
+			{% endfor %}
+			</article>
+			{% set productItems = entry.getChildren() %}
+			<ul class="productsGroupList">
+			{% for entry in productItems %}
+				<li>
+					<header>
+						<h2><a href="{{ entry.url }}">{{ entry.title }}</a></h2>
+					</header>
+					{% for asset in entry.fd_fanPhoto %}
+						<img src="{{ asset.url }}" alt="">
+					{% endfor %}
+
+					{% for block in entry.ancilliaryItemInformation.type('ancilliaryItemText').limit(1) %}
+						{{ block.itemText|hacksaw(words='20', allow='<p>', append='...') }}
+					{% endfor %}
+
+					{{ entry.fd_product_Individual_Short_Summary|hacksaw(words='20', allow='<p>', append='...') }}
+
+					<p class="vfGreenButton"><a href="{{ entry.getUrl }}">Full Spec</a></p>
+				</li>
+				{% endfor %}
+			</ul>
+
+			{% if entry.fd_additionalOptions.specialNote|length or entry.fd_additionalOptions.supportImages|length %}
+			<div class="specialCases">
+				{% for extra in entry.fd_additionalOptions %}
+					{% if extra.specialTitle|length %}
+						<h3>{{ extra.specialTitle }}</h3>
+					{% endif %}
+					{% if extra.specialNote|length %}
+						<p>{{ extra.specialNote }}</p>
+					{% endif %}
+					{% if extra.supportImages|length == 1 %}
+						<img src="{{ extra.supportImages.one().getUrl() }}" alt="">
+						{% else %}
+						<ul>
+						{% for asset in extra.supportImages %}
+							<li><img src="{{ asset.getUrl }}" alt=""></li>
+						{% endfor %}
+						</ul>
+					{% endif %}
+				{% endfor %}
+			</div>
+			{% endif %}
+
+		</div>
+	</section>
+
+{% endblock %}

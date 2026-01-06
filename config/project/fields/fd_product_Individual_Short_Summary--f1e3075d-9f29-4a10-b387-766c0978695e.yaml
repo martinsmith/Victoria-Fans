@@ -1,0 +1,33 @@
+columnSuffix: null
+contentColumnType: string
+fieldGroup: e5a1e701-feac-4d3f-b9d9-e8b7f67468fc # Individual Product
+handle: fd_product_Individual_Short_Summary
+instructions: null
+name: 'Product Individual Short Summary'
+searchable: true
+settings:
+  errorMessage: 'Unable to find component class ''craft\redactor\Field''.'
+  expectedType: craft\redactor\Field
+  settings:
+    __assoc__:
+      -
+        - availableTransforms
+        - '*'
+      -
+        - cleanupHtml
+        - '1'
+      -
+        - purifyHtml
+        - '1'
+      -
+        - columnType
+        - text
+      -
+        - availableVolumes
+        - '*'
+      -
+        - redactorConfig
+        - Simple.json
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\MissingField

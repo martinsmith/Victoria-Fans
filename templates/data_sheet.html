@@ -1,0 +1,264 @@
+ {% set html %} {% set entryId = craft.app.request.getQueryParam('entryId') %} {% set entry = craft.entries.id(entryId).one() %} {% set overview = craft.entries.ancestorOf(entry).level(1).one() %}
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>{{ entry.title }}</title>
+    <style>
+    body {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        font-weight: 300;
+        background: #fff !important;
+    }
+
+
+    @page {
+        margin: 2.5cm 4cm 3cm 2.5cm
+    }
+
+    @page {
+        size: A4;
+    }
+
+    .brand {
+        padding-bottom: 30px;
+    }
+
+    .brand img {
+        width: 250px;
+        margin-bottom: 10px;
+    }
+
+
+    h1,
+    h2,
+    h3  {
+        font-family: 'Raleway', sans-serif;
+        color: rgb(39, 75, 146);
+        text-transform: uppercase;
+        margin-bottom: 5px;
+    }
+
+    h1 {
+        font-size: 20px;
+        margin: 0;
+    }
+
+    h2 {
+        font-size: 14px;
+    }
+
+    h3 {
+    	font-size: 12px;
+    }
+
+	p, li {
+		color: #666;
+	}
+
+	ul {
+		padding: 0;
+		margin-bottom: 30px;
+	}
+
+	li {
+		list-style-type: none;
+		padding-bottom: 5px;
+		font-style: italic;
+		padding-left: 0;
+	}
+
+    p.contact {
+        font-size: 12px;
+        margin: 0;
+        color: rgb(39, 75, 146);
+    }
+
+	.intro {
+		padding-bottom: 20px;
+	}
+
+    .intro p {
+        color: rgb(101, 188, 203);
+        line-height: 1.5;
+        font-size: 16px;
+        margin-top: 10px;
+    }
+
+	.overview {
+		padding-bottom: 10px;
+	}
+
+	.overview p {
+		font-size: 13px;
+		line-height: 1.5;
+	}
+
+	.overview h2 {
+		margin: 0;
+	}
+
+	.overview p:first-of-type {
+		margin-top: 0;
+	}
+
+    table.specificFan {
+        page-break-before: always;
+    }
+
+    table.specificFan .intro table {
+        margin-top: 20px;
+    }
+
+    table.specificFan .intro img {
+        width: 180px;
+    }
+
+    table.specificFan .intro .introText {
+        padding-left: 20px;
+    }
+
+	.construction span {
+		font-weight: 600;
+	}
+
+	.techDrawings img {
+		width: 260px;
+		float: left;
+	}
+
+	.techDrawings img:nth-of-type(2) {
+		float: right;
+	}
+
+    .dataTables table {
+        border-spacing: 0;
+        border-collapse: collapse;
+        width: 100%;
+        margin-bottom: 30px;
+    }
+
+    .dataTables table tr td {
+        border-bottom: 1px solid #8da1c5;
+    }
+
+    .dataTables table tr:last-of-type {
+        border: none;
+    }
+
+    .dataTables table th,
+    .dataTables table td {
+        background-color: #b9c5dc;
+        color: #fff;
+        padding-top: 10px;
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+
+    .dataTables table th {
+        border: 1px solid #a1b1d0;
+        border-width: 0 1px 1px 0;
+        background-color: #647fb1;
+    }
+
+    .dataTables table td {
+        border-right: 1px solid #8da1c5;
+        color: #4c6696;
+    }
+
+    .dataTables table td:last-of-type {
+        border-right: none;
+    }
+
+    .dataTables table tr:last-of-type td {
+        padding-bottom: 10px;
+    }
+
+    </style>
+</head>
+
+<body>
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td class="brand">
+                <img src="src/stat/victoria-fan.gif" alt="Victoria Fans">
+                <p class="contact">Telephone: +44 (0)1457 835 391, Email: sales@victoriafans.co.uk, Fax: +44 (0)1457 833 378</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="intro">
+                <h1>{{ overview.title }} - <span style="font-weight: 400; font-style: italic;">{{ entry.title }}</span></h1>
+                {{ overview.fd_product_global_ShortIntroduction }}
+            </td>
+        </tr>
+        {% for row in overview.fd_st_productGroupGlobalSpecifications %}
+        <tr>
+            <td class="overview">
+                <h2>{{ row.fd_St_Header }}</h2>
+                {{ row.fd_st_text }}
+            </td>
+        </tr>
+        {% endfor %}
+        <tr>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td style="background-color: #ddd;">&nbsp;</td>
+        </tr>
+    </table>
+    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="specificFan">
+        <tr>
+            <td class="intro">
+                <h1>{{ entry.title }}</h1>
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="180px" align="left" valign="top" bgcolor="#CC9933">
+                            {% set asset = entry.fd_fanPhoto.one() %} {% if asset %}
+                            <img src="{{ asset.url }}" alt="{{ entry.title }}"> {% endif %}
+                        </td>
+                        <td align="left" valign="top" class="introText">{{ entry.fd_product_Individual_Short_Summary }}</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td>
+            	<h3>POSITIONING</h3>
+                <p>{{ entry.fd_positioning }}</p>
+                <h3>CONSTRUCTION</h3>
+                {% for row in entry.fd_costruction %}
+                <p class="construction"><span>{{ row.fd_st_component_name }}</span>: {{ row.fd_st_componentText }}</p>
+                {% endfor %}
+            </td>
+        </tr>
+        <tr>
+            <td class="techDrawings">
+                {% for asset in entry.fd_fanTechDrawing %}
+                <img src="{{ asset.url }}" alt="{{ entry.title }}"> {% endfor %}
+            </td>
+        </tr>
+        <tr>
+            <td class="dataTables">
+                {% for row in entry.fd_st_dataTables %} {{ row.dataTable.table }} {% endfor %}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {% for row in entry.fd_st_specialNotes %}
+                <p>{{ row.fd_st_noteText }}</p>
+                {% endfor %}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p class="contact">
+                    Victoria Fan Limited<br />
+                    Audley Street Works, Audley Street, Ashton-under-Lyne, Greater Manchester,<br />
+                    United Kingdom OL5 9HW</p>
+            </td>
+        </tr>
+    </table>
+</body>
+{% endset %} {% set settings = { compress: true, orientation: 'portrait', size: 'a4', filename: 'Victoria-Fans' } %} {% set pdf = craft.printmaker.pdfFromHtml(html, settings) %} {{ pdf.output }}

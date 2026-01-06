@@ -1,0 +1,80 @@
+
+.header ul {
+	li {
+		font-size: 14px;
+		text-align: center;
+		&:nth-of-type(2) {
+			padding: 0 15px;
+		}
+		&:first-of-type {
+			padding: 0 15px 0 0;
+		}
+		&:last-of-type {
+			padding: 0 0 0 15px;
+		}
+	}
+}
+
+
+
+.content {
+	padding: 40px 0 50px 0;
+	h1 { font-size: 20px; margin-bottom: 20px; }
+}
+
+
+
+.pageIntro {
+	margin-bottom: 40px;
+  img {
+    width: 50%;
+    margin: 0 auto;
+    margin-bottom: 20px;
+  }
+	p {
+		font-size: 16px;
+	}
+}
+
+
+.supportImages {
+  >img {
+    @include column(16/24);
+  }
+}
+
+.diagrams {
+  @include clearfix();
+  a {
+    width: 70%;
+    margin: 0 auto;
+    img {
+      min-width: 100%;
+    }
+  }
+}
+
+
+.diagrams.col2 {
+  @include clearfix();
+  a {
+    @include column(12/24, $cycle: 2);
+    img {
+      min-width: 100%;
+    }
+  }
+}
+
+
+
+
+
+.specialCases {
+  ul {
+    margin-bottom: 30px;
+    li {
+      @include column(8/24, $cycle: 3, $gutter: 5);
+      margin-bottom: 20px;
+    }
+  }
+}

@@ -1,0 +1,24 @@
+columnSuffix: null
+contentColumnType: string
+fieldGroup: 974928bb-eb6a-4e46-8103-487ab15e4c66 # Default
+handle: fd_suitableFans
+instructions: null
+name: 'Suitable Fans'
+searchable: true
+settings:
+  allowSelfRelations: false
+  branchLimit: null
+  localizeRelations: false
+  maintainHierarchy: false
+  maxRelations: null
+  minRelations: null
+  selectionLabel: 'Add a Product'
+  showSiteMenu: true
+  sources:
+    - 'section:c2f1f492-f8d4-42ba-ac19-6fc8ef262ebb' # Product Specifications
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: null
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Entries

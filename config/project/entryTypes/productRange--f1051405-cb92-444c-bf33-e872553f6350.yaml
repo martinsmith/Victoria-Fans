@@ -1,0 +1,137 @@
+fieldLayouts:
+  e5c50bac-bad8-4067-9ee3-674224bb42e1:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            elementCondition: null
+            id: null
+            inputType: null
+            instructions: null
+            label: 'Page Title'
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: 0dc59f1e-35f5-41d0-9003-2df84468a719
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: abfe2c07-9d06-4665-ba43-b2e3b085bb06 # Product Range Introduction
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 7bc3793e-cf21-4f34-ba1d-b3b49ef6aaf6
+            userCondition: null
+            warning: null
+            width: 100
+        name: Products
+        uid: f6d445f1-580f-4a84-9e64-624c1ddfb1e4
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            elementCondition: null
+            fieldUid: 7acd5d39-6c1f-40f8-add1-7d3ff114c820 # Meta Title (if different from page title)
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 05c7b395-a755-4ef4-98c7-630c7d9b8d45
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: 3d5aae72-d3da-4be6-810d-6382928dd1fe # Meta Description
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: bcaf1be8-fdcc-4e00-a3ee-d79680b7d0a1
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: 6e2808b9-d312-4282-8380-7b1d3f248e8b # Meta OG Title
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 955fc55c-83ae-4e43-8000-7d372f054e80
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: f3f4ab15-88ea-4329-baa2-46cbe0eacca8 # Meta OG Description
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: d7457826-6862-48a1-91d8-c011fa2975a8
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: cf4a664b-f40f-4d66-b727-a4ec3378e188 # Meta Twitter Title
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: f0d31f6d-cd35-4d24-b3ff-382fdf24d72b
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: 37064180-6b3f-4c01-994d-58da67c146c0 # Meta Twitter Description
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: b6aed863-b1dd-4bb9-9af3-61fc1c178e65
+            userCondition: null
+            warning: null
+            width: 100
+        name: SEO
+        uid: 0015a735-9218-4b33-924b-683264e651f0
+        userCondition: null
+handle: productRange
+hasTitleField: true
+name: 'Product Range'
+section: 778fb516-89fb-4cac-b9fa-845dd321a2ff # Product Range
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+sortOrder: 1
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

@@ -1,0 +1,33 @@
+columnSuffix: null
+contentColumnType: string
+fieldGroup: 9b094e3b-fb35-468c-9850-bad51e1f29e2 # Company Background
+handle: introText
+instructions: null
+name: 'Intro Text'
+searchable: true
+settings:
+  errorMessage: 'Unable to find component class ''craft\redactor\Field''.'
+  expectedType: craft\redactor\Field
+  settings:
+    __assoc__:
+      -
+        - availableTransforms
+        - '*'
+      -
+        - cleanupHtml
+        - '1'
+      -
+        - purifyHtml
+        - '1'
+      -
+        - columnType
+        - text
+      -
+        - availableVolumes
+        - '*'
+      -
+        - redactorConfig
+        - Simple.json
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\MissingField

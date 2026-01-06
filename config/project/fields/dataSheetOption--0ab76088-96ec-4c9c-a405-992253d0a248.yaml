@@ -1,0 +1,23 @@
+columnSuffix: null
+contentColumnType: string
+fieldGroup: e5a1e701-feac-4d3f-b9d9-e8b7f67468fc # Individual Product
+handle: dataSheetOption
+instructions: null
+name: 'Data Sheet Option'
+searchable: true
+settings:
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - 'Show download option?'
+        -
+          - value
+          - showDownloadOption
+        -
+          - default
+          - '1'
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Checkboxes

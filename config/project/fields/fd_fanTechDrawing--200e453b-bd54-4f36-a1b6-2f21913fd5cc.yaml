@@ -1,0 +1,37 @@
+columnSuffix: null
+contentColumnType: string
+fieldGroup: e5a1e701-feac-4d3f-b9d9-e8b7f67468fc # Individual Product
+handle: fd_fanTechDrawing
+instructions: null
+name: 'Fan Tech Drawing'
+searchable: true
+settings:
+  allowSelfRelations: false
+  allowSubfolders: false
+  allowUploads: true
+  allowedKinds: null
+  branchLimit: null
+  defaultUploadLocationSource: 'volume:97f1d3a7-ddd4-4455-b3cd-927bbab12ae0' # Drawings
+  defaultUploadLocationSubpath: null
+  localizeRelations: false
+  maintainHierarchy: false
+  maxRelations: 2
+  minRelations: null
+  previewMode: full
+  restrictFiles: false
+  restrictLocation: false
+  restrictedDefaultUploadSubpath: null
+  restrictedLocationSource: 'volume:97f1d3a7-ddd4-4455-b3cd-927bbab12ae0' # Drawings
+  restrictedLocationSubpath: null
+  selectionLabel: 'Add a drawing'
+  showSiteMenu: true
+  showUnpermittedFiles: false
+  showUnpermittedVolumes: true
+  sources:
+    - 'volume:97f1d3a7-ddd4-4455-b3cd-927bbab12ae0' # Drawings
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: large
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Assets
