@@ -27,12 +27,12 @@ fieldLayouts:
             tip: null
             title: null
             type: craft\fieldlayoutelements\assets\AssetTitleField
-            uid: 61def0bc-ba61-4a53-9838-36a549f13f4b
+            uid: fc3ec53a-0134-41c7-af9c-77df90ce8f87
             userCondition: null
             warning: null
             width: 100
         name: Content
-        uid: 22357556-02fd-409e-9ab7-d19cd0ecc1b1
+        uid: 8dc08318-3140-4452-97ab-2876b0c375d7
         userCondition: null
 fs: drawings
 handle: drawings

@@ -13,7 +13,7 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: b443f952-42ae-42ea-a912-930f554738aa
+            uid: 0306e7c6-fe92-4045-91de-bba1ec064d4d
             userCondition: null
             warning: null
             width: 100
@@ -43,7 +43,7 @@ fields:
             -
               - width
               - ''
-      contentTable: ''
+      contentTable: '{{%supertablecontent_6_addadditionalinfo}}'
       fieldLayout: row
       maxRows: null
       minRows: null

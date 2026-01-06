@@ -14,7 +14,7 @@ settings:
         -
           - width
           - ''
-  contentTable: ''
+  contentTable: '{{%supertablecontent_fd_st_datatables}}'
   fieldLayout: row
   maxRows: null
   minRows: null

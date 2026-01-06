@@ -19,7 +19,7 @@ settings:
         -
           - width
           - ''
-  contentTable: ''
+  contentTable: '{{%supertablecontent_fd_costruction}}'
   fieldLayout: row
   maxRows: null
   minRows: null
