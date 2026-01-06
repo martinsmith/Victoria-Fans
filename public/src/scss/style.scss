@@ -1,0 +1,687 @@
+$vfBlue: rgb(29,56,109);
+$vfLighterBlue: rgb(39,75,146);
+$vfPaleBlue: rgb(168,183,211);
+$vfGreen: rgb(101,188,203);
+
+
+@import 'reset/reeeset.min.css';
+@import '_mixins';
+@import 'jeet';
+@import '_components';
+
+@import url('https://fonts.googleapis.com/css?family=Raleway:300,400,700|Roboto|Roboto+Condensed:400,700|Source+Sans+Pro:300,400,700');
+
+
+
+html, body {
+    overflow-x: hidden;
+	height: 100%;
+	font-family: 'Source Sans Pro', sans-serif;
+	font-weight: 400;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+    -webkit-overflow-scrolling: touch;
+}
+
+html { @include rem-baseline; }
+
+
+* {
+	list-style: none;
+	background-repeat: no-repeat;
+	text-decoration: none;
+}
+
+
+img {
+  display: block;
+}
+
+.width {
+	max-width: 1140px;
+	padding: 0 5%;
+	margin: 0 auto;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0));
+}
+
+
+.vfGreenButton {
+	text-transform: uppercase;
+	font-weight: 600;
+	letter-spacing: 1px;
+	a {
+		display: block;
+		background: $vfGreen;
+		background: linear-gradient(to bottom,  lighten($vfGreen, 10%) 0%, darken($vfGreen, 20%) 100%);
+		color: #fff;
+		padding: 7px 10px;
+		border-radius: 5px;
+	}
+}
+
+
+.otherApplications {
+	li {
+    	border-bottom: 1px solid lighten($vfPaleBlue, 10%);
+    	text-transform: uppercase;
+    	a {
+    		color: darken($vfGreen, 10%);
+    	}
+      a:hover {
+        color: $vfBlue;
+      }
+	}
+}
+
+.brand a {
+	background-image: url(/src/stat/victoria-fan.svg);
+	background-size: contain;
+	@include ir();
+	position: relative;
+	font-size: 0;
+	color: #fff;
+ }
+
+
+	// @-webkit-keyframes cssAnimation {
+	// 	from {
+	// 		-webkit-transform: rotate(4deg);
+	// 	 }
+	// 	to { -webkit-transform: rotate(360deg);
+	// 	}
+	// }
+
+//
+// .brand a:after {
+// 	content: "";
+// 	display: block;
+// 	background-image: url(/src/stat/blades.svg);
+// 	background-repeat: no-repeat;
+// 	background-size: contain;
+// 	position: absolute;
+// 	z-index: 10;
+// 	-webkit-animation: cssAnimation 20s 360 linear;
+// }
+
+
+.header ul {
+	li {
+		display: inline;
+		border-right: 1px solid $vfGreen;
+		a { color: $vfLighterBlue;
+		}
+	}
+	li:last-of-type {
+		border: none;
+	}
+}
+.header .vcard {
+	text-transform: uppercase;
+	color: $vfGreen;
+	span {
+		color: $vfLighterBlue;
+	}
+}
+
+.quality {
+	background-color: $vfBlue;
+	p {
+		font-family: 'Raleway', sans-serif;
+		color: $vfGreen;
+		margin: 0;
+	}
+	p+p {
+		background-image: url(/src/stat/iso9001.svg);
+		background-size: contain;
+	}
+}
+
+
+.hero .catList {
+	background-color: $vfGreen;
+	li {
+		font-family: 'Roboto Condensed', sans-serif;
+		border-bottom: 1px solid rgba(#fff, .5);
+    position: relative;
+    &:after {
+      background: linear-gradient(to right, darken($vfGreen,0%) 0%,darken($vfGreen,10%) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0065bccb', endColorstr='#65bccb',GradientType=1 ); /* IE6-9 */
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 110%;
+      bottom: 0;
+      right: 0;
+      transition: all .5s ease; /* our nice transition */
+      cursor: pointer;
+    }
+    &:hover:after {
+      z-index: 1;
+      left: 0;
+      right: 0;
+    }
+		a {
+			color: #fff;
+      display: block;
+      position: relative;
+      z-index: 2;
+		}
+	}
+	li:last-of-type {
+		border: none;
+	}
+}
+
+
+
+footer {
+	background-color: $vfBlue;
+	color: #fff;
+	div.width > div {
+		&:last-of-type {
+			margin: 0;
+		}
+	}
+	h2 {
+		text-transform: uppercase;
+		border-bottom: 1px solid rgba(#fff, .3);
+	}
+	a {
+		color: $vfGreen;
+	}
+	ul li {
+		font-family: 'Roboto Condensed', sans-serif;
+		border-bottom: 1px solid rgba(#fff, .1);
+		a {
+
+		}
+	}
+}
+
+.colophon {
+	background-color: #222;
+	@include clearfix();
+	p {
+		margin-bottom: 0;
+		color: #fff;
+		float: left;
+	}
+	p+p {
+		float: right;
+	}
+	a {
+		color: #febf01;
+	}
+}
+
+
+
+
+.content {
+	background-color: #eee;
+	h1,h2,h3,h4 {
+		font-family: 'Raleway', sans-serif;
+		color: $vfLighterBlue;
+		text-transform: uppercase;
+	}
+	h1 {
+		border-bottom: 1px solid $vfGreen;
+	}
+	p {
+		color: #666;
+	}
+}
+
+
+.pageIntro p {
+	font-family: 'Raleway', sans-serif;
+	color: darken($vfGreen, 10%);
+}
+
+.productCats {
+	> li {
+		@include clearfix();
+		background-color: #fff;
+	}
+	h2 {
+		background-color: $vfBlue;
+		margin: 0 0 1px 0;
+    padding: 0;
+		a {
+			color: #fff;
+      display: block;
+      background-image: url(/src/stat/arrow.svg);
+      background-position: 95% 50%;
+      background-size: 8px;
+		}
+	}
+}
+
+
+.productGroupList {
+	> li {
+		@include clearfix();
+		background-color: #fff;
+	}
+	h2 {
+		background-color: $vfBlue;
+		margin: 0 0 1px 0;
+		a {
+			color: #fff;
+		}
+	}
+}
+
+
+ul.productsInGroup {
+	margin: 0;
+	li {
+		margin-bottom: 1px;
+		font-style: italic;
+    background-color: darken($vfPaleBlue, 8%);
+    position: relative;
+    cursor: pointer;
+    &:after {
+      background: linear-gradient(to left, rgba(darken($vfPaleBlue, 0),0) 0%,rgba(darken($vfPaleBlue, 20%),1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0065bccb', endColorstr='#65bccb',GradientType=1 ); /* IE6-9 */
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 100%;
+      transition: all .5s ease; /* our nice transition */
+      cursor: pointer;
+    }
+    &:hover:after {
+      z-index: 1;
+      left: 0;
+      right: 0;
+    }
+		a {
+			display: block;
+			color: #fff;
+      background-image: url(/src/stat/arrow.svg);
+      background-position: 97% 50%;
+      background-size: 5px;
+      position: relative;
+      z-index: 2;
+		}
+	}
+}
+
+
+.productsGroupList {
+	> li {
+		@include clearfix();
+		background-color: #fff;
+		img {
+			padding: 10px;
+			border: 1px solid #ddd;
+		}
+	}
+	h2 {
+		background-color: $vfBlue;
+		margin: 0 0 10px 0;
+		a {
+			color: #fff;
+		}
+	}
+}
+
+
+
+.slider {
+    overflow-y: hidden;
+    transition: all .75s cubic-bezier(0, 1, 0.5, 1);
+    height: 0;
+}
+
+#toggle {
+    display: none;
+}
+
+#toggle + label {
+	font-family: 'Roboto Condensed', sans-serif;
+    text-align: center;
+    border: none;
+	background-color: rgba(#666, .5);
+    display: inline-block;
+    cursor: pointer;
+    width: 75%;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.slider {
+	li a {
+		background-color: rgba(#666, .7)!important;
+		font-style: normal;
+	}
+}
+
+.supportImages {
+	> img {
+		border: 2px solid $vfPaleBlue;
+	}
+  .diagrams {
+    a {
+      border: 2px solid $vfPaleBlue;
+    }
+    img {
+      margin: 0!important;
+      border: none;
+    }
+  }
+
+}
+
+
+.productTextSpecs {
+	p {
+		color: #333;
+	}
+	li {
+		color: #333;
+	}
+	strong {
+		color: $vfBlue;
+	}
+}
+
+
+
+table {
+	border-spacing: 0;
+	border-collapse: collapse;
+	//border: 1px solid darken($vfPaleBlue, 10%);
+	tr {
+		border-bottom: 1px solid darken($vfPaleBlue, 8%);
+		&:last-of-type {
+			border: none;
+		}
+	}
+	th, td {
+		background-color: lighten($vfPaleBlue, 5%);
+		color: #fff;
+	}
+	th {
+		border: 1px solid darken($vfPaleBlue, 2%);
+		border-width: 0 1px 1px 0;
+		background-color: darken($vfPaleBlue, 20%);
+	}
+	td {
+		border-right: 1px solid darken($vfPaleBlue, 8%);
+		color: darken($vfPaleBlue, 30%);
+	}
+	td:last-of-type {
+		border-right: none;
+	}
+}
+
+
+.specialNote {
+	color: $vfLighterBlue!important;
+	strong {
+		display: block;
+		text-transform: uppercase;
+	}
+}
+
+.back {
+	text-transform: uppercase;
+	border: 1px solid lighten($vfLighterBlue, 40%);
+	color: $vfLighterBlue!important;
+	font-weight: 600;
+	a {
+		display: block;
+		background-color: lighten($vfPaleBlue, 10%);
+		color: $vfBlue;
+	}
+}
+
+.company {
+	h2, h3 {
+		border-bottom: 1px solid $vfGreen;
+	}
+}
+
+
+.distributionMap {
+	position: relative;
+	background-image: url(/src/stat/map.svg);
+	background-size: contain;
+	h1 {
+		font-family: 'Raleway', sans-serif;
+		font-weight: 300;
+		text-transform: none;
+		border: none;
+		color: darken($vfGreen, 10%);
+		border: 1px solid $vfGreen;
+		border-width: 1px 0;
+		@include align($direction: vertical);
+		background: linear-gradient(to right, rgba(255, 255, 255, .2), rgba(255, 255, 255, 1), rgba(255, 255, 255, .2));
+	}
+
+}
+
+
+.productCatOverview {
+	ul {
+		li {
+			font-size: 14px;
+			color: #666;
+			font-weight: 600;
+			list-style: square inside none;
+		}
+	}
+}
+
+
+.specialCases {
+	li, img {
+		border: 1px solid #ddd;
+	}
+	li {
+		background-color: #fff;
+	}
+}
+
+
+
+
+
+form.mainComms {
+    border: none;
+
+    legend {
+        display: none;
+    }
+    fieldset {
+        border: none;
+        border-bottom: 2px dotted $vfBlue;
+        &:last-of-type {
+            border: none;
+        }
+    }
+    .field:last-of-type {
+        margin: 0;
+    }
+
+    label {
+        // text-transform: uppercase;
+        font-weight: 600;
+        color: lighten($vfBlue, 10%);
+        display: block;
+    }
+    input, textarea {
+        background-color: #fff;
+        border-radius: 5px;
+        border: 1px solid lighten($vfBlue, 0%);
+        transition: all .3s ease-in-out;
+        color: lighten($vfBlue, 15%);
+        outline: none;
+    }
+    ::-webkit-input-placeholder {
+        color: lighten($vfBlue, 40%);
+        transition: all .5s ease;
+    }
+
+    :focus::-webkit-input-placeholder {
+        color: #fff;
+    }
+
+    input[type="text"]:focus, input[type="email"]:focus, input[type="tel"]:focus, textarea:focus {
+        background-color: #fff; box-shadow: inset 1px 1px 2px 0 #ddd; outline: none; transform: scale(1.05);
+        outline: none;
+    }
+
+    textarea {
+        display: block;
+    }
+
+    button {
+        border: 2px solid lighten($vfBlue, 25%);
+        color: #fff;
+        line-height: normal;
+        border-radius: 5px;
+        text-transform: uppercase;
+        font-weight: 600;
+        letter-spacing: 1px;
+        text-align: center;
+        cursor: pointer;
+        background: linear-gradient(to bottom, lighten($vfBlue, 30%) 0%, lighten($vfBlue, 5%) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#7db9e8',GradientType=0 ); /* IE6-9 */
+        transition: all .5s ease;
+    }
+
+    button:hover {
+        background: linear-gradient(to bottom, lighten($vfBlue, 20%) 0%, lighten($vfBlue, 0%) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+
+    }
+
+    span.errors {
+        background-color: pink;
+        display: block;
+        color: #fff;
+    }
+
+
+    .notifications {
+        .success-message {
+            color: darken($vfBlue, 20%);
+        }
+        .error-message {
+            color: darken($vfBlue, 20%);
+        }
+    }
+}
+
+
+p.submit-notification {
+    color: $vfBlue;
+}
+
+
+
+
+
+@media (min-width: 320px) {
+	@import '_breaks/_320';
+
+
+
+    form.mainComms {
+        .field {
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-size: 12px;
+            margin-bottom: 3px;
+            padding-left: 10px;
+        }
+
+        input, textarea {
+            font-size: 14px;
+            padding: 7px 10px;
+            width: 100%;
+        }
+
+        textarea {
+            width: 100%;
+            height: 150px;
+        }
+
+        button {
+            padding: 8px 15px;
+            font-size: 12px;
+            float: right;
+        }
+
+        span.errors {
+            background-color: pink;
+            display: block;
+            color: #fff;
+        }
+
+
+        .notifications {
+            .success-message {
+                color: darken(#aaa, 20%);
+            }
+            .error-message {
+                color: darken(#aaa, 20%);
+            }
+        }
+    }
+}
+
+
+
+
+
+@media (min-width: 480px) {
+	@import '_breaks/_480';
+}
+
+@media (min-width: 568px) {
+	@import '_breaks/_568';
+  form.mainComms {
+      .field {
+          @include column(12/24, $cycle: 2);
+      }
+      .field:nth-of-type(n+5) {
+          @include stack();
+      }
+  }
+
+
+}
+
+@media (min-width: 768px) {
+	@import '_breaks/_768';
+}
+
+@media (min-width: 960px) {
+	@import '_breaks/_960';
+}
+
+@media (min-width: 1024px) {
+	@import '_breaks/_1024';
+}
+
+@media (min-width: 1140px) {
+	@import '_breaks/_1140';
+}
+
+@media (min-width: 1280px) {
+	@import '_breaks/_1280';
+}

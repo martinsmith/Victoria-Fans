@@ -1,0 +1,276 @@
+
+
+.brand {
+	width: 240px;
+	height: 32px;
+	float: left;
+	margin: 0 auto;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+
+.brand a:after {
+	top: -20px;
+	right: 5px;
+	width: 37px;
+	height: 37px;
+}
+
+
+
+
+
+.header {
+	@include clearfix();
+	>div div+div {
+		float: right;
+	}
+}
+
+
+.header ul {
+	float: right;
+	padding: 0;
+}
+
+.header .vcard {
+	text-align: right;
+	font-size: 18px;
+	margin: 0;
+}
+
+
+.hero {
+	@include clearfix();
+	background-color: $vfGreen;
+	position: relative;
+	height: 180px;
+	.catList {
+		//@include align($direction: vertical);
+		text-align: left;
+		margin: 0;
+		width: auto;
+		a {
+			background-image: url(/src/stat/arrow.svg);
+      background-position: 95% 50%;
+      background-size: 5px;
+      //background-color: pink;
+		}
+	}
+}
+.content {
+	@include clearfix();
+	padding: 40px 0 80px 0;
+	text-align: left;
+}
+
+article {
+	position: relative;
+}
+
+
+
+
+.pageIntro {
+	margin-bottom: 40px;
+	@include clearfix();
+	  img {
+	    @include column(8/24, $cycle: 2);
+	  }
+	  > div {
+	    @include column(16/24, $cycle: 2);
+	  }
+	p {
+		font-size: 16px;
+	}
+}
+
+
+.productTextSpecs {
+	column-count: 2;
+	column-gap: 20px;
+	> div {
+		width: 100%;
+		break-inside: avoid;
+		page-break-inside: avoid;
+	}
+}
+
+.productCats {
+	> li {
+		padding: 10px;
+		margin-bottom: 30px;
+		h2 {
+			font-size: 16px;
+			a {
+				padding: 10px 10px;
+			}
+		}
+		p {
+			padding: 0 15px;
+		}
+	}
+}
+
+
+
+.productGroupList {
+	@include clearfix();
+	> li {
+		padding: 5px;
+		margin-bottom: 20px;
+		position: relative;
+		h2 {
+			font-size: 14px;
+			padding: 7px 10px;
+			margin-bottom: 10px;
+		}
+		img {
+			@include column(7/24);
+			margin-bottom: 10px;
+			border: 1px solid #ddd;
+			padding: 10px;
+		}
+		img+p {
+			@include column(16/24);
+			font-size: 12px;
+		}
+		p.application {
+			text-transform: uppercase;
+		}
+	}
+}
+
+p.fullSpecLink {
+	position: absolute;
+	right: 15px;
+	top: 10px;
+	border-radius: 50%;
+	border: 1px solid #fff;
+	width: 22px;
+	height: 22px;
+	a {
+		@include ir();
+		background-color: rgba(#fff, .5);
+		border-radius: 50%;
+	}
+}
+
+.productsGroupList {
+	> li {
+		padding: 10px;
+		margin-bottom: 30px;
+		img {
+			@include column(6/24);
+		}
+		h2 {
+			//font-size: 17px;
+			padding: 7px 10px;
+		}
+	}
+}
+
+
+p.vfGreenButton {
+	@include column(12/24);
+	float: right;
+	text-align: center;
+	font-size: 11px!important;
+	padding: 0;
+	margin: 0;
+}
+
+.supportImages {
+	@include clearfix();
+}
+
+
+.productCatOverview {
+  >div.supportImages {
+    @include unmove();
+  }
+}
+
+.dataTables {
+	margin-bottom: 40px;
+	@include clearfix();
+	clear: both;
+}
+
+
+
+.productSelection {
+	top: -15px;
+	//left: 5%;
+	margin-bottom: 20px;
+	@include column(12/24, $offset: 12/24);
+	//@include move(12/24);
+	li a {
+		text-align: center;
+	}
+}
+
+
+#toggle + label {
+	padding: 5px 0;
+	text-align: center;
+}
+
+
+
+ul.productsInGroup {
+	clear: both;
+	li {
+		font-size: 14px;
+		a {
+			padding: 5px 15px;
+		}
+	}
+}
+
+
+.quality {
+	clear: both;
+	text-align: left;
+	font-size: 16px;
+	padding: 20px 0;
+	div {
+		position: relative;
+	}
+	p {
+		margin-right: 130px;
+	}
+	p+p {
+		width: 100px;
+		height: 45px;
+		position: absolute;
+		top: 0;
+		right: 0;
+		margin: 0;
+	}
+}
+
+
+.back {
+	position: absolute;
+	top: -10px;
+	left: auto;
+	right: 0;
+	margin-left: -125px;
+	width: 300px;
+	padding: 2px;
+	font-size: 11px!important;
+	text-align: center;
+	a {
+		padding: 5px;
+	}
+}
+
+
+table {
+	margin-bottom: 50px;
+	th, td {
+		font-size: 14px;
+	}
+}

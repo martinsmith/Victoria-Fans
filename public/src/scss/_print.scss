@@ -1,0 +1,97 @@
+$vfBlue: rgb(29,56,109);
+$vfLighterBlue: rgb(39,75,146);
+$vfPaleBlue: rgb(168,183,211);
+$vfGreen: rgb(101,188,203);
+
+
+body {
+	    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	    font-size: 14px;
+	    font-weight: 300;
+	    background: #fff !important;
+	}
+
+
+	@page { margin: 2cm }
+	@page { size: A4; }
+
+	table, figure {
+	  page-break-inside: avoid;
+	}
+
+	img.brand {
+		width: 250px;
+		margin-bottom: 60px;
+	}
+	
+	h1, h2, h3, h4, h5 {
+	  page-break-after: avoid;
+	}
+
+	h1,h2 {
+		font-family: 'Raleway', sans-serif;
+		color: rgb(39,75,146);
+		text-transform: uppercase;
+		margin-bottom: 5px;
+	}
+
+	h1 {
+		font-size: 20px;
+		margin: 0;
+	}
+	
+	h2 {
+		font-size: 14px;
+
+	}
+
+	p {
+		color: #999;
+		font-size: 11px;
+		line-height: 1.4;
+	}
+
+	.intro p {
+		color: rgb(101,188,203);
+		line-height: 1.5;
+		font-size: 16px;
+	}
+
+
+	div.test {
+	-webkit-column-count: 4;
+    -webkit-column-gap: 0.25in;
+    -webkit-column-rule-width : 1px;
+    -webkit-column-rule-style : solid;
+    -webkit-column-rule-color : #eee;
+	}
+
+
+
+table {
+	border-spacing: 0;
+	border-collapse: collapse;
+	//border: 1px solid darken($vfPaleBlue, 10%);
+	tr {
+		border-bottom: 1px solid darken($vfPaleBlue, 8%);
+		&:last-of-type {
+			border: none;
+		}
+	}
+	th, td {
+		background-color: lighten($vfPaleBlue, 5%);
+		color: #fff;
+	}
+	th {
+		border: 1px solid darken($vfPaleBlue, 2%);
+		border-width: 0 1px 1px 0;
+		background-color: darken($vfPaleBlue, 20%);
+	}
+	td {
+		border-right: 1px solid darken($vfPaleBlue, 8%);
+		color: darken($vfPaleBlue, 30%);
+	}
+	td:last-of-type {
+		border-right: none;
+	}
+}

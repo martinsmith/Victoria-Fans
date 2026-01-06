@@ -1,0 +1,121 @@
+
+.brand {
+	width: 335px;
+	height: 45px;
+}
+
+
+.brand a:after {
+	top: -20px;
+	right: -47px;
+	width: 42px;
+	height: 42px;
+}
+
+
+.content {
+	margin: 20px 0;
+	padding: 50px 0;
+	h1 { font-size: 26px; }
+	h2 { font-size: 18px; }
+	h3 { font-size: 17px; }
+	// p { font-size: 12px; }
+}
+
+
+.productSingleSpec.content {
+	padding: 35px 0 60px 0;
+}
+
+
+.header {
+	@include clearfix();
+	>div div+div {
+		margin-top: 8px;
+	}
+}
+
+.header ul {
+	margin: 0;
+	li {
+		font-size: 14px;
+	}
+}
+
+.header .vcard {
+	font-size: 26px;
+}
+
+.quality {
+	font-size: 26px;
+	padding: 30px 0;
+	p {
+		margin-right: 200px;
+	}
+	p+p {
+		width: 150px;
+		height: 70px;
+	}
+}
+
+
+.distributionMap {
+	height: 450px;
+	h1 {
+		font-size: 36px;
+		padding: 20px 0;
+	}
+}
+
+
+.productSelection {
+	@include column(8/24, $offset: 16/24);
+	//@include move(12/24);
+	li a {
+		text-align: center;
+	}
+}
+
+.productCats {
+	column-count: 3;
+	> li {
+		h2 {
+			font-size: 14px;
+			a {
+				padding: 7px 10px;
+			}
+		}
+	}
+}
+
+
+p.vfGreenButton {
+	@include column(8/24);
+	float: right;
+	text-align: center;
+	font-size: 14px!important;
+	padding: 0;
+	margin: 0;
+}
+
+.productGroupList {
+	> li {
+		img+p {
+			font-size: 15px;
+		}
+		p.application {
+			font-size: 15px;
+			strong {
+				font-size: 15px;
+			}
+		}
+	}
+}
+
+
+table {
+	margin-bottom: 50px;
+	th, td {
+		font-size: 16px;
+	}
+}

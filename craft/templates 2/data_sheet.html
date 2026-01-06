@@ -1,0 +1,165 @@
+
+
+
+{% set html %}
+
+
+{% set entryId = craft.request.param('entryId') %}
+{% set entry = craft.entries.id(entryId).first() %}
+
+{% set overview = craft.entries.ancestorOf(entry).level(1).first() %}
+
+
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+	<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>{{ entry.title }}</title>
+
+	<style>
+
+	body {
+	    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	    font-size: 14px;
+	    font-weight: 300;
+	    background: #fff !important;
+	}
+
+
+	@page { margin: 2cm }
+	@page { size: A4; }
+
+	table, figure {
+	  page-break-inside: avoid;
+	}
+
+	img.brand {
+		width: 250px;
+		margin-bottom: 60px;
+	}
+	
+	h1, h2, h3, h4, h5 {
+	  page-break-after: avoid;
+	}
+
+	h1,h2 {
+		font-family: 'Raleway', sans-serif;
+		color: rgb(39,75,146);
+		text-transform: uppercase;
+		margin-bottom: 5px;
+	}
+
+	h1 {
+		font-size: 20px;
+		margin: 0;
+	}
+	
+	h2 {
+		font-size: 14px;
+
+	}
+
+	p {
+		color: #999;
+		font-size: 11px;
+		line-height: 1.4;
+	}
+
+	.intro p {
+		color: rgb(101,188,203);
+		line-height: 1.5;
+		font-size: 16px;
+	}
+
+
+	div.test {
+	-webkit-column-count: 4;
+    -webkit-column-gap: 0.25in;
+    -webkit-column-rule-width : 1px;
+    -webkit-column-rule-style : solid;
+    -webkit-column-rule-color : #eee;
+	}
+
+
+
+
+table { border-spacing: 0; border-collapse: collapse; }
+table tr { border-bottom: 1px solid #8da1c5; }
+table tr:last-of-type { border: none; }
+table th, table td { background-color: #b9c5dc; color: #fff; padding-top: 10px; padding-right: 10px; padding-left: 10px; }
+table th { border: 1px solid #a1b1d0; border-width: 0 1px 1px 0; background-color: #647fb1; }
+table td { border-right: 1px solid #8da1c5; color: #4c6696; }
+table td:last-of-type { border-right: none; }
+
+
+	</style>
+
+
+
+
+
+
+
+
+</head>
+
+<body>
+
+	<img src="src/stat/victoria-fans.gif" alt="" class="brand">
+	<div class="intro">
+		<h1>{{ overview.title }}</h1>
+		{{ entry.fd_product_global_ShortIntroduction }}
+	</div>
+
+	<article>
+		{% for row in overview.fd_st_productGroupGlobalSpecifications %}
+		<div>
+			<h2>{{ row.fd_St_Header }}</h2>
+			{{ row.fd_st_text }}
+		</div>
+		{% endfor %}
+	</article>
+
+	<header>
+		<h2>{{ entry.title }}</h2>
+	</header>
+	<p>{{ entry.fd_product_Individual_Short_Summary }}</p>
+	{% set asset = entry.fd_fanPhoto.first() %}
+	{% if asset %}
+	    <img src="{{ asset.url }}" alt="{{ entry.title }}">
+	{% endif %}
+
+	<p>{{ entry.fd_positioning }}</p>
+	{% for row in entry.fd_costruction %}
+	<p><span>{{ row.fd_st_component_name }}</span>: {{ row.fd_st_componentText }}</p>
+	{% endfor %}
+	
+
+	{% for asset in entry.fd_fanTechDrawing %}
+	    <img src="{{ asset.url }}" alt="{{ entry.title }}">
+	{% endfor %}
+
+	{% for row in entry.fd_st_dataTables %}
+		{{ row.dataTable.table }}
+	{% endfor %}
+
+
+	{% for row in entry.fd_st_specialNotes %}
+	<p>{{ row.fd_st_noteText }}</p>
+	{% endfor %}
+
+
+</body>
+
+{% endset %}
+
+{% set settings = {
+    compress: true,
+    orientation: 'portrait',
+    size: 'a4',
+    filename: 'Victoria-Fans'
+} %}
+
+{% set pdf = craft.printmaker.pdfFromHtml(html, settings) %}
+
+{{ pdf.output }}

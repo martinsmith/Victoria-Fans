@@ -1,0 +1,344 @@
+body {
+	padding-top: 20px;
+}
+
+
+
+.otherApplications {
+	li {
+    	font-size: 14px;
+    	padding: 3px 0;
+	}
+}
+
+
+.brand {
+	width: 230px;
+	height: 32px;
+	margin: 0 auto;
+	margin-top: 0px;
+	margin-bottom: 10px;
+}
+
+
+.brand a:after {
+	top: -20px;
+	right: 5px;
+	width: 37px;
+	height: 37px;
+}
+
+
+.header ul {
+	padding: 0;
+	margin: 0 auto;
+	margin-bottom: 5px;
+	text-align: center;
+	li {
+		font-size: 12px;
+		text-transform: uppercase;
+		text-align: center;
+		&:nth-of-type(2) {
+			padding: 0 10px;
+		}
+		&:first-of-type {
+			padding: 0 10px 0 0;
+		}
+		&:last-of-type {
+			padding: 0 0 0 10px;
+		}
+	}
+}
+
+.header .vcard {
+	text-align: center;
+	font-size: 18px;
+	margin-bottom: 10px;
+}
+
+.quality {
+	padding: 15px 0;
+	text-align: center;
+	font-size: 18px;
+	line-height: 1.3;
+	margin-bottom: 5px;
+	p+p {
+		@include ir();
+		margin: 0 auto;
+		margin-top: 10px;
+		width: 80px;
+		height: 38px;
+	}
+}
+
+.hero .catList {
+	margin: 0 -5.5%;
+	text-align: center;
+	li {
+		a {
+			font-size: 14px;
+			padding: 7px 0;
+		}
+	}
+}
+
+.messages {
+	display: none;
+}
+
+footer {
+	padding: 30px 0;
+	text-align: center;
+	div.width > div {
+		margin-bottom: 30px;
+	}
+	h2 {
+		font-size: 16px;
+		margin-bottom: 10px;
+		padding-bottom: 5px;
+	}
+	p {
+		font-size: 14px;
+		margin-bottom: 3px;
+	}
+	ul li {
+		font-size: 14px;
+		padding: 3px 0;
+		a {
+			color: $vfGreen;
+		}
+	}
+}
+
+
+.colophon {
+	padding: 10px 0;
+}
+
+.content {
+	margin: 20px 0;
+	padding: 30px 0 30px 0;
+	text-align: center;
+	h1 { font-size: 18px; margin-bottom: 10px; padding-bottom: 5px; }
+	h2 { font-size: 15px; }
+	h3 { font-size: 14px; }
+	p { font-size: 14px; }
+}
+
+
+.productSingleSpec.content {
+	padding: 30px 0 30px 0;
+	article {
+		position: relative;
+	}
+}
+
+.pageIntro {
+	margin-bottom: 20px;
+	position: relative;
+	p {
+		font-size: 14px;
+		line-height: 1.4;
+	}
+	img {
+		margin-bottom: 20px;
+	}
+}
+
+.productCats {
+	> li {
+		padding: 5px 5px 8px 5px;
+		margin-bottom: 40px;
+		h2 {
+			font-size: 14px;
+			a {
+				padding: 7px 5px;
+			}
+		}
+		img {
+			margin-bottom: 10px;
+		}
+		p.application {
+			margin-bottom: 15px;
+			strong {
+				display: block;
+				text-transform: uppercase;
+			}
+		}
+	}
+}
+
+
+
+ul.productsInGroup {
+	li {
+		font-size: 13px;
+		a {
+			padding: 5px 0;
+		}
+	}
+}
+
+
+.productCatOverview {
+	margin-bottom: 40px;
+	hr {
+		margin-bottom: 30px;
+	}
+}
+
+
+
+.productsGroupList {
+	> li {
+		padding: 5px 5px 8px 5px;
+		margin-bottom: 40px;
+		h2 {
+			font-size: 14px;
+			padding: 5px;
+		}
+		img {
+			margin-bottom: 10px;
+		}
+		p.application {
+			margin-bottom: 15px;
+			strong {
+				display: block;
+				text-transform: uppercase;
+			}
+		}
+	}
+}
+
+
+
+
+
+
+
+.productSelection {
+	display: none;
+}
+
+
+#toggle + label {
+	padding: 10px 0;
+    width: 100%;
+    font-size: 14px;
+    margin-bottom: 1px;
+}
+
+/* most important part is here: */
+#toggle:checked ~ .slider {
+    height: 125px;
+    background-rcolo: #eee;
+}
+
+.supportImages {
+	img {
+		border: 2px solid $vfPaleBlue;
+		margin-bottom: 10px;
+	}
+}
+
+
+.productTextSpecs {
+	margin-bottom: 30px;
+	> div {
+		margin-bottom: 20px;
+	}
+	p {
+		font-size: 14px;
+	}
+	li {
+		font-size: 14px;
+		margin-bottom: 5px;
+	}
+	strong {
+		display: block;
+	}
+}
+
+.diagrams {
+	margin-bottom: 30px;
+	a {
+		background-color: #fff;
+		display: block;
+		margin-bottom: 0;
+		padding: 5px;
+	}
+}
+
+.diagrams.col2 {
+	@include clearfix();
+	a {
+		@include column(12/24);
+	}
+}
+
+
+
+table {
+	margin-bottom: 30px;
+	th, td {
+		padding: 7px;
+		font-size: 12px;
+	}
+	tr td:first-of-type {
+		font-weight: 600;
+	}
+}
+
+
+.specialNote {
+	font-size: 11px!important;
+	font-weight: 600;
+	margin-bottom: 20px;
+}
+
+
+.back {
+	a {
+		padding: 8px 5px;
+	}
+}
+
+
+.company {
+	h2, h3 {
+		padding-bottom: 5px;
+	}
+}
+
+.company article {
+	margin-bottom: 40px;
+	&:last-of-type {
+		margin-bottom: 0;
+	}
+}
+
+
+.distributionMap {
+	height: 150px;
+	h1 {
+		padding: 10px 0;
+		margin-left: 30px;
+		margin-right: 30px;
+	}
+}
+
+.specialCases {
+	@include clearfix();
+	h3 {
+		clear: both;
+	}
+	ul {
+		@include clearfix();
+		margin-bottom: 30px;
+		li {
+			@include column(12/24, $cycle: 2, $gutter: 5);
+			margin-bottom: 20px;
+			padding: 5px;
+		}
+	}
+}

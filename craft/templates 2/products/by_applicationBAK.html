@@ -1,0 +1,46 @@
+{% extends "_layout" %}
+
+{% block content %}
+
+
+
+{% set byApplication = craft.entries.relatedTo(category) %}
+
+	<section class="content productByApplication">
+		<div class="width">
+			<div class="pageIntro">
+				<header>
+					<h1>{{ category.title }}</h1>
+				</header>
+				{{ category.catFd_categoryIntroduction }}				
+			</div>
+
+			<ul class="productGroups">
+				{% for entry in byApplication %}
+				<li>
+					<header>
+						<h2><a href="{{ entry.url }}">{{ entry.title }}</a></h2>
+					</header>
+					{% for asset in entry.fd_fanPhoto %}
+						<img src="{{ asset.url }}" alt="">
+					{% endfor %}
+					{{ entry.fd_product_Individual_Short_Summary }}
+					<hr />
+					<p class="application"><strong>Application:</strong> {% for category in entry.fd_applicationUsageCategorisation %}{{ category.title }}{% if not loop.last %},{% endif %} {% endfor %}</p>
+					<p class="vfGreenButton"><a href="{{ entry.getUrl }}">Full Specification</a></p>
+				</li>
+				{% endfor %}
+			</ul>
+			<header>
+				<h3>Other Applications</h3>
+			</header>
+			<ul class="otherApplications">
+	          {% for category in craft.categories.group('catGrp_productApplication').id('not ' ~ category.id) %}
+	            <li><a href="{{ category.url }}">{{ category.title }}</a></li>
+	          {% endfor %}
+			</ul>
+		</div>
+	</section>
+
+{% endblock %}
+
