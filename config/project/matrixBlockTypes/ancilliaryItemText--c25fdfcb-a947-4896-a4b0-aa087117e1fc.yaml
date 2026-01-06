@@ -30,34 +30,16 @@ fields:
     name: 'Item Text'
     searchable: true
     settings:
-      errorMessage: 'Unable to find component class ''craft\redactor\Field''.'
-      expectedType: craft\redactor\Field
-      settings:
-        __assoc__:
-          -
-            - availableTransforms
-            - '*'
-          -
-            - availableVolumes
-            - '*'
-          -
-            - cleanupHtml
-            - '1'
-          -
-            - columnType
-            - text
-          -
-            - purifierConfig
-            - ''
-          -
-            - purifyHtml
-            - '1'
-          -
-            - redactorConfig
-            - Simple.json
+      availableTransforms: '*'
+      availableVolumes: '*'
+      ckeConfig: fd3fef83-fe9d-4015-9de7-a6c4efa2780e # Simple 2
+      columnType: text
+      enableSourceEditingForNonAdmins: false
+      purifierConfig: ''
+      purifyHtml: '1'
     translationKeyFormat: null
     translationMethod: none
-    type: craft\fields\MissingField
+    type: craft\ckeditor\Field
 handle: ancilliaryItemText
 name: 'Ancilliary Item Text'
 sortOrder: 1

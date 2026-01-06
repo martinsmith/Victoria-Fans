@@ -6,28 +6,12 @@ instructions: null
 name: 'Secondary Text'
 searchable: true
 settings:
-  errorMessage: 'Unable to find component class ''craft\redactor\Field''.'
-  expectedType: craft\redactor\Field
-  settings:
-    __assoc__:
-      -
-        - availableTransforms
-        - '*'
-      -
-        - cleanupHtml
-        - '1'
-      -
-        - purifyHtml
-        - '1'
-      -
-        - columnType
-        - text
-      -
-        - availableVolumes
-        - '*'
-      -
-        - redactorConfig
-        - ''
+  availableTransforms: '*'
+  availableVolumes: '*'
+  ckeConfig: 69ffc5cd-2c17-46ad-b49e-42706f0b9b1f # Default
+  columnType: text
+  enableSourceEditingForNonAdmins: false
+  purifyHtml: '1'
 translationKeyFormat: null
 translationMethod: none
-type: craft\fields\MissingField
+type: craft\ckeditor\Field

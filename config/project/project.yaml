@@ -1,4 +1,4 @@
-dateModified: 1767697081
+dateModified: 1767697718
 elementSources:
   craft\elements\Entry:
     -
@@ -75,12 +75,14 @@ meta:
     8d2eb001-baed-45eb-87fc-e2b99f2315d3: 'Secondary Text' # Secondary Text
     8e6fc5fd-8d26-4e4f-8c9f-68ca36416d26: 'Diagram Thumb' # Diagram Thumb
     9b094e3b-fb35-468c-9850-bad51e1f29e2: 'Company Background' # Company Background
+    9c478a9d-a435-4059-a1ff-da8c15b000bb: Simple # Simple
     9f0ca6fc-a0e3-4002-8974-6454e2259cdc: 'Company Background' # Company Background
     13ae5570-d8f8-4efe-8e10-85d24b59816b: 'User Photos' # User Photos
     33f09b38-742d-44f8-a75d-188811b9c44b: 'Victoria Fans (en)' # Victoria Fans (en)
     36bc5ee4-9df2-4699-b1a7-06b6ed9b2bd9: 'Product Group Global Specifications' # Product Group Global Specifications
     50d7f025-b278-4d84-aeb3-91cd5260b6de: Homepage # Homepage
     64bab4c5-2431-415e-be4d-a9aad63b08aa: 'Secondary Title' # Secondary Title
+    69ffc5cd-2c17-46ad-b49e-42706f0b9b1f: Default # Default
     94db20e8-0722-44ec-8556-a552e5a3ce8f: 'Global OG Description' # Global OG Description
     97f1d3a7-ddd4-4455-b3cd-927bbab12ae0: Drawings # Drawings
     200e453b-bd54-4f36-a1b6-2f21913fd5cc: 'Fan Tech Drawing' # Fan Tech Drawing
@@ -118,6 +120,7 @@ meta:
     c241c7b7-6cd0-4381-8fca-9904bd39ad77: 'Global SEO' # Global SEO
     ce056006-53f7-4afd-b2d8-3c519ddf52ca: 'Global Twitter Title' # Global Twitter Title
     cf4a664b-f40f-4d66-b727-a4ec3378e188: 'Meta Twitter Title' # Meta Twitter Title
+    d1ac3d29-9bab-418a-8f28-3855680f77ca: Standard # Standard
     d5a9c26a-f5fe-469c-af09-21310fa8120e: Fans # Fans
     d67f0f23-7735-43ad-88ec-0b2e28c64e91: 'Item Technical Drawing' # Item Technical Drawing
     d69ec146-f7fb-4227-a152-5be9f01b6264: 'Suitable Fans' # Suitable Fans
@@ -132,11 +135,16 @@ meta:
     f2555abd-79e8-4614-a19c-950aa0f7955f: 'Global Meta Title' # Global Meta Title
     f89244ec-3530-4f38-b304-6d2075707cd3: Enquiries # Enquiries
     f1051405-cb92-444c-bf33-e872553f6350: 'Product Range' # Product Range
+    fd3fef83-fe9d-4015-9de7-a6c4efa2780e: 'Simple 2' # Simple 2
 plugins:
   am-forms:
     enabled: '1'
     licenseKey: null
     schemaVersion: 1.8.0
+  ckeditor:
+    edition: standard
+    enabled: true
+    schemaVersion: 3.0.0.0
   cp-nav:
     enabled: '1'
     licenseKey: null

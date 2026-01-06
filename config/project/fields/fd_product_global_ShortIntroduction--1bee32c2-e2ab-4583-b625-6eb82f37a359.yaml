@@ -6,28 +6,12 @@ instructions: null
 name: 'Product Global Short introduction'
 searchable: true
 settings:
-  errorMessage: 'Unable to find component class ''craft\redactor\Field''.'
-  expectedType: craft\redactor\Field
-  settings:
-    __assoc__:
-      -
-        - availableTransforms
-        - '*'
-      -
-        - cleanupHtml
-        - '1'
-      -
-        - purifyHtml
-        - '1'
-      -
-        - columnType
-        - text
-      -
-        - availableVolumes
-        - '*'
-      -
-        - redactorConfig
-        - Simple.json
+  availableTransforms: '*'
+  availableVolumes: '*'
+  ckeConfig: fd3fef83-fe9d-4015-9de7-a6c4efa2780e # Simple 2
+  columnType: text
+  enableSourceEditingForNonAdmins: false
+  purifyHtml: '1'
 translationKeyFormat: null
 translationMethod: none
-type: craft\fields\MissingField
+type: craft\ckeditor\Field

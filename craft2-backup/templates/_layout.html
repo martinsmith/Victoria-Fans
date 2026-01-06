@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+        {% if entry.seo_metaTitle is defined and entry.seo_metaTitle | length %}
+          {% set seoTitle = entry.seo_metaTitle %}
+        {% elseif globalSeo.globalMetaTitle is defined and globalSeo.globalMetaTitle | length %}
+          {% set seoTitle = globalSeo.globalMetaTitle %}
+        {% elseif category.title is defined and category.title | length %}
+          {% set seoTitle = category.title %}
+        {% elseif entry.title is defined and entry.title | length %}
+          {% set seoTitle = entry.title %}
+        {% else %}
+          {% set seoTitle = siteName %}
+        {% endif %}
+
+        <title>{{ siteName }} - {{seoTitle}}</title>
+
+        {% if entry.seo_metaDescription is defined and entry.seo_metaDescription |length %}
+          <meta name="description" content="{{ entry.seo_metaDescription }}" />
+        {% elseif globalSeo.globalMetaDescription is defined and globalSeo.globalMetaDescription |length %}
+          <meta name="description" content="{{ globalSeo.globalMetaDescription }}" />
+        {% else %}
+          <meta name="description" content="{{ siteName }}" />
+        {% endif %}
+
+
+        {% if entry.seo_metaOgTitle is defined and entry.seo_metaOgTitle |length %}
+        <meta property='og:title' content='{{ entry.seo_metaOgTitle }}' />
+        {% elseif entry.seo_metaTitle is defined and entry.seo_metaTitle |length %}
+        <meta property='og:title' content='{{ entry.seo_metaTitle }}' />
+        {% elseif globalSeo.globalSeoOgTitle is defined and globalSeo.globalSeoOgTitle |length %}
+        <meta property='og:title' content='{{ globalSeo.globalSeoOgTitle }}' />
+        {% elseif entry.title is defined and entry.title | length %}
+        <meta property='og:title' content='{{ entry.title }}' />
+        {% endif %}
+
+
+        <meta property='og:url' content='{{ craft.request.url }}' />
+        <meta property='og:site_name' content='{{ siteName }}' />
+
+
+
+        {% if entry.seo_metaOgDescription is defined and entry.seo_metaOgDescription |length %}
+        <meta property='og:description' content='{{ entry.seo_metaOgDescription }}' />
+        {% elseif entry.seo_metaDescription is defined and entry.seo_metaDescription |length %}
+        <meta property='og:description' content='{{ entry.seo_metaDescription }}' />
+        {% elseif globalSeo.globalSeoOgDescription is defined and globalSeo.globalSeoOgDescription |length %}
+        <meta property='og:description' content='{{ globalSeo.globalSeoOgDescription }}' />
+        {% endif %}
+
+        <meta property='twitter:site' content='{{ globalSeo.globalSeoTwitterHandle }}' />
+
+
+        {% if entry.seo_metaTwitterTitle is defined and entry.seo_metaTwitterTitle|length %}
+        <meta property='twitter:title' content='{{ entry.seo_metaTwitterTitle }}' />
+        {% elseif entry.seo_metaTitle is defined and entry.seo_metaTitle |length %}
+        <meta property='twitter:title' content='{{ entry.seo_metaTitle }}' />
+        {% elseif globalSeo.globalSeoTwitterTitle is defined and globalSeo.globalSeoTwitterTitle |length %}
+        <meta property='twitter:title' content='{{ globalSeo.globalSeoTwitterTitle }}' />
+        {% elseif entry.title is defined and entry.title | length %}
+        <meta property='twitter:title' content='{{ entry.title }}' />
+        {% endif %}
+
+
+        {% if entry.seo_metaTwitterDescription is defined and entry.seo_metaTwitterDescription |length %}
+        <meta property='twitter:description' content='{{ entry.seo_metaTwitterDescription }}' />
+        {% elseif entry.seo_metaDescription is defined and entry.seo_metaDescription |length %}
+        <meta property='twitter:description' content='{{ entry.seo_metaDescription }}' />
+        {% elseif globalSeo.globalSeoTwitterDescription is defined and globalSeo.globalSeoTwitterDescription |length %}
+        <meta property='twitter:description' content='{{ globalSeo.globalSeoTwitterDescription }}' />
+        {% endif %}
+
+        <meta property='twitter:url' content='{{ craft.request.url }}' />
+
+        <link rel="home" href="{{ siteUrl }}" />
+        <link rel="canonical" href="{{ craft.request.url }}">
+        {# SEO End #}
+
+
+
+
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <link rel="stylesheet" href="/src/css/style.css">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-121401432-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-121401432-1');
+    </script>
+
+
+    {% block pagestyles %}
+    {% endblock %}
+
+    <!--[if lt IE 9]>
+      <script src="/src/js/polyfill/html5-shiv.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <!--[if IE]>
+      <div class="browserupgrade"><p>You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p></div>
+    <![endif]-->
+
+    <div class="wrap">
+
+      <div class="header">
+        <div class="width">
+          <div class="brand"><a href="/">Victoria Fans</a></div>
+          <div>
+            <ul>
+              <li><a href="/">Home</a></li>
+              <li><a href="/company-background">About Us</a></li>
+              <li><a href="/enquiries">Enquiries</a></li>
+            </ul>
+            <div class="vcard">Telephone: <span itemprop="telephone" class="tel">+44 (0)1457 835391</span></div>
+          </div>
+        </div>
+        <div class="quality">
+          <div class="width">
+            <div>
+              <p>Manufacturers and Trade Suppliers of quality, reliable and robust Industrial Fans for over 30 years</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+	{% block content %}
+	{% endblock %}
+
+      <footer>
+        <div class="width">
+
+          <div itemscope itemtype="http://schema.org/LocalBusiness" class="vcard">
+            <header>
+              <h2>Postal Address</h2>
+            </header>
+            <p itemprop="name" class="fn org">Victoria Fans Limited</p>
+            <p itemprop="address" itemscope itemtype="http://schema.org/PostalAddress" class="adr" data-icon="&#59171;">
+              <span itemprop="streetAddress" class="street-address">Audley Street Works, Audley Street</span>,<br>
+              <span itemprop="addressLocality" class="locality">Ashton-under-Lyne</span>,<br>
+              <span itemprop="addressRegion" class="region">Greater Manchester</span>,<br>
+              <span itemprop="postalCode" class="postal-code">OL5 9HW</span>
+              <span itemprop="country" class="country">United Kingdom</span>
+            </p>
+          </div>
+
+          <div itemscope itemtype="http://schema.org/LocalBusiness" class="vcard">
+            <header>
+              <h2>Contact</h2>
+            </header>
+            <p>Telephone: <span itemprop="telephone" class="tel">+44 (0)1457 835 391</span></p>
+            <p>Fax: <span itemprop="fax" class="fax">+44 (0)1457 833 378</span></p>
+            <p>Email: <a class="email" href="mailto:sales@victoriafans.co.uk">sales@victoriafans.co.uk</a></p>
+          </div>
+
+          <div>
+            <header>
+              <h2>Fans by Application</h2>
+            </header>
+            <ul class="catList">
+            {% for category in craft.categories.group('catGrp_productApplication') %}
+              <li><a href="{{ category.url }}">{{ category.title }}</a></li>
+            {% endfor %}
+            </ul>
+          </div>
+
+        </div>
+
+      </footer>
+      <div class="colophon">
+        <div class="width">
+          <p>&copy; Victoria Fans Limited</p>
+          <p><a href="http://mechanised.co.uk">We are <span>MECHANISED</span></a></p>
+        </div>
+      </div>
+
+
+    </div>
+
+
+    <!--[if lt IE 9]>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+      <script>window.jQuery || document.write('<script src="/src/js/vendor/jquery-1.12.4.min.js"><\/script>')</script>
+      <script src="/src/js/polyfill/ie-love.js"></script>
+    <![endif]-->
+    <!--[if gt IE 8]><!-->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+      <script>window.jQuery || document.write('<script src="/src/js/vendor/jquery-3.1.0.min.js"><\/script>')</script>
+    <!--<![endif]-->
+    {% block pageScripts %}
+    {% endblock %}
+
+    <script src="/src/js/main.js"></script>
+  </body>
+</html>

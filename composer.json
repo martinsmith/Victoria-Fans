@@ -3,6 +3,7 @@
   "prefer-stable": true,
   "require": {
     "php": "^8.0.2",
+    "craftcms/ckeditor": "^3.15",
     "craftcms/cms": "^4.0",
     "vlucas/phpdotenv": "^5.4"
   },
@@ -23,4 +24,3 @@
     }
   }
 }
-

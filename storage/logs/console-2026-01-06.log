@@ -1,0 +1,89 @@
+2026-01-06 10:47:08 [console.INFO] [yii\db\Connection::open] Opening DB connection: mysql:host=db;dbname=db;port=3306 {"memory":2156000} 
+2026-01-06 10:47:08 [console.ERROR] [yii\base\UnknownPropertyException] yii\base\UnknownPropertyException: Setting unknown property: craft\models\Info::edition in /var/www/html/vendor/yiisoft/yii2/base/Component.php:221
+Stack trace:
+#0 /var/www/html/vendor/craftcms/cms/src/helpers/App.php(1453): yii\base\Component->__set('edition', 2)
+#1 /var/www/html/vendor/craftcms/cms/src/base/Model.php(84): craft\helpers\App::configure(Object(craft\models\Info), Array)
+#2 /var/www/html/vendor/craftcms/cms/src/base/ApplicationTrait.php(847): craft\base\Model->__construct(Array)
+#3 /var/www/html/vendor/craftcms/cms/src/base/ApplicationTrait.php(437): craft\console\Application->getInfo(true)
+#4 /var/www/html/vendor/craftcms/cms/src/helpers/App.php(1039): craft\console\Application->getIsInstalled()
+#5 /var/www/html/vendor/craftcms/cms/src/config/app.php(247): craft\helpers\App::projectConfigConfig()
+#6 [internal function]: {closure}()
+#7 /var/www/html/vendor/yiisoft/yii2/di/Container.php(633): call_user_func_array(Object(Closure), Array)
+#8 /var/www/html/vendor/yiisoft/yii2/BaseYii.php(349): yii\di\Container->invoke(Object(Closure), Array)
+#9 /var/www/html/vendor/yiisoft/yii2/di/ServiceLocator.php(137): yii\BaseYii::createObject(Object(Closure))
+#10 /var/www/html/vendor/yiisoft/yii2/base/Module.php(766): yii\di\ServiceLocator->get('projectConfig', true)
+#11 /var/www/html/vendor/craftcms/cms/src/console/Application.php(174): yii\base\Module->get('projectConfig', true)
+#12 /var/www/html/vendor/craftcms/cms/src/base/ApplicationTrait.php(1348): craft\console\Application->get('projectConfig')
+#13 /var/www/html/vendor/craftcms/cms/src/base/ApplicationTrait.php(1630): craft\console\Application->getProjectConfig()
+#14 /var/www/html/vendor/craftcms/cms/src/base/ApplicationTrait.php(1569): craft\console\Application->_setTimeZone()
+#15 /var/www/html/vendor/craftcms/cms/src/console/Application.php(51): craft\console\Application->_preInit()
+#16 /var/www/html/vendor/yiisoft/yii2/base/BaseObject.php(109): craft\console\Application->init()
+#17 /var/www/html/vendor/yiisoft/yii2/base/Application.php(204): yii\base\BaseObject->__construct(Array)
+#18 /var/www/html/vendor/yiisoft/yii2/console/Application.php(89): yii\base\Application->__construct(Array)
+#19 [internal function]: yii\console\Application->__construct(Array)
+#20 /var/www/html/vendor/yiisoft/yii2/di/Container.php(419): ReflectionClass->newInstanceArgs(Array)
+#21 /var/www/html/vendor/yiisoft/yii2/di/Container.php(170): yii\di\Container->build('craft\\console\\A...', Array, Array)
+#22 /var/www/html/vendor/yiisoft/yii2/BaseYii.php(365): yii\di\Container->get('craft\\console\\A...', Array, Array)
+#23 /var/www/html/vendor/craftcms/cms/src/Craft.php(60): yii\BaseYii::createObject(Array, Array)
+#24 /var/www/html/vendor/craftcms/cms/bootstrap/bootstrap.php(263): Craft::createObject(Array)
+#25 /var/www/html/vendor/craftcms/cms/bootstrap/console.php(42): require('/var/www/html/v...')
+#26 /var/www/html/craft(21): require('/var/www/html/v...')
+#27 {main} {"memory":2170312,"exception":"[object] (yii\\base\\UnknownPropertyException(code: 0): Setting unknown property: craft\\models\\Info::edition at /var/www/html/vendor/yiisoft/yii2/base/Component.php:221)"} 
+2026-01-06 10:57:46 [console.INFO] [yii\db\Connection::open] Opening DB connection: mysql:host=db;dbname=db;port=3306 {"memory":2156096} 
+2026-01-06 10:57:46 [console.INFO] [yii\db\Connection::open] Opening DB connection: mysql:host=db;dbname=db;port=3306 {"memory":3546712} 
+2026-01-06 10:58:02 [console.INFO] [yii\db\Connection::open] Opening DB connection: mysql:host=db;dbname=db;port=3306 {"memory":2156064} 
+2026-01-06 10:58:02 [console.INFO] [yii\db\Connection::open] Opening DB connection: mysql:host=db;dbname=db;port=3306 {"memory":3295624} 
+2026-01-06 10:58:28 [console.INFO] [yii\db\Connection::open] Opening DB connection: mysql:host=db;dbname=db;port=3306 {"memory":2156056} 
+2026-01-06 10:58:28 [console.ERROR] [yii\console\UnknownCommandException] yii\base\InvalidRouteException: Unable to resolve the request "--version". in /var/www/html/vendor/yiisoft/yii2/base/Module.php:561
+Stack trace:
+#0 /var/www/html/vendor/yiisoft/yii2/console/Application.php(180): yii\base\Module->runAction('--version', Array)
+#1 /var/www/html/vendor/craftcms/cms/src/console/Application.php(91): yii\console\Application->runAction('--version', Array)
+#2 /var/www/html/vendor/yiisoft/yii2/console/Application.php(147): craft\console\Application->runAction('--version', Array)
+#3 /var/www/html/vendor/craftcms/cms/src/console/Application.php(122): yii\console\Application->handleRequest(Object(craft\console\Request))
+#4 /var/www/html/vendor/yiisoft/yii2/base/Application.php(384): craft\console\Application->handleRequest(Object(craft\console\Request))
+#5 /var/www/html/craft(22): yii\base\Application->run()
+#6 {main}
+
+Next yii\console\UnknownCommandException: Unknown command "--version". in /var/www/html/vendor/yiisoft/yii2/console/Application.php:183
+Stack trace:
+#0 /var/www/html/vendor/craftcms/cms/src/console/Application.php(91): yii\console\Application->runAction('--version', Array)
+#1 /var/www/html/vendor/yiisoft/yii2/console/Application.php(147): craft\console\Application->runAction('--version', Array)
+#2 /var/www/html/vendor/craftcms/cms/src/console/Application.php(122): yii\console\Application->handleRequest(Object(craft\console\Request))
+#3 /var/www/html/vendor/yiisoft/yii2/base/Application.php(384): craft\console\Application->handleRequest(Object(craft\console\Request))
+#4 /var/www/html/craft(22): yii\base\Application->run()
+#5 {main} {"memory":3038976,"exception":"[object] (yii\\console\\UnknownCommandException(code: 0): Unknown command \"--version\". at /var/www/html/vendor/yiisoft/yii2/console/Application.php:183)
+[previous exception] [object] (yii\\base\\InvalidRouteException(code: 0): Unable to resolve the request \"--version\". at /var/www/html/vendor/yiisoft/yii2/base/Module.php:561)"} 
+2026-01-06 10:58:35 [console.INFO] [yii\db\Connection::open] Opening DB connection: mysql:host=db;dbname=db;port=3306 {"memory":2156048} 
+2026-01-06 10:58:35 [console.ERROR] [yii\console\UnknownCommandException] yii\base\InvalidRouteException: Unable to resolve the request "about". in /var/www/html/vendor/yiisoft/yii2/base/Module.php:561
+Stack trace:
+#0 /var/www/html/vendor/yiisoft/yii2/console/Application.php(180): yii\base\Module->runAction('about', Array)
+#1 /var/www/html/vendor/craftcms/cms/src/console/Application.php(91): yii\console\Application->runAction('about', Array)
+#2 /var/www/html/vendor/yiisoft/yii2/console/Application.php(147): craft\console\Application->runAction('about', Array)
+#3 /var/www/html/vendor/craftcms/cms/src/console/Application.php(122): yii\console\Application->handleRequest(Object(craft\console\Request))
+#4 /var/www/html/vendor/yiisoft/yii2/base/Application.php(384): craft\console\Application->handleRequest(Object(craft\console\Request))
+#5 /var/www/html/craft(22): yii\base\Application->run()
+#6 {main}
+
+Next yii\console\UnknownCommandException: Unknown command "about". in /var/www/html/vendor/yiisoft/yii2/console/Application.php:183
+Stack trace:
+#0 /var/www/html/vendor/craftcms/cms/src/console/Application.php(91): yii\console\Application->runAction('about', Array)
+#1 /var/www/html/vendor/yiisoft/yii2/console/Application.php(147): craft\console\Application->runAction('about', Array)
+#2 /var/www/html/vendor/craftcms/cms/src/console/Application.php(122): yii\console\Application->handleRequest(Object(craft\console\Request))
+#3 /var/www/html/vendor/yiisoft/yii2/base/Application.php(384): craft\console\Application->handleRequest(Object(craft\console\Request))
+#4 /var/www/html/craft(22): yii\base\Application->run()
+#5 {main} {"memory":3018736,"exception":"[object] (yii\\console\\UnknownCommandException(code: 0): Unknown command \"about\". at /var/www/html/vendor/yiisoft/yii2/console/Application.php:183)
+[previous exception] [object] (yii\\base\\InvalidRouteException(code: 0): Unable to resolve the request \"about\". at /var/www/html/vendor/yiisoft/yii2/base/Module.php:561)"} 
+2026-01-06 10:58:42 [console.INFO] [yii\db\Connection::open] Opening DB connection: mysql:host=db;dbname=db;port=3306 {"memory":2156016} 
+2026-01-06 11:02:50 [console.INFO] [yii\db\Connection::open] Opening DB connection: mysql:host=db;dbname=db;port=3306 {"memory":2156072} 
+2026-01-06 11:07:45 [console.INFO] [yii\db\Connection::open] Opening DB connection: mysql:host=db;dbname=db;port=3306 {"memory":2156096} 
+2026-01-06 11:07:45 [console.INFO] [craft\db\MigrationManager::migrateUp] Applying Install {"memory":3715840} 
+2026-01-06 11:07:45 [console.INFO] [yii\db\Connection::open] Opening DB connection: mysql:host=db;dbname=db;port=3306 {"memory":4245528} 
+2026-01-06 11:07:45 [console.INFO] [craft\db\MigrationManager::migrateUp] Applied Install (time: 0.083s). {"memory":4313160} 
+2026-01-06 11:08:58 [console.INFO] [yii\db\Connection::open] Opening DB connection: mysql:host=db;dbname=db;port=3306 {"memory":2156064} 
+2026-01-06 11:08:58 [console.INFO] [yii\db\Connection::open] Opening DB connection: mysql:host=db;dbname=db;port=3306 {"memory":3752296} 
+2026-01-06 11:08:58 [console.WARNING] [craft\db\mysql\Schema::rollBackSavepoint] Tried to roll back a savepoint, but it does not exist: SQLSTATE[42000]: Syntax error or access violation: 1305 SAVEPOINT LEVEL1 does not exist
+The SQL being executed was: ROLLBACK TO SAVEPOINT LEVEL1 {"memory":4964560} 
+2026-01-06 11:09:06 [console.INFO] [yii\db\Connection::open] Opening DB connection: mysql:host=db;dbname=db;port=3306 {"memory":2156064} 
+2026-01-06 11:09:06 [console.INFO] [yii\db\Connection::open] Opening DB connection: mysql:host=db;dbname=db;port=3306 {"memory":4095624} 
+2026-01-06 11:09:06 [console.INFO] [craft\services\ProjectConfig::_applyChanges] Looking for pending changes {"memory":4072856} 
+2026-01-06 11:09:06 [console.INFO] [craft\services\ProjectConfig::_applyChanges] Finalizing configuration parsing {"memory":4073896} 

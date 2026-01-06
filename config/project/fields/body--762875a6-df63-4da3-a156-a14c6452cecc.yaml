@@ -6,16 +6,9 @@ instructions: null
 name: Body
 searchable: true
 settings:
-  errorMessage: 'Unable to find component class ''craft\redactor\Field''.'
-  expectedType: craft\redactor\Field
-  settings:
-    __assoc__:
-      -
-        - columnType
-        - text
-      -
-        - redactorConfig
-        - Standard.json
+  ckeConfig: d1ac3d29-9bab-418a-8f28-3855680f77ca # Standard
+  columnType: text
+  enableSourceEditingForNonAdmins: false
 translationKeyFormat: null
 translationMethod: none
-type: craft\fields\MissingField
+type: craft\ckeditor\Field
