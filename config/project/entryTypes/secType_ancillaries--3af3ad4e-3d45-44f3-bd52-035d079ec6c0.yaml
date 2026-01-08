@@ -61,7 +61,6 @@ fieldLayouts:
 handle: secType_ancillaries
 hasTitleField: true
 name: Ancillaries
-section: c2f1f492-f8d4-42ba-ac19-6fc8ef262ebb # Product Specifications
 showStatusField: true
 slugTranslationKeyFormat: null
 slugTranslationMethod: site

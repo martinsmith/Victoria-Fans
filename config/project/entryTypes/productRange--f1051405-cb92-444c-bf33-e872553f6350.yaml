@@ -127,7 +127,6 @@ fieldLayouts:
 handle: productRange
 hasTitleField: true
 name: 'Product Range'
-section: 778fb516-89fb-4cac-b9fa-845dd321a2ff # Product Range
 showStatusField: true
 slugTranslationKeyFormat: null
 slugTranslationMethod: site

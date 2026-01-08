@@ -12,11 +12,18 @@ use craft\base\conditions\ConditionInterface;
 use craft\base\ElementInterface;
 use craft\base\PreviewableFieldInterface;
 use craft\base\SortableFieldInterface;
+use craft\db\CoalesceColumnsExpression;
+use craft\elements\conditions\ElementConditionInterface;
+use craft\errors\FieldNotFoundException;
+use craft\errors\SiteNotFoundException;
 use craft\events\DefineSourceSortOptionsEvent;
 use craft\events\DefineSourceTableAttributesEvent;
 use craft\fieldlayoutelements\CustomField;
 use craft\helpers\ArrayHelper;
+use craft\helpers\Cp;
+use craft\helpers\StringHelper;
 use craft\models\FieldLayout;
+use Illuminate\Support\Collection;
 use yii\base\Component;
 
 /**
@@ -56,12 +63,8 @@ class ElementSources extends Component
      */
     public static function filterExtraHeadings(array $sources): array
     {
-        return array_values(array_filter($sources, function($source, $i) use ($sources) {
-            return (
-                $source['type'] !== self::TYPE_HEADING ||
-                (isset($sources[$i + 1]) && $sources[$i + 1]['type'] !== self::TYPE_HEADING)
-            );
-        }, ARRAY_FILTER_USE_BOTH));
+        return array_values(array_filter($sources, fn($source, $i) => $source['type'] !== self::TYPE_HEADING ||
+        (isset($sources[$i + 1]) && $sources[$i + 1]['type'] !== self::TYPE_HEADING), ARRAY_FILTER_USE_BOTH));
     }
 
     /**
@@ -94,10 +97,13 @@ class ElementSources extends Component
                     }
                 } else {
                     if ($source['type'] === self::TYPE_CUSTOM) {
-                        if (!$this->_showCustomSource($source)) {
+                        if ($context === self::CONTEXT_INDEX && !$this->_showCustomSource($source)) {
                             continue;
                         }
                         $source = $elementType::modifyCustomSource($source);
+                        if (!$withDisabled && ($source['disabled'] ?? false)) {
+                            continue;
+                        }
                     }
                     $sources[] = $source;
                 }
@@ -123,7 +129,46 @@ class ElementSources extends Component
             $sources = $nativeSources;
         }
 
+        // Normalize the site IDs
+        foreach ($sources as &$source) {
+            if (isset($source['sites'])) {
+                $sitesService = null;
+                $source['sites'] = array_filter(array_map(function(int|string $siteId) use (&$sitesService): ?int {
+                    if (is_string($siteId) && StringHelper::isUUID($siteId)) {
+                        $sitesService ??= Craft::$app->getSites();
+                        try {
+                            return $sitesService->getSiteByUid($siteId)->id;
+                        } catch (SiteNotFoundException) {
+                            return null;
+                        }
+                    }
+                    return (int)$siteId;
+                }, $source['sites'] ?: []));
+            }
+        }
+
         return $sources;
+    }
+
+    /**
+     * Returns whether the given source exists.
+     *
+     * @param class-string<ElementInterface> $elementType The element type class
+     * @param string $sourceKey The source key
+     * @param string $context The context
+     * @param bool $withDisabled Whether disabled sources should be included
+     * @return bool
+     * @since 5.7.11
+     */
+    public function sourceExists(string $elementType, string $sourceKey, string $context = self::CONTEXT_INDEX, bool $withDisabled = false): bool
+    {
+        foreach ($this->getSources($elementType, $context, $withDisabled) as $source) {
+            if (($source['key'] ?? null) === $sourceKey) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     /**
@@ -179,6 +224,10 @@ class ElementSources extends Component
             } elseif (!isset($info['label'])) {
                 $attributes[$key]['label'] = '';
             }
+
+            if (isset($attributes[$key]['icon']) && in_array($attributes[$key]['icon'], ['world', 'earth'])) {
+                $attributes[$key]['icon'] = Cp::earthIcon();
+            }
         }
 
         return $attributes;
@@ -199,9 +248,15 @@ class ElementSources extends Component
             $sourceKey = substr($sourceKey, 0, $slash);
         }
 
+        if ($sourceKey === '__IMP__') {
+            $sourceAttributes = $this->getTableAttributesForFieldLayouts($elementType::fieldLayouts(null));
+        } else {
+            $sourceAttributes = $this->getSourceTableAttributes($elementType, $sourceKey);
+        }
+
         $availableAttributes = array_merge(
             $this->getAvailableTableAttributes($elementType),
-            $this->getSourceTableAttributes($elementType, $sourceKey)
+            $sourceAttributes,
         );
 
         $attributeKeys = $customAttributes
@@ -239,13 +294,21 @@ class ElementSources extends Component
      */
     public function getFieldLayoutsForSource(string $elementType, string $sourceKey): array
     {
-        // Don't bother the element type for custom sources
-        if (str_starts_with($sourceKey, 'custom:')) {
-            return Craft::$app->getFields()->getLayoutsByType($elementType);
-        }
-
         if (!isset($this->_fieldLayouts[$elementType][$sourceKey])) {
-            $this->_fieldLayouts[$elementType][$sourceKey] = $elementType::fieldLayouts($sourceKey);
+            // Don't bother the element type for custom sources
+            if (str_starts_with($sourceKey, 'custom:')) {
+                $source = $this->_sourceConfig($elementType, $sourceKey);
+                if (empty($source['condition'])) {
+                    return Craft::$app->getFields()->getLayoutsByType($elementType);
+                }
+                /** @var ElementConditionInterface $condition */
+                $condition = Craft::$app->getConditions()->createCondition($source['condition']);
+                $query = $elementType::find();
+                $condition->modifyQuery($query);
+                $this->_fieldLayouts[$elementType][$sourceKey] = $query->getFieldLayouts();
+            } else {
+                $this->_fieldLayouts[$elementType][$sourceKey] = $elementType::fieldLayouts($sourceKey);
+            }
         }
 
         return $this->_fieldLayouts[$elementType][$sourceKey];
@@ -260,32 +323,69 @@ class ElementSources extends Component
      */
     public function getSourceSortOptions(string $elementType, string $sourceKey): array
     {
-        $event = new DefineSourceSortOptionsEvent([
-            'elementType' => $elementType,
-            'source' => $sourceKey,
-        ]);
+        $fieldLayouts = $sourceKey === '__IMP__'
+            ? $elementType::fieldLayouts(null)
+            : $this->getFieldLayoutsForSource($elementType, $sourceKey);
+        $sortOptions = $this->getSortOptionsForFieldLayouts($fieldLayouts);
 
-        $processedFieldIds = [];
+        // Fire a 'defineSourceSortOptions' event
+        if ($this->hasEventHandlers(self::EVENT_DEFINE_SOURCE_SORT_OPTIONS)) {
+            $event = new DefineSourceSortOptionsEvent([
+                'elementType' => $elementType,
+                'source' => $sourceKey,
+                'sortOptions' => $sortOptions,
+            ]);
+            $this->trigger(self::EVENT_DEFINE_SOURCE_SORT_OPTIONS, $event);
+            $sortOptions = $event->sortOptions;
+        }
 
-        foreach ($this->getFieldLayoutsForSource($elementType, $sourceKey) as $fieldLayout) {
+        // Combine duplicate attributes. If any attributes map to multiple sort
+        // options and each option has a string orderBy value, cmobine them
+        // with a CoalesceColumnsExpression.
+        return Collection::make($sortOptions)
+            ->groupBy('attribute')
+            ->map(function(Collection $group) {
+                $orderBys = $group->pluck('orderBy');
+                if ($orderBys->count() === 1 || $orderBys->doesntContain(fn($orderBy) => is_string($orderBy))) {
+                    return $group->first();
+                }
+                $expression = new CoalesceColumnsExpression($orderBys->all());
+                return array_merge($group->first(), [
+                    'orderBy' => $expression,
+                ]);
+            })
+            ->all();
+    }
+
+    /**
+     * Returns additional sort options that should be available for an element index source that includes the given
+     * field layouts.
+     *
+     * @param FieldLayout[] $fieldLayouts
+     * @return array[]
+     * @since 5.0.0
+     */
+    public function getSortOptionsForFieldLayouts(array $fieldLayouts): array
+    {
+        $sortOptions = [];
+
+        foreach ($fieldLayouts as $fieldLayout) {
             foreach ($fieldLayout->getCustomFieldElements() as $layoutElement) {
                 $field = $layoutElement->getField();
-                if (
-                    $field instanceof SortableFieldInterface &&
-                    !isset($processedFieldIds[$field->id])
-                ) {
+                if ($field instanceof SortableFieldInterface) {
                     $sortOption = $field->getSortOption();
                     if (!isset($sortOption['attribute'])) {
                         $sortOption['attribute'] = $sortOption['orderBy'];
                     }
-                    $event->sortOptions[] = $sortOption;
-                    $processedFieldIds[$field->id] = true;
+                    if (!isset($sortOption['defaultDir'])) {
+                        $sortOption['defaultDir'] = 'asc';
+                    }
+                    $sortOptions[] = $sortOption;
                 }
             }
         }
 
-        $this->trigger(self::EVENT_DEFINE_SOURCE_SORT_OPTIONS, $event);
-        return $event->sortOptions;
+        return $sortOptions;
     }
 
     /**
@@ -297,13 +397,39 @@ class ElementSources extends Component
      */
     public function getSourceTableAttributes(string $elementType, string $sourceKey): array
     {
-        $event = new DefineSourceTableAttributesEvent([
-            'elementType' => $elementType,
-            'source' => $sourceKey,
-        ]);
+        if ($sourceKey === '__IMP__') {
+            return [];
+        }
 
-        $user = Craft::$app->getUser()->getIdentity();
         $fieldLayouts = $this->getFieldLayoutsForSource($elementType, $sourceKey);
+        $attributes = $this->getTableAttributesForFieldLayouts($fieldLayouts);
+
+        // Fire a 'defineSourceTableAttributes' event
+        if ($this->hasEventHandlers(self::EVENT_DEFINE_SOURCE_TABLE_ATTRIBUTES)) {
+            $event = new DefineSourceTableAttributesEvent([
+                'elementType' => $elementType,
+                'source' => $sourceKey,
+                'attributes' => $attributes,
+            ]);
+            $this->trigger(self::EVENT_DEFINE_SOURCE_TABLE_ATTRIBUTES, $event);
+            return $event->attributes;
+        }
+
+        return $attributes;
+    }
+
+    /**
+     * Returns any table attributes that should be available for an element index source that includes the given
+     * field layouts.
+     *
+     * @param FieldLayout[] $fieldLayouts
+     * @return array[]
+     * @since 5.0.0
+     */
+    public function getTableAttributesForFieldLayouts(array $fieldLayouts): array
+    {
+        $user = Craft::$app->getUser()->getIdentity();
+        $attributes = [];
         /** @var CustomField[][] $groupedFieldElements */
         $groupedFieldElements = [];
 
@@ -319,12 +445,26 @@ class ElementSources extends Component
                         continue;
                     }
 
-                    $field = $layoutElement->getField();
+                    try {
+                        $field = $layoutElement->getField();
+                    } catch (FieldNotFoundException) {
+                        continue;
+                    }
+
                     if (
                         $field instanceof PreviewableFieldInterface &&
                         (!$user || $user->admin || ($layoutElement->getUserCondition()?->matchElement($user) ?? true))
                     ) {
-                        $groupedFieldElements[$field->id][] = $layoutElement;
+                        if ($layoutElement->handle === null) {
+                            // The handle wasn't overridden, so combine it with any other instances (from other layouts)
+                            // where the handle also wasn't overridden
+                            $groupedFieldElements[$field->id][] = $layoutElement;
+                        } else {
+                            // The handle was overridden, so it gets its own table attribute
+                            $attributes["fieldInstance:$layoutElement->uid"] = [
+                                'label' => Craft::t('site', $layoutElement->label()),
+                            ];
+                        }
                     }
                 }
             }
@@ -333,13 +473,12 @@ class ElementSources extends Component
         foreach ($groupedFieldElements as $fieldElements) {
             $field = $fieldElements[0]->getField();
             $labels = array_unique(array_map(fn(CustomField $layoutElement) => $layoutElement->label(), $fieldElements));
-            $event->attributes["field:$field->uid"] = [
+            $attributes["field:$field->uid"] = [
                 'label' => count($labels) === 1 ? $labels[0] : Craft::t('site', $field->name),
             ];
         }
 
-        $this->trigger(self::EVENT_DEFINE_SOURCE_TABLE_ATTRIBUTES, $event);
-        return $event->attributes;
+        return $attributes;
     }
 
     /**

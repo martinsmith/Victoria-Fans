@@ -1,0 +1,40 @@
+color: null
+description: null
+fieldLayouts:
+  0dc892fd-eefd-4052-a208-33bbedb1429f:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            fieldUid: dbee0493-466a-4dd9-a3e4-cb5505f168c5
+            handle: null
+            includeInCards: true
+            instructions: null
+            label: 'Item Text'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 5b9931f4-9148-4d5d-9bf2-2d95cfa60eae
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: cfddd923-70e9-452b-bf0a-4f2f7e6af719
+        userCondition: null
+handle: ancilliaryItemText
+hasTitleField: false
+icon: null
+name: 'Ancilliary Item Text'
+showSlugField: false
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

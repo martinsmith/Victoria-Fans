@@ -114,7 +114,7 @@ class ImageTransform extends Model
 
     /**
      * @var int|null The image transform index ID (if one was passed to the request).
-     * @since 4.11.0
+     * @since 5.3.0
      */
     public ?int $indexId = null;
 

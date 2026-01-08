@@ -1,0 +1,37 @@
+columnSuffix: null
+handle: itemDrawing
+instructions: null
+name: 'Ancilliary Item Information - Item Technical Drawing - Item Drawing'
+searchable: true
+settings:
+  allowSelfRelations: false
+  allowSubfolders: false
+  allowUploads: true
+  allowedKinds: null
+  branchLimit: null
+  defaultPlacement: end
+  defaultUploadLocationSource: 'volume:97f1d3a7-ddd4-4455-b3cd-927bbab12ae0' # Drawings
+  defaultUploadLocationSubpath: null
+  maintainHierarchy: false
+  maxRelations: null
+  minRelations: null
+  previewMode: full
+  restrictFiles: false
+  restrictLocation: false
+  restrictedDefaultUploadSubpath: null
+  restrictedLocationSource: 'volume:97f1d3a7-ddd4-4455-b3cd-927bbab12ae0' # Drawings
+  restrictedLocationSubpath: null
+  selectionLabel: 'Add a Drawing'
+  showCardsInGrid: false
+  showSearchInput: true
+  showSiteMenu: true
+  showUnpermittedFiles: false
+  showUnpermittedVolumes: true
+  sources:
+    - 'volume:97f1d3a7-ddd4-4455-b3cd-927bbab12ae0' # Drawings
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: large
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Assets

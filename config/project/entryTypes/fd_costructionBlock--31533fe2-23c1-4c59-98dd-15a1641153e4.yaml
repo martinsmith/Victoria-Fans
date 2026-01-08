@@ -1,0 +1,57 @@
+color: null
+description: null
+fieldLayouts:
+  a81730a2-9e1a-4ab3-9b12-26eed3884656:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            fieldUid: b4dd7eb4-e693-4764-ba37-51545396f27a
+            handle: null
+            includeInCards: true
+            instructions: null
+            label: 'Component Name'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: f1ba8cb8-2ca4-4ab2-8798-82cad2be2fa2
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            fieldUid: 86531809-0fd9-46da-9ea0-e97fea77c709
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: 'Component Text'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 0ada71c3-2012-4ae8-be2f-2abba9237d2d
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 3d13f957-bd52-48ee-8ff3-af84847d11e5
+        userCondition: null
+handle: fd_costructionBlock
+hasTitleField: false
+icon: null
+name: 'Costruction Block'
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

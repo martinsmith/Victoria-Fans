@@ -1,0 +1,40 @@
+color: null
+description: null
+fieldLayouts:
+  e62de590-382c-4953-abe6-cd530058136a:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            fieldUid: 691a3baa-93ae-46a0-95e1-bf3e30a8262a
+            handle: null
+            includeInCards: true
+            instructions: null
+            label: 'Item Drawing'
+            providesThumbs: true
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: ad5720f0-9d6c-4e40-b82b-7134d72248d3
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: f0dcef93-3f58-4ef6-a3b5-d19d96f503c1
+        userCondition: null
+handle: itemTechnicalDrawing
+hasTitleField: false
+icon: null
+name: 'Item Technical Drawing'
+showSlugField: false
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

@@ -1,6 +1,10 @@
 defaultPlacement: end
 enableVersioning: true
+entryTypes:
+  -
+    uid: 34586046-77c6-44c7-aaa7-3725a4d6d15a # Company Background
 handle: companyBackground
+maxAuthors: 1
 name: 'Company Background'
 previewTargets:
   -

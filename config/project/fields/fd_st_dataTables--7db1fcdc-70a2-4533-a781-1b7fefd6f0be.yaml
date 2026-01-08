@@ -1,6 +1,5 @@
 columnSuffix: null
 contentColumnType: string
-fieldGroup: e5a1e701-feac-4d3f-b9d9-e8b7f67468fc # Individual Product
 handle: fd_st_dataTables
 instructions: null
 name: 'Data Tables'
@@ -14,14 +13,18 @@ settings:
         -
           - width
           - ''
-  contentTable: '{{%supertablecontent_fd_st_datatables}}'
+  entryTypes:
+    - 4344a890-9100-43bf-abfa-b163ecc712db # Data Tables Block
   fieldLayout: row
+  maxEntries: null
   maxRows: null
+  minEntries: null
   minRows: null
   propagationKeyFormat: null
   propagationMethod: all
   selectionLabel: 'Add another Data Table'
   staticField: null
+  viewMode: blocks
 translationKeyFormat: null
 translationMethod: none
 type: verbb\supertable\fields\SuperTableField

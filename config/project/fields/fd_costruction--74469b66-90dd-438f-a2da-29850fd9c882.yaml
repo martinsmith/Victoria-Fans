@@ -1,6 +1,5 @@
 columnSuffix: null
 contentColumnType: string
-fieldGroup: e5a1e701-feac-4d3f-b9d9-e8b7f67468fc # Individual Product
 handle: fd_costruction
 instructions: null
 name: Costruction
@@ -19,14 +18,18 @@ settings:
         -
           - width
           - ''
-  contentTable: '{{%supertablecontent_fd_costruction}}'
+  entryTypes:
+    - 31533fe2-23c1-4c59-98dd-15a1641153e4 # Costruction Block
   fieldLayout: row
+  maxEntries: null
   maxRows: null
+  minEntries: null
   minRows: null
   propagationKeyFormat: null
   propagationMethod: all
   selectionLabel: 'Add another component'
   staticField: null
+  viewMode: blocks
 translationKeyFormat: null
 translationMethod: none
 type: verbb\supertable\fields\SuperTableField

@@ -1,6 +1,14 @@
 defaultPlacement: end
 enableVersioning: true
+entryTypes:
+  -
+    uid: 3af3ad4e-3d45-44f3-bd52-035d079ec6c0 # Ancillaries
+  -
+    uid: 7ef2438b-9479-4872-8d4a-37f826ef3c27 # Product Group Overview
+  -
+    uid: 0221bae3-0c87-4976-b7f9-39a728c50154 # Product Specification
 handle: productSpecifications
+maxAuthors: 1
 name: 'Product Specifications'
 previewTargets:
   -

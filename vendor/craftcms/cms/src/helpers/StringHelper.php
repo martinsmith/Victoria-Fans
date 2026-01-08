@@ -7,6 +7,7 @@
 
 namespace craft\helpers;
 
+use BackedEnum;
 use Craft;
 use HTMLPurifier_Config;
 use IteratorAggregate;
@@ -125,7 +126,7 @@ class StringHelper extends \yii\helpers\StringHelper
 
     /**
      * Returns ASCII character mappings, merging in any custom defined mappings
-     * from the <config4:customAsciiCharMappings> config setting.
+     * from the <config5:customAsciiCharMappings> config setting.
      *
      * @param bool $flat Whether the mappings should be returned as a flat array (é => e)
      * @param string|null $language Whether to include language-specific mappings (only applied if $flat is true)
@@ -413,11 +414,11 @@ class StringHelper extends \yii\helpers\StringHelper
      */
     public static function decdec(string $str): string
     {
-        if (strncmp($str, 'base64:', 7) === 0) {
+        if (str_starts_with($str, 'base64:')) {
             $str = base64_decode(substr($str, 7));
         }
 
-        if (strncmp($str, 'crypt:', 6) === 0) {
+        if (str_starts_with($str, 'crypt:')) {
             $str = Craft::$app->getSecurity()->decryptByKey(substr($str, 6));
         }
 
@@ -919,6 +920,18 @@ class StringHelper extends \yii\helpers\StringHelper
     }
 
     /**
+     * Returns the first line of a string.
+     *
+     * @param string $str
+     * @return string
+     * @since 5.5.0
+     */
+    public static function firstLine(string $str): string
+    {
+        return (string)BaseStringy::create($str)->lines()[0];
+    }
+
+    /**
      * Converts the first character of the supplied string to lower case.
      *
      * @param string $str The string to modify.
@@ -1045,11 +1058,7 @@ class StringHelper extends \yii\helpers\StringHelper
         // repeat the steps until we've created a string of the right length
         for ($i = 0; $i < $length; $i++) {
             // pick a random number from 1 up to the number of valid chars
-            try {
-                $randomPick = random_int(0, $numValidChars - 1);
-            } catch (\Exception) {
-                $randomPick = rand(0, $numValidChars - 1);
-            }
+            $randomPick = random_int(0, $numValidChars - 1);
 
             // take the random character out of the string of valid chars
             $randomChar = $validChars[$randomPick];
@@ -1350,8 +1359,9 @@ class StringHelper extends \yii\helpers\StringHelper
      */
     public static function slugify(string $str, string $replacement = '-', ?string $language = null): string
     {
+        $language ??= Craft::$app->language;
+
         /** @var ASCII::*_LANGUAGE_CODE $language */
-        $language = $language ?? Craft::$app->language;
         return (string)BaseStringy::create($str)->slugify($replacement, $language);
     }
 
@@ -1579,9 +1589,9 @@ class StringHelper extends \yii\helpers\StringHelper
         // Normalize NFD chars to NFC
         $str = Normalizer::normalize($str, Normalizer::FORM_C);
 
-        /** @var ASCII::*_LANGUAGE_CODE $language */
-        $language = $language ?? Craft::$app->language;
+        $language ??= Craft::$app->language;
 
+        /** @var ASCII::*_LANGUAGE_CODE $language */
         return (string)BaseStringy::create($str)->toAscii($language);
     }
 
@@ -1626,9 +1636,7 @@ class StringHelper extends \yii\helpers\StringHelper
     public static function toKebabCase(string $str, string $glue = '-', bool $lower = true, bool $removePunctuation = true): string
     {
         $words = self::toWords($str, $lower, $removePunctuation);
-        $words = ArrayHelper::filterEmptyStringsFromArray(array_map(function($str) use ($glue) {
-            return trim($str, $glue);
-        }, $words));
+        $words = ArrayHelper::filterEmptyStringsFromArray(array_map(fn($str) => trim($str, $glue), $words));
 
         return implode($glue, $words);
     }
@@ -1708,6 +1716,10 @@ class StringHelper extends \yii\helpers\StringHelper
             }
 
             return implode($glue, $stringValues);
+        }
+
+        if ($object instanceof BackedEnum) {
+            return $object->value;
         }
 
         return '';
@@ -2042,7 +2054,7 @@ class StringHelper extends \yii\helpers\StringHelper
      *
      * @param string $str
      * @return string
-     * @since 4.10.0
+     * @since 5.2.0
      */
     public static function indent(string $str, string $indent = '    '): string
     {
@@ -2053,7 +2065,7 @@ class StringHelper extends \yii\helpers\StringHelper
      * Returns a regex pattern for invisible characters.
      *
      * @return string
-     * @since 4.14.1
+     * @since 5.6.1
      */
     public static function invisibleCharsRegex(): string
     {

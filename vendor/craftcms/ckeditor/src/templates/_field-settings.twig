@@ -1,40 +1,14 @@
 {% import '_includes/forms.twig' as forms %}
 
-{% embed '_includes/forms/field.twig' with {
+{{ forms.componentSelectField({
   label: 'CKEditor Config'|t('ckeditor'),
   id: 'cke-config',
-  field: field,
-} %}
-  {% block input %}
-    {% set addOptionFn %}
-      (createOption, selectize) => {
-        const slideout = new Craft.CpScreenSlideout('ckeditor/cke-configs/edit');
-        slideout.on('submit', ev => {
-          createOption({
-              text: ev.data.name,
-              value: ev.data.uid,
-          });
-        });
-        slideout.on('close', () => {
-          if (selectize.lastValidValue === '__add__') {
-            selectize.lastValidValue = '';
-          }
-          selectize.focus();
-        });
-      }
-    {% endset %}
-
-    {% include '_includes/forms/selectize' with {
-        name: 'ckeConfig',
-        options: plugin('ckeditor').ckeConfigs.getAll()|map(ckeConfig => {
-          label: ckeConfig.name,
-          value: ckeConfig.uid,
-        }),
-        addOptionLabel: 'Create a new config…'|t('ckeditor'),
-        value: field.ckeConfig,
-    } %}
-  {% endblock %}
-{% endembed %}
+  name: 'ckeConfig',
+  options: plugin('ckeditor').ckeConfigs.getAll(),
+  value: ckeConfig ?? null,
+  limit: 1,
+  createAction: 'ckeditor/cke-configs/edit',
+}) }}
 
 {% embed '_includes/forms/field' with {
   label: 'Field Limit'|t('app'),
@@ -71,6 +45,15 @@
   on: field.showWordCount
 }) }}
 
+{{ forms.lightswitchField({
+  id: 'parse-embeds',
+  name: 'parseEmbeds',
+  label: 'Parse embeds'|t('ckeditor'),
+  instructions: 'Whether `<oembed>` tags should be parsed and replaced with the provider’s embed code.'|t('ckeditor'),
+  warning: 'This should only be enabled if the field output is cached.'|t('ckeditor'),
+  on: field.parseEmbeds,
+}) }}
+
 {% if userGroupOptions|length %}
 <div id="source-editing-groups">
   {{ forms.checkboxSelectField({
@@ -84,6 +67,32 @@
   }) }}
 </div>
 {% endif %}
+
+<hr>
+
+{% set headlessMode = craft.app.config.general.headlessMode %}
+{% set entryTypes = entryTypeRows ?? [] %}
+
+{{ forms.entryTypeSelectField({
+  label: 'Entry Types'|t('app'),
+  instructions: 'Choose the types of entries that can be created in this field.'|t('app'),
+  id: 'entry-types',
+  name: 'entryTypes[]',
+  values: field.getEntryTypes(),
+  allowOverrides: true,
+  create: true,
+  errors: field.getErrors('entryTypes'),
+  data: {'error-key': 'entryTypes'},
+}) }}
+
+{{ forms.lightswitchField({
+  id: 'expand-entry-buttons',
+  name: 'expandEntryButtons',
+  label: 'Show toolbar buttons for entry types with icons'|t('ckeditor'),
+  instructions: 'Whether entry types with icons should be shown as separate buttons in the toolbar.' |t('ckeditor'),
+  on: field.expandEntryButtons,
+  reverseToggle: 'create-button-label-wrapper',
+}) }}
 
 <hr>
 
@@ -167,18 +176,16 @@
     }) }}
   </div>
 
-  {% if craft.app.db.isMysql %}
+  {% if craft.app.config.general.enableGql %}
     {{ forms.selectField({
-      label: "Column Type"|t('ckeditor'),
-      id: 'column-type',
-      name: 'columnType',
-      instructions: "The type of column this field should get in the database."|t('ckeditor'),
+      label: 'GraphQL Mode'|t('app'),
+      id: 'graphql-mode',
+      name: 'graphqlMode',
       options: [
-        { value: 'text', label: 'text (~64KB)' },
-        { value: 'mediumtext', label: 'mediumtext (~16MB)' },
+        {label: 'Full data'|t('app'), value: 'full'},
+        {label: 'Raw content only'|t('ckeditor'), value: 'raw'},
       ],
-      value: field.columnType,
-      warning: (field.id ? "Changing this may result in data loss."|t('ckeditor')),
+      value: field.fullGraphqlData ? 'full' : 'raw',
     }) }}
   {% endif %}
 </div>

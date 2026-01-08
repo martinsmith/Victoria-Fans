@@ -12,6 +12,7 @@ use craft\helpers\Cp;
 use craft\helpers\Db;
 use craft\helpers\DateTimeHelper;
 use craft\helpers\Json;
+use craft\helpers\StringHelper;
 use craft\helpers\Template;
 use craft\validators\ColorValidator;
 use craft\validators\HandleValidator;
@@ -34,6 +35,16 @@ class TableMakerField extends Field
         return Craft::t('tablemaker', 'Table Maker');
     }
 
+    public static function icon(): string
+    {
+        return '@verbb/tablemaker/icon-mask.svg';
+    }
+
+    public static function dbType(): string
+    {
+        return Schema::TYPE_TEXT;
+    }
+
 
     // Properties
     // =========================================================================
@@ -50,11 +61,6 @@ class TableMakerField extends Field
 
     // Public Methods
     // =========================================================================
-
-    public function getContentColumnType(): string
-    {
-        return Schema::TYPE_TEXT;
-    }
 
     /**
      * Normalizes a cell’s value.
@@ -92,13 +98,27 @@ class TableMakerField extends Field
 
             case 'date':
             case 'time':
-                return json_encode(DateTimeHelper::toIso8601($value)) ?: null;
+                return DateTimeHelper::toIso8601($value);
+
+            case 'multiline':
+                return nl2br($value);
+
         }
 
         return $value;
     }
 
-    public function normalizeValue(mixed $value, ElementInterface $element = null): mixed
+    public function normalizeValue(mixed $value, ?ElementInterface $element): mixed
+    {
+        return $this->_normalizeValueInternal($value, $element, false);
+    }
+
+    public function normalizeValueFromRequest(mixed $value, ?ElementInterface $element): mixed
+    {
+        return $this->_normalizeValueInternal($value, $element, true);
+    }
+
+    private function _normalizeValueInternal(mixed $value, ?ElementInterface $element, bool $fromRequest): ?array
     {
         if (!is_array($value)) {
             $value = Json::decode($value);
@@ -141,7 +161,7 @@ class TableMakerField extends Field
                 $i = 0;
                 foreach ($row as $key => $cell) {
                     $type = $value['columns'][$key]['type'] ?? 'singleline';
-                    $cell = $this->normalizeCellValue($type, $cell);
+                    $cell = $this->normalizeCellValue($type, $cell, $fromRequest);
 
                     $align = $value['columns'][$key]['align'] ?? $value['columns'][$i]['align'] ?? '';
                     $html .= '<td align="' . $align . '">' . $cell . '</td>';
@@ -204,7 +224,9 @@ class TableMakerField extends Field
 
                     $type = $col['type'] ?? 'singleLine';
 
-                    if ($type && !$this->_validateCellValue($type, $row[$colId], $error)) {
+                    $normalizedValue = $this->normalizeCellValue($type, $row[$colId]);
+
+                    if ($type && !$this->_validateCellValue($type, $normalizedValue, $error)) {
                         $element->addError($this->handle, $error);
                     }
                 }
@@ -219,7 +241,77 @@ class TableMakerField extends Field
         ]);
     }
 
-    public function getInputHtml(mixed $value, ElementInterface $element = null): string
+    public function getContentGqlType(): Type|array
+    {
+        $typeName = $this->handle . '_TableMakerField';
+        $columnTypeName = $typeName . '_column';
+
+        $columnType = GqlEntityRegistry::getEntity($typeName) ?: GqlEntityRegistry::createEntity($columnTypeName, new ObjectType([
+            'name' => $columnTypeName,
+            'fields' => [
+                'type' => Type::string(),
+                'heading' => Type::string(),
+                'width' => Type::string(),
+                'align' => Type::string(),
+            ],
+        ]));
+
+        $tableMakerType = GqlEntityRegistry::getEntity($typeName) ?: GqlEntityRegistry::createEntity($typeName, new ObjectType([
+            'name' => $typeName,
+            'fields' => [
+                'rows' => [
+                    'type' => Type::listOf(Type::listOf(Type::string())),
+                    'resolve' => function ($source) {
+                        // Extra help here for an empty field. 
+                        // TODO: Refactor `normalizeValue()` properly to remove this.
+                        if (!is_array($source['rows'])) {
+                            $source['rows'] = [];
+                        }
+
+                        if (!is_array($source['columns'])) {
+                            $source['columns'] = [];
+                        }
+
+                        foreach ($source['rows'] as $rowKey => $row) {
+                            foreach ($source['columns'] as $columnKey => $column) {
+                                if ($column['type'] === 'date' || $column['type'] === 'time') {
+                                    $value = $row[$columnKey] ?? null;
+
+                                    $source['rows'][$rowKey][$columnKey] = DateTimeHelper::toIso8601($value);
+                                }
+
+                            }
+                        }
+
+                        return $source['rows'] ?? [];
+                    }
+                ],
+                'columns' => [
+                    'type' => Type::listOf($columnType),
+                    'resolve' => function ($source) {
+                        // Extra help here for an empty field. 
+                        // TODO: Refactor `normalizeValue()` properly to remove this.
+                        if (!is_array($source['columns'])) {
+                            $source['columns'] = [];
+                        }
+
+                        return $source['columns'];
+                    }
+                ],
+                'table' => [
+                    'type' => Type::string(),
+                ],
+            ],
+        ]));
+
+        return $tableMakerType;
+    }
+
+
+    // Protected Methods
+    // =========================================================================
+
+    protected function inputHtml(mixed $value, ?ElementInterface $element, bool $inline): string
     {
         $view = Craft::$app->getView();
 
@@ -424,74 +516,6 @@ class TableMakerField extends Field
         return $input . $columnsField . $rowsField;
     }
 
-    public function getContentGqlType(): Type|array
-    {
-        $typeName = $this->handle . '_TableMakerField';
-        $columnTypeName = $typeName . '_column';
-
-        $fields = [
-            'type' => Type::string(),
-            'heading' => Type::string(),
-        ];
-
-        if ($this->enableWidthColumn) {
-            $fields['width'] = Type::string();
-        }
-
-        if ($this->enableAlignmentColumn) {
-            $fields['align'] = Type::string();
-        }
-
-        $columnType = GqlEntityRegistry::getEntity($typeName) ?: GqlEntityRegistry::createEntity($columnTypeName, new ObjectType([
-            'name' => $columnTypeName,
-            'fields' => $fields,
-        ]));
-
-        $tableMakerType = GqlEntityRegistry::getEntity($typeName) ?: GqlEntityRegistry::createEntity($typeName, new ObjectType([
-            'name' => $typeName,
-            'fields' => [
-                'rows' => [
-                    'type' => Type::listOf(Type::listOf(Type::string())),
-                    'resolve' => function ($source) {
-                        // Extra help here for an empty field. 
-                        // TODO: Refactor `normalizeValue()` properly to remove this.
-                        if (!is_array($source['rows'])) {
-                            $source['rows'] = [];
-                        }
-
-                        // Normalize any rows.
-                        foreach ($source['rows'] as $rowKey => $row) {
-                            foreach ($row as $colKey => $column) {
-                                if (is_array($column) && (isset($column['date']) || isset($column['time']))) {
-                                    $source['rows'][$rowKey][$colKey] = DateTimeHelper::toIso8601($column);
-                                }
-                            }
-                        }
-
-                        return $source['rows'];
-                    }
-                ],
-                'columns' => [
-                    'type' => Type::listOf($columnType),
-                    'resolve' => function ($source) {
-                        // Extra help here for an empty field. 
-                        // TODO: Refactor `normalizeValue()` properly to remove this.
-                        if (!is_array($source['columns'])) {
-                            $source['columns'] = [];
-                        }
-
-                        return $source['columns'];
-                    }
-                ],
-                'table' => [
-                    'type' => Type::string(),
-                ],
-            ],
-        ]));
-
-        return $tableMakerType;
-    }
-
 
     // Private Methods
     // =========================================================================
@@ -504,8 +528,10 @@ class TableMakerField extends Field
 
         switch ($type) {
             case 'color':
-                /** @var ColorData $value */
-                $value = $value->getHex();
+                if ($value instanceof ColorData) {
+                    $value = $value->getHex();
+                }
+
                 $validator = new ColorValidator();
                 break;
             case 'url':

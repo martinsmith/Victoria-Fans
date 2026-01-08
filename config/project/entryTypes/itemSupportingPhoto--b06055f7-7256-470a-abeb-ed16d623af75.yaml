@@ -1,0 +1,40 @@
+color: null
+description: null
+fieldLayouts:
+  51750de9-b8c0-489f-aa16-28f1e83412f0:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            fieldUid: bcc94a4e-1a20-4c25-9db2-6232bf85d4ad
+            handle: null
+            includeInCards: true
+            instructions: null
+            label: 'Item Supporting Photo'
+            providesThumbs: true
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: e8da9ed6-1225-4502-81ec-cefff7479c38
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: b2ca709c-64b8-4161-a7b0-34ee8bdc8bb0
+        userCondition: null
+handle: itemSupportingPhoto
+hasTitleField: false
+icon: null
+name: 'Item Supporting Photo'
+showSlugField: false
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

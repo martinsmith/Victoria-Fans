@@ -11,6 +11,7 @@ use Craft;
 use craft\base\ElementInterface;
 use craft\base\Event;
 use craft\ckeditor\web\assets\BaseCkeditorPackageAsset;
+use craft\helpers\App;
 use craft\web\assets\cp\CpAsset;
 use craft\web\View;
 
@@ -62,13 +63,27 @@ class CkeditorAsset extends BaseCkeditorPackageAsset
 
         if ($view instanceof View) {
             $this->registerRefHandles($view);
+            $view->registerTranslations('app', [
+                'Edit {type}',
+            ]);
             $view->registerTranslations('ckeditor', [
+                'Add nested content',
+                'Entries cannot be copied between CKEditor fields.',
+                'Entry toolbar',
+                'Entry types list',
                 'Insert link',
                 'Link to the current site',
+                'New {type}',
                 'Site: {name}',
+                'This field doesn’t allow nested entries.',
                 '{num, number} {num, plural, =1{character} other{characters}}',
                 '{num, number} {num, plural, =1{word} other{words}}',
             ]);
+            $view->registerJsWithVars(fn($attach) => <<<JS
+Craft.showCkeditorInspector = $attach;
+JS, [
+                (bool)App::env('CRAFT_SHOW_CKEDITOR_INSPECTOR'),
+], View::POS_END);
         }
     }
 

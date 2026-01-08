@@ -123,4 +123,12 @@ JS, [
 
         return parent::formHtml($element, $static);
     }
+
+    /**
+     * @inheritdoc
+     */
+    public function isCrossSiteCopyable(ElementInterface $element): bool
+    {
+        return true;
+    }
 }

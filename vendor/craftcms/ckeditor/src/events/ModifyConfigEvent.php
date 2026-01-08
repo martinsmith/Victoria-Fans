@@ -30,7 +30,7 @@ class ModifyConfigEvent extends Event
 
     /**
      * @var string[] $toolbar The toolbar config
-     * @since 3.9.0
+     * @since 4.1.0
      */
     public array $toolbar;
 }

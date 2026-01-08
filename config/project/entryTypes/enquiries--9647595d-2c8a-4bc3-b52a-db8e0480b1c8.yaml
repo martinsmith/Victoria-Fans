@@ -37,7 +37,6 @@ fieldLayouts:
 handle: enquiries
 hasTitleField: false
 name: Enquiries
-section: f89244ec-3530-4f38-b304-6d2075707cd3 # Enquiries
 showStatusField: true
 slugTranslationKeyFormat: null
 slugTranslationMethod: site

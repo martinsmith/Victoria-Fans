@@ -12,10 +12,11 @@ use craft\base\BaseFsInterface;
 use craft\base\FsInterface;
 use craft\base\LocalFsInterface;
 use craft\elements\Asset;
-use craft\enums\PeriodType;
+use craft\enums\TimePeriod;
 use craft\errors\FsException;
 use craft\events\RegisterAssetFileKindsEvent;
 use craft\events\SetAssetFilenameEvent;
+use craft\fs\Temp;
 use craft\helpers\ImageTransforms as TransformHelper;
 use craft\models\VolumeFolder;
 use DateTime;
@@ -80,19 +81,19 @@ class Assets
     /**
      * Generates the URL for an asset.
      *
-     * @param BaseFsInterface $fs
      * @param Asset $asset
      * @param string|null $uri Asset URI to use. Defaults to the filename.
      * @param DateTime|null $dateUpdated last datetime the target of the url was updated, if known
      * @return string
      * @throws InvalidConfigException if the asset doesn’t have a filename.
      */
-    public static function generateUrl(BaseFsInterface $fs, Asset $asset, ?string $uri = null, ?DateTime $dateUpdated = null): string
+    public static function generateUrl(Asset $asset, ?string $uri = null, ?DateTime $dateUpdated = null): string
     {
+        $volume = $asset->getVolume();
         $pathParts = explode('/', $asset->folderPath . ($uri ?? $asset->getFilename()));
         $path = implode('/', array_map('rawurlencode', $pathParts));
-        $rootUrl = $fs->getRootUrl() ?? '';
-        $url = ($rootUrl !== '' ? StringHelper::ensureRight($rootUrl, '/') : '') . $path;
+        $rootUrl = $volume->getRootUrl() ?? '';
+        $url = $rootUrl . $path;
 
         if (Craft::$app->getConfig()->getGeneral()->revAssetUrls) {
             return self::revUrl($url, $asset, $dateUpdated);
@@ -219,9 +220,9 @@ class Assets
             'separator' => $separator,
         ]);
 
-        // Give developers a chance to do their own sanitation
         if ($isFilename) {
-            if (!$preventPluginModifications) {
+            // Fire a 'setFilename' event
+            if (!$preventPluginModifications && Event::hasHandlers(self::class, self::EVENT_SET_FILENAME)) {
                 $event = new SetAssetFilenameEvent([
                     'filename' => $baseName,
                     'originalFilename' => $originalBaseName,
@@ -331,12 +332,12 @@ class Assets
     public static function periodList(): array
     {
         return [
-            PeriodType::Seconds => Craft::t('app', 'Seconds'),
-            PeriodType::Minutes => Craft::t('app', 'Minutes'),
-            PeriodType::Hours => Craft::t('app', 'Hours'),
-            PeriodType::Days => Craft::t('app', 'Days'),
-            PeriodType::Months => Craft::t('app', 'Months'),
-            PeriodType::Years => Craft::t('app', 'Years'),
+            TimePeriod::Seconds->value => Craft::t('app', 'Seconds'),
+            TimePeriod::Minutes->value => Craft::t('app', 'Minutes'),
+            TimePeriod::Hours->value => Craft::t('app', 'Hours'),
+            TimePeriod::Days->value => Craft::t('app', 'Days'),
+            TimePeriod::Months->value => Craft::t('app', 'Months'),
+            TimePeriod::Years->value => Craft::t('app', 'Years'),
         ];
     }
 
@@ -348,9 +349,8 @@ class Assets
      */
     public static function sortFolderTree(array &$tree): void
     {
-        ArrayHelper::multisort($tree, function($folder) {
-            return $folder->getVolume()->sortOrder;
-        });
+        /** @phpstan-ignore parameterByRef.type */
+        ArrayHelper::multisort($tree, fn($folder) => $folder->getVolume()->sortOrder);
     }
 
     /**
@@ -687,13 +687,12 @@ class Assets
             // Merge with the extraFileKinds setting
             self::$_fileKinds = ArrayHelper::merge(self::$_fileKinds, Craft::$app->getConfig()->getGeneral()->extraFileKinds);
 
-            // Allow plugins to modify file kinds
-            $event = new RegisterAssetFileKindsEvent([
-                'fileKinds' => self::$_fileKinds,
-            ]);
-
-            Event::trigger(self::class, self::EVENT_REGISTER_FILE_KINDS, $event);
-            self::$_fileKinds = $event->fileKinds;
+            // Fire a 'registerFileKinds' event
+            if (Event::hasHandlers(self::class, self::EVENT_REGISTER_FILE_KINDS)) {
+                $event = new RegisterAssetFileKindsEvent(['fileKinds' => self::$_fileKinds]);
+                Event::trigger(self::class, self::EVENT_REGISTER_FILE_KINDS, $event);
+                self::$_fileKinds = $event->fileKinds;
+            }
 
             // Sort by label
             ArrayHelper::multisort(self::$_fileKinds, 'label');
@@ -932,7 +931,7 @@ class Assets
             return $path;
         }
 
-        $svg = file_get_contents(Craft::getAlias('@appicons/file.svg'));
+        $svg = file_get_contents(Craft::getAlias('@app/elements/thumbs/file.svg'));
 
         $extLength = strlen($extension);
         if ($extLength <= 3) {
@@ -953,5 +952,25 @@ class Assets
         ]);
 
         return Html::appendToTag($svg, $textNode);
+    }
+
+    /**
+     * Returns whether the given filesystem is used to store temporary asset uploads.
+     *
+     * @param FsInterface $fs
+     * @return bool
+     */
+    public static function isTempUploadFs(FsInterface $fs): bool
+    {
+        if ($fs instanceof Temp) {
+            return true;
+        }
+
+        if (!$fs->handle) {
+            return false;
+        }
+
+        $handle = App::parseEnv(Craft::$app->getConfig()->getGeneral()->tempAssetUploadFs);
+        return $fs->handle === $handle;
     }
 }

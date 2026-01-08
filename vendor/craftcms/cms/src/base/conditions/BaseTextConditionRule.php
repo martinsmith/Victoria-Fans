@@ -176,7 +176,7 @@ abstract class BaseTextConditionRule extends BaseConditionRule
      *
      * @param mixed $value
      * @return bool
-     * @since 4.14.10
+     * @since 5.6.11
      */
     protected function isEmpty(mixed $value): bool
     {

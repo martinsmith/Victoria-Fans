@@ -1,6 +1,10 @@
 defaultPlacement: end
 enableVersioning: true
+entryTypes:
+  -
+    uid: 9647595d-2c8a-4bc3-b52a-db8e0480b1c8 # Enquiries
 handle: enquiries
+maxAuthors: 1
 name: Enquiries
 previewTargets:
   -

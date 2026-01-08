@@ -1,0 +1,22 @@
+columnSuffix: null
+handle: addAdditionalInfo
+instructions: null
+name: 'Ancilliary Item Information - Additional Information - Add Additional Info'
+searchable: true
+settings:
+  createButtonLabel: null
+  defaultIndexViewMode: cards
+  enableVersioning: false
+  entryTypes:
+    - a5213b26-d421-4abe-b684-070d8bba7a06 # Ancilliary Item Information - Additional Information - Add Additional Info Block
+  includeTableView: false
+  maxEntries: null
+  minEntries: null
+  pageSize: null
+  propagationKeyFormat: null
+  propagationMethod: all
+  showCardsInGrid: false
+  viewMode: blocks
+translationKeyFormat: null
+translationMethod: site
+type: verbb\supertable\fields\SuperTableField

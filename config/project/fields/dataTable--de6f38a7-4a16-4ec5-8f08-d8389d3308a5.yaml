@@ -1,0 +1,17 @@
+columnSuffix: null
+handle: dataTable
+instructions: null
+name: 'Ancilliary Item Information - Item Data Table - Data Table'
+searchable: true
+settings:
+  columnsAddRowLabel: null
+  columnsInstructions: null
+  columnsLabel: 'Add Table Columns'
+  enableAlignmentColumn: true
+  enableWidthColumn: true
+  rowsAddRowLabel: null
+  rowsInstructions: null
+  rowsLabel: 'Add Table Rows'
+translationKeyFormat: null
+translationMethod: none
+type: verbb\tablemaker\fields\TableMakerField

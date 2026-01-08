@@ -1,0 +1,74 @@
+color: null
+description: null
+fieldLayouts:
+  43cbc285-5dc3-4b34-a4ea-ee0a8f0c783c:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            fieldUid: 5c9f0819-50b2-443b-96a5-16ce5f353ff4
+            handle: null
+            includeInCards: true
+            instructions: null
+            label: 'Special Title'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 50f97863-9dd5-4c74-942f-30c7e63cba04
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            fieldUid: a472c929-ea41-45e7-8798-a8d6885fff40
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: 'Support Images'
+            providesThumbs: true
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 392560e2-eaca-4b74-9d35-6119c2d3236e
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            fieldUid: ec028d75-0be7-4375-a13f-5e5fe8e38c86
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: 'Special Note'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: ae462317-ae83-4868-a7e0-4817846e7224
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: d21a6c2e-a065-4b0c-8088-84745b7590bd
+        userCondition: null
+handle: fd_additionalOptionsBlock
+hasTitleField: false
+icon: null
+name: 'Additional Options Block'
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

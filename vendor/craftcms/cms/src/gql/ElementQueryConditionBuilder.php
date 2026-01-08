@@ -305,12 +305,10 @@ class ElementQueryConditionBuilder extends Component
                 self::LOCALIZED_NODENAME => [CategoryField::class, EntryField::class],
             ];
 
+            // Fire a 'registerGqlEagerLoadableFields' event
             if ($this->hasEventHandlers(self::EVENT_REGISTER_GQL_EAGERLOADABLE_FIELDS)) {
-                $event = new RegisterGqlEagerLoadableFields([
-                    'fieldList' => $list,
-                ]);
+                $event = new RegisterGqlEagerLoadableFields(['fieldList' => $list]);
                 $this->trigger(self::EVENT_REGISTER_GQL_EAGERLOADABLE_FIELDS, $event);
-
                 $list = $event->fieldList;
             }
 
@@ -514,9 +512,7 @@ class ElementQueryConditionBuilder extends Component
                     if (!$transformableAssetProperty) {
                         /** @var InlineFragmentNode|FragmentDefinitionNode|null $wrappingFragment */
                         if ($wrappingFragment) {
-                            $plan->when = function(Element $element) use ($wrappingFragment) {
-                                return $element->getGqlTypeName() === $wrappingFragment->typeCondition->name->value;
-                            };
+                            $plan->when = fn(Element $element) => $element->getGqlTypeName() === $wrappingFragment->typeCondition->name->value;
                         }
                         $plan->criteria = array_merge_recursive($plan->criteria, $this->_argumentManager->prepareArguments($arguments));
                     }
@@ -613,7 +609,7 @@ class ElementQueryConditionBuilder extends Component
             }
         }
 
-        return array_values($plans);
+        return $plans;
     }
 
     /**

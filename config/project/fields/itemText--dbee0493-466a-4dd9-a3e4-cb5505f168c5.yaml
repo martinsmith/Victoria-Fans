@@ -1,0 +1,26 @@
+columnSuffix: null
+handle: itemText
+instructions: null
+name: 'Ancilliary Item Information - Ancilliary Item Text - Item Text'
+searchable: true
+settings:
+  availableTransforms: '*'
+  availableVolumes: '*'
+  characterLimit: null
+  ckeConfig: fd3fef83-fe9d-4015-9de7-a6c4efa2780e # Simple 2
+  createButtonLabel: null
+  defaultTransform: null
+  expandEntryButtons: false
+  fullGraphqlData: false
+  parseEmbeds: false
+  purifierConfig: null
+  purifyHtml: true
+  showUnpermittedFiles: false
+  showUnpermittedVolumes: false
+  showWordCount: false
+  sourceEditingGroups:
+    - __ADMINS__
+  wordLimit: null
+translationKeyFormat: null
+translationMethod: none
+type: craft\ckeditor\Field

@@ -382,6 +382,7 @@ class ImageTransformer extends Component implements ImageTransformerInterface, E
             $this->storeTransformIndexData($index);
         }, $image);
 
+        // Fire a 'transformImage' event
         if ($this->hasEventHandlers(static::EVENT_TRANSFORM_IMAGE)) {
             $event = new ImageTransformerOperationEvent([
                 'asset' => $asset,
@@ -778,7 +779,7 @@ class ImageTransformer extends Component implements ImageTransformerInterface, E
      */
     protected function getTransformBasePath(Asset $asset): string
     {
-        $subPath = $asset->getVolume()->transformSubpath;
+        $subPath = $asset->getVolume()->getTransformSubpath();
         $subPath = StringHelper::removeRight($subPath, '/');
         return ($subPath ? $subPath . DIRECTORY_SEPARATOR : '') . $asset->folderPath;
     }

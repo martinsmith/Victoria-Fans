@@ -29,6 +29,12 @@ use craft\base\Serializable;
 class ColorData extends Model implements Serializable
 {
     /**
+     * @var string|null The human-facing label for the color.
+     * @since 5.7.0
+     */
+    public ?string $label = null;
+
+    /**
      * @var string The color’s hex value
      */
     private string $_hex;

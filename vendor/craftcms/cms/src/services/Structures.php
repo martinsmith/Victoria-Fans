@@ -146,7 +146,8 @@ class Structures extends Component
     /**
      * Patches an array of entries, filling in any gaps in the tree.
      *
-     * @param ElementInterface[] $elements
+     * @template T of ElementInterface
+     * @param T[] $elements
      * @since 3.6.0
      */
     public function fillGapsInElements(array &$elements): void
@@ -179,6 +180,7 @@ class Structures extends Component
                     $ancestorQuery->andWhere(['>', 'structureelements.lft', $prevElement->lft]);
                 }
 
+                /** @var T $ancestor */
                 foreach ($ancestorQuery->all() as $ancestor) {
                     $patchedElements[] = $ancestor;
                 }
@@ -194,7 +196,8 @@ class Structures extends Component
     /**
      * Filters an array of elements down to only <= X branches.
      *
-     * @param ElementInterface[] $elements
+     * @template T of ElementInterface
+     * @param T[] $elements
      * @param int $branchLimit
      * @since 3.6.0
      */
@@ -542,8 +545,8 @@ class Structures extends Component
 
         $targetElementId = $targetElementRecord->isRoot() ? null : $targetElementRecord->elementId;
 
+        // Fire a 'beforeInsertElement' or 'beforeMoveElement' event
         if ($this->hasEventHandlers($beforeEvent)) {
-            // Fire a 'beforeInsertElement' or 'beforeMoveElement' event
             $event = new MoveElementEvent([
                 'element' => $element,
                 'structureId' => $structureId,

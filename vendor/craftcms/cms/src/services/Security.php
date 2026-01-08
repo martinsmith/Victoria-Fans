@@ -203,7 +203,7 @@ class Security extends \yii\base\Security
      *
      * @param string $path
      * @return bool
-     * @since 4.12.1
+     * @since 5.4.2
      */
     public function isSystemDir(string $path): bool
     {

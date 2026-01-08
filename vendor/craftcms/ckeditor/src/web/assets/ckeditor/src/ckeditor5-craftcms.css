@@ -36,6 +36,8 @@
   --ck-powered-by-line-height: 8px;
   --ck-powered-by-padding-vertical: 0px;
   --ck-powered-by-padding-horizontal: 0px;
+  --ck-color-base-background: var(--input-bg) !important;
+  --ck-color-toolbar-background: var(--white) !important;
 }
 
 .ck.ck-sticky-panel .ck-sticky-panel__content_sticky .ck.ck-toolbar {
@@ -93,6 +95,10 @@ a.ck.ck-button:focus {
 }
 
 /* content */
+.ck.ck-content {
+  color: var(--text-color);
+}
+
 .ck.ck-content ul:last-child,
 .ck.ck-content ol:last-child {
   padding-bottom: 0 !important;
@@ -145,6 +151,88 @@ a.ck.ck-button:focus {
   background: var(--ck-color-base-background);
 }
 
+/* nested entries */
+.cke-entry-card {
+  margin: 0.9em auto; /* same as images */
+  border-radius: var(--large-border-radius);
+}
+
+/* minimum color variations that meet the 3:1 colour contrast requirement against the white bg and #d7dfe7 hover bg */
+.ck-toolbar .entry-type-buttons .icon.orange {
+  --icon-color: var(--orange-600);
+}
+.ck-toolbar .entry-type-buttons .icon.orange:hover {
+  --icon-color: var(--orange-700);
+}
+
+.ck-toolbar .entry-type-buttons .icon.amber {
+  --icon-color: var(--amber-600);
+}
+.ck-toolbar .entry-type-buttons .icon.amber:hover {
+  --icon-color: var(--amber-700);
+}
+
+.ck-toolbar .entry-type-buttons .icon.yellow {
+  --icon-color: var(--yellow-700);
+}
+
+.ck-toolbar .entry-type-buttons .icon.lime {
+  --icon-color: var(--lime-600);
+}
+.ck-toolbar .entry-type-buttons .icon.lime:hover {
+  --icon-color: var(--lime-700);
+}
+
+.ck-toolbar .entry-type-buttons .icon.green {
+  --icon-color: var(--green-600);
+}
+.ck-toolbar .entry-type-buttons .icon.green:hover {
+  --icon-color: var(--green-700);
+}
+
+.ck-toolbar .entry-type-buttons .icon.emerald {
+  --icon-color: var(--emerald-600);
+}
+.ck-toolbar .entry-type-buttons .icon.emerald:hover {
+  --icon-color: var(--emerald-700);
+}
+
+.ck-toolbar .entry-type-buttons .icon.teal:hover {
+  --icon-color: var(--teal-700);
+}
+
+.ck-toolbar .entry-type-buttons .icon.cyan {
+  --icon-color: var(--cyan-600);
+}
+.ck-toolbar .entry-type-buttons .icon.cyan:hover {
+  --icon-color: var(--cyan-700);
+}
+
+.ck-toolbar .entry-type-buttons .icon.sky {
+  --icon-color: var(--sky-600);
+}
+
+.ck-toolbar .entry-type-buttons .icon.purple:hover {
+  --icon-color: var(--purple-600);
+}
+
+.ck-toolbar .entry-type-buttons .icon.fuchsia:hover {
+  --icon-color: var(--fuchsia-600);
+}
+
+.ck-toolbar .entry-type-buttons .icon.pink:hover {
+  --icon-color: var(--pink-600);
+}
+
+.ck-toolbar .entry-type-buttons .icon.rose:hover {
+  --icon-color: var(--rose-600);
+}
+
+.ck-toolbar .entry-type-buttons .icon {
+  color: var(--icon-color);
+}
+/* end nested entries
+
 /* start fix for https://github.com/craftcms/ckeditor/issues/345 and https://github.com/craftcms/ckeditor/issues/417 */
 form[class^='lp-editor'] .ck-toolbar_grouping,
 form[class*=' lp-editor'] .ck-toolbar_grouping,
@@ -178,6 +266,13 @@ form[class*=' lp-editor']
   z-index: auto;
 }
 /* end fix */
+
+/* patch in https://github.com/ckeditor/ckeditor5/pull/15795 */
+.ck.ck-editor__editable_inline > :last-child,
+.ck.ck-editor__editable_inline
+  > :has(+ .ck-fake-selection-container:last-child) {
+  margin-bottom: var(--ck-spacing-large);
+}
 
 .ck.ck-read-only {
   cursor: not-allowed;

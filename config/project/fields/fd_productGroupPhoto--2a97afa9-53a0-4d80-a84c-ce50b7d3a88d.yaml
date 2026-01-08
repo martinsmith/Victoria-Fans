@@ -1,6 +1,5 @@
 columnSuffix: null
 contentColumnType: string
-fieldGroup: 80829250-34bf-44e3-873e-30fd538a844e # Product Information
 handle: fd_productGroupPhoto
 instructions: 'This is the image that appears with the product group on the homepage.'
 name: 'Product Group Photo'

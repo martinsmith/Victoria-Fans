@@ -8,6 +8,7 @@
 namespace craft\helpers;
 
 use Craft;
+use craft\behaviors\CustomFieldBehavior;
 use craft\services\ProjectConfig as ProjectConfigService;
 use StdClass;
 use yii\base\InvalidArgumentException;
@@ -60,6 +61,12 @@ class ProjectConfig
     private static bool $_processedUserGroups = false;
 
     /**
+     * @var bool Whether we've already processed all entry type configs.
+     * @see ensureAllEntryTypesProcessed()
+     */
+    private static bool $_processedEntryTypes = false;
+
+    /**
      * @var bool Whether we've already processed all section configs.
      * @see ensureAllSectionsProcessed()
      */
@@ -103,17 +110,23 @@ class ProjectConfig
 
         self::$_processedFields = true;
 
-        $allGroups = $projectConfig->get(ProjectConfigService::PATH_FIELD_GROUPS, true) ?? [];
         $allFields = $projectConfig->get(ProjectConfigService::PATH_FIELDS, true) ?? [];
-
-        foreach ($allGroups as $groupUid => $groupData) {
-            // Ensure group is processed
-            $projectConfig->processConfigChanges(ProjectConfigService::PATH_FIELD_GROUPS . '.' . $groupUid);
-        }
 
         foreach ($allFields as $fieldUid => $fieldData) {
             // Ensure field is processed
             $projectConfig->processConfigChanges(ProjectConfigService::PATH_FIELDS . '.' . $fieldUid);
+        }
+
+        // Now that all fields are processed, make sure that CustomFieldBehavior::$fieldHandles
+        // is up-to-date with any overridden field handles in field layouts.
+        // (This could not be the case if any Content Block fields define a field layout that reference
+        // fields which weren’t processed yet at the time their layout was saved, for example.)
+        foreach (Craft::$app->getFields()->getAllLayouts() as $layout) {
+            foreach ($layout->getCustomFieldElements() as $layoutElement) {
+                if (isset($layoutElement->handle)) {
+                    CustomFieldBehavior::$fieldHandles[$layoutElement->handle] = true;
+                }
+            }
         }
     }
 
@@ -167,6 +180,28 @@ class ProjectConfig
                 // Ensure group is processed
                 $projectConfig->processConfigChanges($path . $groupUid);
             }
+        }
+    }
+
+    /**
+     * Ensure all entry type config changes are processed immediately in a safe manner.
+     *
+     * @since 5.0.0
+     */
+    public static function ensureAllEntryTypesProcessed(): void
+    {
+        $projectConfig = Craft::$app->getProjectConfig();
+
+        if (self::$_processedEntryTypes || !$projectConfig->getIsApplyingExternalChanges()) {
+            return;
+        }
+
+        self::$_processedEntryTypes = true;
+
+        $configs = $projectConfig->get(ProjectConfigService::PATH_ENTRY_TYPES, true) ?? [];
+        foreach ($configs as $uid => $config) {
+            $path = sprintf('%s.%s', ProjectConfigService::PATH_ENTRY_TYPES, $uid);
+            $projectConfig->processConfigChanges($path);
         }
     }
 

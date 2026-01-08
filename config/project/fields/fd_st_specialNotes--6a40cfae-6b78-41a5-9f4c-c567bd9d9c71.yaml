@@ -1,6 +1,5 @@
 columnSuffix: null
 contentColumnType: string
-fieldGroup: e5a1e701-feac-4d3f-b9d9-e8b7f67468fc # Individual Product
 handle: fd_st_specialNotes
 instructions: null
 name: 'Special Notes'
@@ -14,14 +13,18 @@ settings:
         -
           - width
           - ''
-  contentTable: '{{%supertablecontent_fd_st_specialnotes}}'
+  entryTypes:
+    - 5543734e-141e-41f4-ba94-04dddf8d2e87 # Special Notes Block
   fieldLayout: row
+  maxEntries: null
   maxRows: null
+  minEntries: null
   minRows: null
   propagationKeyFormat: null
   propagationMethod: all
   selectionLabel: 'Add a note'
   staticField: null
+  viewMode: blocks
 translationKeyFormat: null
 translationMethod: none
 type: verbb\supertable\fields\SuperTableField

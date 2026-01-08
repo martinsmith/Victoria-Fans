@@ -175,7 +175,6 @@ fieldLayouts:
 handle: secType_productGroupOverview
 hasTitleField: true
 name: 'Product Group Overview'
-section: c2f1f492-f8d4-42ba-ac19-6fc8ef262ebb # Product Specifications
 showStatusField: true
 slugTranslationKeyFormat: null
 slugTranslationMethod: site

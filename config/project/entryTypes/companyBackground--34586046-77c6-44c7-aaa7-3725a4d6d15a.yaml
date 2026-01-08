@@ -199,7 +199,6 @@ fieldLayouts:
 handle: companyBackground
 hasTitleField: false
 name: 'Company Background'
-section: 9f0ca6fc-a0e3-4002-8974-6454e2259cdc # Company Background
 showStatusField: true
 slugTranslationKeyFormat: null
 slugTranslationMethod: site

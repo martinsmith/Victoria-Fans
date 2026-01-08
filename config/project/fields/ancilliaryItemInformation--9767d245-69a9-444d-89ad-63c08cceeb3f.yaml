@@ -1,16 +1,26 @@
 columnSuffix: null
 contentColumnType: string
-fieldGroup: 4c149f8a-1ad7-4b97-ad15-006119f585aa # Ancillaries
 handle: ancilliaryItemInformation
 instructions: null
 name: 'Ancilliary Item Information'
 searchable: true
 settings:
-  contentTable: '{{%matrixcontent_ancilliaryiteminformation}}'
-  maxBlocks: null
-  minBlocks: null
+  entryTypes:
+    -
+      uid: c25fdfcb-a947-4896-a4b0-aa087117e1fc
+    -
+      uid: b06055f7-7256-470a-abeb-ed16d623af75
+    -
+      uid: d67f0f23-7735-43ad-88ec-0b2e28c64e91
+    -
+      uid: bab7c1b3-9c74-4b97-bdfb-ff3093e0f0d3
+    -
+      uid: 36550f8f-c430-4751-a19d-392acad143c9
+  maxEntries: null
+  minEntries: null
   propagationKeyFormat: null
   propagationMethod: all
+  viewMode: blocks
 translationKeyFormat: null
 translationMethod: site
 type: craft\fields\Matrix

@@ -1,0 +1,57 @@
+color: null
+description: null
+fieldLayouts:
+  e48bdef6-4ad3-4ef7-99c1-0c1c03b378ee:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            fieldUid: bcf4e0a6-3bfd-4723-9b4c-d5d40ed18f1a
+            handle: null
+            includeInCards: true
+            instructions: null
+            label: Header
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 812917ec-f838-4bf7-af62-f8726d37a2d2
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            fieldUid: ff8acaa1-9621-4ec7-8737-f747573a01df
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: Text
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 4c5ed148-e689-4254-ba5f-90795d42cde8
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 7068d81f-0364-43cb-a0e8-292b7e7a9bf0
+        userCondition: null
+handle: addAdditionalInfoBlock
+hasTitleField: false
+icon: null
+name: 'Ancilliary Item Information - Additional Information - Add Additional Info Block'
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

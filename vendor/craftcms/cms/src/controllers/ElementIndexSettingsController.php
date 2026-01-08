@@ -12,6 +12,7 @@ use craft\base\ElementInterface;
 use craft\base\PreviewableFieldInterface;
 use craft\elements\conditions\ElementConditionInterface;
 use craft\helpers\ArrayHelper;
+use craft\helpers\Cp;
 use craft\models\UserGroup;
 use craft\services\ElementSources;
 use craft\services\ProjectConfig;
@@ -145,6 +146,13 @@ class ElementIndexSettingsController extends BaseElementsController
                     $source += compact('conditionBuilderHtml', 'conditionBuilderJs');
                 }
 
+                if (isset($source['sites'])) {
+                    $sitesService = Craft::$app->getSites();
+                    $source['sites'] = array_values(array_filter(array_map(
+                        fn(int $siteId) => $sitesService->getSiteById($siteId)?->uid,
+                        $source['sites'] ?: [],
+                    )));
+                }
                 if (isset($source['sites']) && $source['sites'] === false) {
                     $source['sites'] = [];
                 }
@@ -155,6 +163,10 @@ class ElementIndexSettingsController extends BaseElementsController
             }
         }
         unset($source);
+
+        $viewModes = array_map(fn(array $viewMode) => array_merge($viewMode, [
+            'iconSvg' => Cp::iconSvg($viewMode['icon'] ?? 'table'),
+        ]), $elementType::indexViewModes());
 
         // Get the default sort options for custom sources
         $defaultSortOptions = Collection::make($sourcesService->getSourceSortOptions($elementType, 'custom:x'))
@@ -205,6 +217,7 @@ class ElementIndexSettingsController extends BaseElementsController
 
         return $this->asJson([
             'sources' => $sources,
+            'viewModes' => $viewModes,
             'baseSortOptions' => $baseSortOptions,
             'defaultSortOptions' => $defaultSortOptions,
             'availableTableAttributes' => $availableTableAttributes,
@@ -230,7 +243,7 @@ class ElementIndexSettingsController extends BaseElementsController
         // Get the old source configs
         $projectConfig = Craft::$app->getProjectConfig();
         $oldSourceConfigs = $projectConfig->get(ProjectConfig::PATH_ELEMENT_SOURCES . ".$elementType") ?? [];
-        $oldSourceConfigs = ArrayHelper::index(array_filter($oldSourceConfigs, fn($s) => $s['type'] !== ElementSources::TYPE_HEADING), 'key');
+        $oldSourceConfigs = ArrayHelper::index($oldSourceConfigs, 'key');
 
         $conditionsService = Craft::$app->getConditions();
 
@@ -241,25 +254,33 @@ class ElementIndexSettingsController extends BaseElementsController
 
         // Normalize to the way it's stored in the DB
         foreach ($sourceOrder as $source) {
-            if (isset($source['heading'])) {
-                $newSourceConfigs[] = [
-                    'type' => ElementSources::TYPE_HEADING,
-                    'heading' => $source['heading'],
-                ];
-            } elseif (isset($source['key'])) {
-                $isCustom = str_starts_with($source['key'], 'custom:');
+            if (isset($source['key'])) {
+                $type = match (true) {
+                    str_starts_with($source['key'], 'custom:') => ElementSources::TYPE_CUSTOM,
+                    str_starts_with($source['key'], 'heading:') => ElementSources::TYPE_HEADING,
+                    default => ElementSources::TYPE_NATIVE,
+                };
+
+                $isCustom = $type === ElementSources::TYPE_CUSTOM;
                 $sourceConfig = [
-                    'type' => $isCustom ? ElementSources::TYPE_CUSTOM : ElementSources::TYPE_NATIVE,
+                    'type' => $type,
                     'key' => $source['key'],
                 ];
 
                 // Were new settings posted?
                 if (isset($sourceSettings[$source['key']])) {
                     $postedSettings = $sourceSettings[$source['key']];
-                    $sourceConfig['tableAttributes'] = array_values(array_filter($postedSettings['tableAttributes'] ?? [])) ?: '-';
+
+                    if ($type !== ElementSources::TYPE_HEADING) {
+                        $sourceConfig['tableAttributes'] = array_values(array_filter($postedSettings['tableAttributes'] ?? [])) ?: '-';
+                    }
 
                     if (isset($postedSettings['defaultSort'])) {
                         $sourceConfig['defaultSort'] = $postedSettings['defaultSort'];
+                    }
+
+                    if (isset($postedSettings['defaultViewMode'])) {
+                        $sourceConfig['defaultViewMode'] = $postedSettings['defaultViewMode'];
                     }
 
                     if ($isCustom) {
@@ -275,6 +296,8 @@ class ElementIndexSettingsController extends BaseElementsController
                         if (isset($postedSettings['userGroups']) && $postedSettings['userGroups'] !== '*') {
                             $sourceConfig['userGroups'] = is_array($postedSettings['userGroups']) ? $postedSettings['userGroups'] : false;
                         }
+                    } elseif ($type === ElementSources::TYPE_HEADING) {
+                        $sourceConfig['heading'] = $postedSettings['heading'];
                     } elseif (isset($postedSettings['enabled'])) {
                         $sourceConfig['disabled'] = !$postedSettings['enabled'];
                         if ($sourceConfig['disabled']) {

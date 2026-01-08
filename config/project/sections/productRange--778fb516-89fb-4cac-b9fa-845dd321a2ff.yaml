@@ -1,6 +1,10 @@
 defaultPlacement: end
 enableVersioning: true
+entryTypes:
+  -
+    uid: f1051405-cb92-444c-bf33-e872553f6350 # Product Range
 handle: productRange
+maxAuthors: 1
 name: 'Product Range'
 previewTargets:
   -

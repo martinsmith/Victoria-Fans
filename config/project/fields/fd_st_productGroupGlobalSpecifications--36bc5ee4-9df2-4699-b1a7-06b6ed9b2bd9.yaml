@@ -1,6 +1,5 @@
 columnSuffix: null
 contentColumnType: string
-fieldGroup: 80829250-34bf-44e3-873e-30fd538a844e # Product Information
 handle: fd_st_productGroupGlobalSpecifications
 instructions: null
 name: 'Product Group Global Specifications'
@@ -19,14 +18,18 @@ settings:
         -
           - width
           - ''
-  contentTable: '{{%supertablecontent_fd_st_productgroupglobalspecifications}}'
+  entryTypes:
+    - 3381a675-90f1-4cf2-924f-4ac2537c460b # Product Group Global Specifications Block
   fieldLayout: row
+  maxEntries: null
   maxRows: null
+  minEntries: null
   minRows: null
   propagationKeyFormat: null
   propagationMethod: all
   selectionLabel: 'Add more information'
   staticField: null
+  viewMode: blocks
 translationKeyFormat: null
 translationMethod: none
 type: verbb\supertable\fields\SuperTableField
