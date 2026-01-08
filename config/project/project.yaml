@@ -22,23 +22,23 @@ fs:
     hasUrls: true
     name: Drawings
     settings:
-      path: img/drawings
+      path: '@webroot/img/drawings'
     type: craft\fs\Local
-    url: 'https://victoriafans.co.uk/img/drawings/'
+    url: '@web/img/drawings'
   fans:
     hasUrls: true
     name: Fans
     settings:
-      path: img/fans
+      path: '@webroot/img/fans'
     type: craft\fs\Local
-    url: 'https://victoriafans.co.uk/img/fans/'
+    url: '@web/img/fans'
   general:
     hasUrls: true
     name: General
     settings:
-      path: img/general
+      path: '@webroot/img/general'
     type: craft\fs\Local
-    url: 'https://victoriafans.co.uk/img/general/'
+    url: '@web/img/general'
   userPhotos:
     hasUrls: false
     name: 'User Photos'
@@ -46,10 +46,6 @@ fs:
       path: '@storage/userphotos'
     type: craft\fs\Local
     url: null
-graphql:
-  publicToken:
-    enabled: false
-    expiryDate: null
 meta:
   __names__:
     0ab76088-96ec-4c9c-a405-992253d0a248: 'Data Sheet Option' # Data Sheet Option

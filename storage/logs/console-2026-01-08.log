@@ -1,0 +1,73 @@
+2026-01-08 15:46:15 [console.INFO] [yii\db\Connection::open] Opening DB connection: mysql:host=db;dbname=db;port=3306 {"memory":2156064} 
+2026-01-08 15:46:16 [console.INFO] [yii\db\Connection::open] Opening DB connection: mysql:host=db;dbname=db;port=3306 {"memory":2156064} 
+2026-01-08 15:46:16 [console.ERROR] [UnexpectedValueException] UnexpectedValueException: RecursiveDirectoryIterator::__construct(img/drawings/): Failed to open directory: No such file or directory in /var/www/html/vendor/craftcms/cms/src/fs/Local.php:401
+Stack trace:
+#0 /var/www/html/vendor/craftcms/cms/src/fs/Local.php(401): RecursiveDirectoryIterator->__construct('img/drawings/', 20496)
+#1 /var/www/html/vendor/craftcms/cms/src/fs/Local.php(182): craft\fs\Local->getRecursiveIterator('img/drawings/')
+#2 /var/www/html/vendor/craftcms/cms/src/services/AssetIndexer.php(72): craft\fs\Local->getFileList('', true)
+#3 /var/www/html/vendor/craftcms/cms/src/console/controllers/IndexAssetsController.php(176): craft\services\AssetIndexer->getIndexListOnVolume(Object(craft\models\Volume), '')
+#4 /var/www/html/vendor/craftcms/cms/src/console/controllers/IndexAssetsController.php(98): craft\console\controllers\IndexAssetsController->_indexAssets(Array)
+#5 [internal function]: craft\console\controllers\IndexAssetsController->actionAll()
+#6 /var/www/html/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#7 /var/www/html/vendor/yiisoft/yii2/base/Controller.php(178): yii\base\InlineAction->runWithParams(Array)
+#8 /var/www/html/vendor/yiisoft/yii2/console/Controller.php(180): yii\base\Controller->runAction('all', Array)
+#9 /var/www/html/vendor/craftcms/cms/src/console/ControllerTrait.php(90): yii\console\Controller->runAction('all', Array)
+#10 /var/www/html/vendor/craftcms/cms/src/console/Controller.php(216): craft\console\Controller->traitRunAction('all', Array)
+#11 /var/www/html/vendor/yiisoft/yii2/base/Module.php(552): craft\console\Controller->runAction('all', Array)
+#12 /var/www/html/vendor/yiisoft/yii2/console/Application.php(180): yii\base\Module->runAction('index-assets/al...', Array)
+#13 /var/www/html/vendor/craftcms/cms/src/console/Application.php(91): yii\console\Application->runAction('index-assets/al...', Array)
+#14 /var/www/html/vendor/yiisoft/yii2/console/Application.php(147): craft\console\Application->runAction('index-assets/al...', Array)
+#15 /var/www/html/vendor/craftcms/cms/src/console/Application.php(122): yii\console\Application->handleRequest(Object(craft\console\Request))
+#16 /var/www/html/vendor/yiisoft/yii2/base/Application.php(384): craft\console\Application->handleRequest(Object(craft\console\Request))
+#17 /var/www/html/craft(22): yii\base\Application->run()
+#18 {main} {"memory":4226000,"exception":"[object] (UnexpectedValueException(code: 0): RecursiveDirectoryIterator::__construct(img/drawings/): Failed to open directory: No such file or directory at /var/www/html/vendor/craftcms/cms/src/fs/Local.php:401)"} 
+2026-01-08 15:46:16 [console.ERROR] [UnexpectedValueException] UnexpectedValueException: RecursiveDirectoryIterator::__construct(img/fans/): Failed to open directory: No such file or directory in /var/www/html/vendor/craftcms/cms/src/fs/Local.php:401
+Stack trace:
+#0 /var/www/html/vendor/craftcms/cms/src/fs/Local.php(401): RecursiveDirectoryIterator->__construct('img/fans/', 20496)
+#1 /var/www/html/vendor/craftcms/cms/src/fs/Local.php(182): craft\fs\Local->getRecursiveIterator('img/fans/')
+#2 /var/www/html/vendor/craftcms/cms/src/services/AssetIndexer.php(72): craft\fs\Local->getFileList('', true)
+#3 /var/www/html/vendor/craftcms/cms/src/console/controllers/IndexAssetsController.php(176): craft\services\AssetIndexer->getIndexListOnVolume(Object(craft\models\Volume), '')
+#4 /var/www/html/vendor/craftcms/cms/src/console/controllers/IndexAssetsController.php(98): craft\console\controllers\IndexAssetsController->_indexAssets(Array)
+#5 [internal function]: craft\console\controllers\IndexAssetsController->actionAll()
+#6 /var/www/html/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#7 /var/www/html/vendor/yiisoft/yii2/base/Controller.php(178): yii\base\InlineAction->runWithParams(Array)
+#8 /var/www/html/vendor/yiisoft/yii2/console/Controller.php(180): yii\base\Controller->runAction('all', Array)
+#9 /var/www/html/vendor/craftcms/cms/src/console/ControllerTrait.php(90): yii\console\Controller->runAction('all', Array)
+#10 /var/www/html/vendor/craftcms/cms/src/console/Controller.php(216): craft\console\Controller->traitRunAction('all', Array)
+#11 /var/www/html/vendor/yiisoft/yii2/base/Module.php(552): craft\console\Controller->runAction('all', Array)
+#12 /var/www/html/vendor/yiisoft/yii2/console/Application.php(180): yii\base\Module->runAction('index-assets/al...', Array)
+#13 /var/www/html/vendor/craftcms/cms/src/console/Application.php(91): yii\console\Application->runAction('index-assets/al...', Array)
+#14 /var/www/html/vendor/yiisoft/yii2/console/Application.php(147): craft\console\Application->runAction('index-assets/al...', Array)
+#15 /var/www/html/vendor/craftcms/cms/src/console/Application.php(122): yii\console\Application->handleRequest(Object(craft\console\Request))
+#16 /var/www/html/vendor/yiisoft/yii2/base/Application.php(384): craft\console\Application->handleRequest(Object(craft\console\Request))
+#17 /var/www/html/craft(22): yii\base\Application->run()
+#18 {main} {"memory":4238008,"exception":"[object] (UnexpectedValueException(code: 0): RecursiveDirectoryIterator::__construct(img/fans/): Failed to open directory: No such file or directory at /var/www/html/vendor/craftcms/cms/src/fs/Local.php:401)"} 
+2026-01-08 15:46:16 [console.ERROR] [UnexpectedValueException] UnexpectedValueException: RecursiveDirectoryIterator::__construct(img/general/): Failed to open directory: No such file or directory in /var/www/html/vendor/craftcms/cms/src/fs/Local.php:401
+Stack trace:
+#0 /var/www/html/vendor/craftcms/cms/src/fs/Local.php(401): RecursiveDirectoryIterator->__construct('img/general/', 20496)
+#1 /var/www/html/vendor/craftcms/cms/src/fs/Local.php(182): craft\fs\Local->getRecursiveIterator('img/general/')
+#2 /var/www/html/vendor/craftcms/cms/src/services/AssetIndexer.php(72): craft\fs\Local->getFileList('', true)
+#3 /var/www/html/vendor/craftcms/cms/src/console/controllers/IndexAssetsController.php(176): craft\services\AssetIndexer->getIndexListOnVolume(Object(craft\models\Volume), '')
+#4 /var/www/html/vendor/craftcms/cms/src/console/controllers/IndexAssetsController.php(98): craft\console\controllers\IndexAssetsController->_indexAssets(Array)
+#5 [internal function]: craft\console\controllers\IndexAssetsController->actionAll()
+#6 /var/www/html/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#7 /var/www/html/vendor/yiisoft/yii2/base/Controller.php(178): yii\base\InlineAction->runWithParams(Array)
+#8 /var/www/html/vendor/yiisoft/yii2/console/Controller.php(180): yii\base\Controller->runAction('all', Array)
+#9 /var/www/html/vendor/craftcms/cms/src/console/ControllerTrait.php(90): yii\console\Controller->runAction('all', Array)
+#10 /var/www/html/vendor/craftcms/cms/src/console/Controller.php(216): craft\console\Controller->traitRunAction('all', Array)
+#11 /var/www/html/vendor/yiisoft/yii2/base/Module.php(552): craft\console\Controller->runAction('all', Array)
+#12 /var/www/html/vendor/yiisoft/yii2/console/Application.php(180): yii\base\Module->runAction('index-assets/al...', Array)
+#13 /var/www/html/vendor/craftcms/cms/src/console/Application.php(91): yii\console\Application->runAction('index-assets/al...', Array)
+#14 /var/www/html/vendor/yiisoft/yii2/console/Application.php(147): craft\console\Application->runAction('index-assets/al...', Array)
+#15 /var/www/html/vendor/craftcms/cms/src/console/Application.php(122): yii\console\Application->handleRequest(Object(craft\console\Request))
+#16 /var/www/html/vendor/yiisoft/yii2/base/Application.php(384): craft\console\Application->handleRequest(Object(craft\console\Request))
+#17 /var/www/html/craft(22): yii\base\Application->run()
+#18 {main} {"memory":4250048,"exception":"[object] (UnexpectedValueException(code: 0): RecursiveDirectoryIterator::__construct(img/general/): Failed to open directory: No such file or directory at /var/www/html/vendor/craftcms/cms/src/fs/Local.php:401)"} 
+2026-01-08 15:47:42 [console.INFO] [yii\db\Connection::open] Opening DB connection: mysql:host=db;dbname=db;port=3306 {"memory":2156096} 
+2026-01-08 15:47:42 [console.INFO] [yii\db\Connection::open] Opening DB connection: mysql:host=db;dbname=db;port=3306 {"memory":4287896} 
+2026-01-08 15:47:42 [console.INFO] [craft\services\ProjectConfig::_applyChanges] Looking for pending changes {"memory":4348984} 
+2026-01-08 15:47:42 [console.INFO] [craft\services\ProjectConfig::_applyChanges] Parsing 374 changed configuration items {"memory":4350088} 
+2026-01-08 15:47:50 [console.INFO] [craft\services\ProjectConfig::_applyChanges] Finalizing configuration parsing {"memory":12298680} 
+2026-01-08 15:47:51 [console.INFO] [yii\db\Connection::open] Opening DB connection: mysql:host=db;dbname=db;port=3306 {"memory":2156064} 
+2026-01-08 15:48:03 [console.INFO] [yii\db\Connection::open] Opening DB connection: mysql:host=db;dbname=db;port=3306 {"memory":2156064} 
+2026-01-08 15:48:03 [console.INFO] [yii\db\Connection::open] Opening DB connection: mysql:host=db;dbname=db;port=3306 {"memory":5976800} 
