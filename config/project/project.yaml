@@ -1,4 +1,4 @@
-dateModified: 1767892105
+dateModified: 1767893358
 elementSources:
   craft\elements\Entry:
     -
@@ -132,6 +132,18 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 3.0.0.0
+  contact-form:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  contact-form-extensions:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.1
+  contact-form-honeypot:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
   cp-nav:
     enabled: '1'
     licenseKey: null

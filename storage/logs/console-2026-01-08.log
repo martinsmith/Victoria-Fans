@@ -152,3 +152,11 @@ Stack trace:
 2026-01-08 17:15:05 [console.INFO] [yii\db\Connection::open] Opening DB connection: mysql:host=db;dbname=db;port=3306 {"memory":2182440} 
 2026-01-08 17:16:28 [console.INFO] [yii\db\Connection::open] Opening DB connection: mysql:host=db;dbname=db;port=3306 {"memory":2182432} 
 2026-01-08 17:16:28 [console.INFO] [yii\db\Connection::open] Opening DB connection: mysql:host=db;dbname=db;port=3306 {"memory":4548808} 
+2026-01-08 17:20:06 [console.INFO] [yii\db\Connection::open] Opening DB connection: mysql:host=db;dbname=db;port=3306 {"memory":2182472} 
+2026-01-08 17:20:06 [console.INFO] [yii\db\Connection::open] Opening DB connection: mysql:host=db;dbname=db;port=3306 {"memory":4386392} 
+2026-01-08 17:25:20 [console.INFO] [yii\db\Connection::open] Opening DB connection: mysql:host=db;dbname=db;port=3306 {"memory":2182480} 
+2026-01-08 17:25:20 [console.INFO] [yii\db\Connection::open] Opening DB connection: mysql:host=db;dbname=db;port=3306 {"memory":4406384} 
+2026-01-08 17:29:19 [console.INFO] [yii\db\Connection::open] Opening DB connection: mysql:host=db;dbname=db;port=3306 {"memory":2182752} 
+2026-01-08 17:29:19 [console.INFO] [craft\db\MigrationManager::migrateUp] Applying Install {"memory":4475792} 
+2026-01-08 17:29:19 [console.INFO] [craft\db\MigrationManager::migrateUp] Applied Install (time: 0.159s). {"memory":4549464} 
+2026-01-08 17:29:19 [console.INFO] [yii\db\Connection::open] Opening DB connection: mysql:host=db;dbname=db;port=3306 {"memory":4570016} 
