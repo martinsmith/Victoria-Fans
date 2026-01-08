@@ -1,5 +1,4 @@
 # Database backups
-*.sql
 *.sql.gz
 
 # Craft storage (runtime files)
