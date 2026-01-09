@@ -17,3 +17,5 @@ Thumbs.db
 # Old backup folders
 craft/app-*-backup/
 
+.DS_Store
+*.zip

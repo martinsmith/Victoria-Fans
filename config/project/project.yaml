@@ -1,4 +1,4 @@
-dateModified: 1767969409
+dateModified: 1767971357
 elementSources:
   craft\elements\Entry:
     -
@@ -182,7 +182,7 @@ plugins:
     enabled: true
     schemaVersion: 3.0.0
 system:
-  edition: pro
+  edition: solo
   live: true
   name: 'Victoria Fans'
   schemaVersion: 5.8.0.3
