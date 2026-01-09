@@ -31,11 +31,15 @@
 						<img src="{{ asset.url }}" alt="">
 					{% endfor %}
 
-					{% for block in entry.ancilliaryItemInformation.type('ancilliaryItemText').limit(1) %}
-						{{ block.itemText|hacksaw(words='20', allow='<p>', append='...') }}
-					{% endfor %}
+					{% if entry.ancilliaryItemInformation is defined and entry.ancilliaryItemInformation is not null %}
+						{% for block in entry.ancilliaryItemInformation.type('ancilliaryItemText').limit(1) %}
+							<p>{{ block.itemText|striptags|split(' ')|slice(0, 20)|join(' ') }}...</p>
+						{% endfor %}
+					{% endif %}
 
-					{{ entry.fd_product_Individual_Short_Summary|hacksaw(words='20', allow='<p>', append='...') }}
+					{% if entry.fd_product_Individual_Short_Summary is defined and entry.fd_product_Individual_Short_Summary %}
+						<p>{{ entry.fd_product_Individual_Short_Summary|striptags|split(' ')|slice(0, 20)|join(' ') }}...</p>
+					{% endif %}
 
 					<p class="vfGreenButton"><a href="{{ entry.getUrl }}">Full Spec</a></p>
 				</li>

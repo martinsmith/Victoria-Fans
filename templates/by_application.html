@@ -42,7 +42,9 @@
 					{% for asset in entry.fd_fanPhoto %}
 						<img src="{{ asset.url }}" alt="">
 					{% endfor %}
-					{{ entry.fd_product_Individual_Short_Summary|hacksaw(words='20', allow='<p>', append='...') }}
+					{% if entry.fd_product_Individual_Short_Summary is defined and entry.fd_product_Individual_Short_Summary %}
+						<p>{{ entry.fd_product_Individual_Short_Summary|striptags|split(' ')|slice(0, 20)|join(' ') }}...</p>
+					{% endif %}
 					<p class="vfGreenButton"><a href="{{ entry.getUrl }}">Full Specification</a></p>
 				</li>
 				{% endfor %}

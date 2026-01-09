@@ -162,3 +162,4 @@ Stack trace:
 2026-01-08 17:29:19 [console.INFO] [yii\db\Connection::open] Opening DB connection: mysql:host=db;dbname=db;port=3306 {"memory":4570016} 
 2026-01-08 17:31:27 [console.INFO] [yii\db\Connection::open] Opening DB connection: mysql:host=db;dbname=db;port=3306 {"memory":2182704} 
 2026-01-08 17:31:27 [console.INFO] [yii\db\Connection::open] Opening DB connection: mysql:host=db;dbname=db;port=3306 {"memory":4650152} 
+2026-01-08 17:35:23 [console.INFO] [yii\db\Connection::open] Opening DB connection: mysql:host=db;dbname=db;port=3306 {"memory":2182704} 
