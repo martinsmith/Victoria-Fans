@@ -1,4 +1,4 @@
-dateModified: 1767893358
+dateModified: 1767969409
 elementSources:
   craft\elements\Entry:
     -
@@ -13,9 +13,12 @@ elementSources:
       key: singles
       type: native
 email:
-  fromEmail: wearemechanised@gmail.com
+  fromEmail: sales@victoriafans.co.uk
   fromName: 'Victoria Fans'
-  template: null
+  replyToEmail: sales@victoriafans.co.uk
+  template: ''
+  transportSettings:
+    command: '/usr/local/bin/mailpit sendmail -t --smtp-addr 127.0.0.1:1025'
   transportType: craft\mail\transportadapters\Sendmail
 fs:
   drawings:
